@@ -1,0 +1,118 @@
+<script src="js/map-all.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+//smap.urlx = "{encrypt url='index.php?page=livetrack&act=getfeed&ajax=1'}";
+var dt_from = '{$dt_from}';
+var dt_to = '{$dt_to}';
+smap.urlx = "{encrypt url='index.php?page=livetrack&act=getallfeeds&ajax=1'}";
+smap.mapurlx = "{encrypt url='index.php?page=livetrack&act=getallfeeds&ajax=1'}";
+smap.wc_urlx = "{encrypt url='index.php?page=livetrack&act=getwordcloud&ajax=1'}";
+smap.staturlx = "{encrypt url='index.php?page=livetrack&act=livestreamstat&ajax=1'}";
+map_enabled=false;
+{if $talking}
+var lt_people = {$talking|intval};
+{else}
+var lt_people = 0;
+{/if}
+{if $mentions}
+var lt_mentions = {$mentions|intval};
+{else}
+var lt_mentions = 0;
+{/if}
+{if $reach}
+var lt_reach = {$reach|intval};
+{else}
+var lt_reach = 0;
+{/if}
+
+{literal}
+$(document).ready(function(){
+	$('#select-type').change(function(){
+		document.location.href = $(this).val();
+	});
+	
+	var now = new Date;
+	var jam = now.getHours() - 1;
+	if(jam<10){
+		jam = "0"+jam;
+	}
+	var menit = now.getMinutes();
+	if(menit<10){
+		menit = "0"+menit;
+	}
+	$('#waktu').html("Showing tweets from ("+jam+":"+menit+")");
+	
+});
+{/literal}
+
+</script>
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+            				<h1><a id="menuAtas" href="#" no="4">Live Stream</a></h1> {if $campaign_status eq '0'}<span class="offline">OFFLINE</span>{else}<span class="online">ONLINE</span>{/if} 
+                        </td>
+                        <td align="right">
+                        	<h3 id="waktu" style="padding:0 20px 0 0; display:inline;">Showing tweets from ()</h3>
+                            <form class="filter-live-track" action="" style="display:inline; margin:0 10px 0 0;">
+                                <select id="select-type">
+                                    <option value="{$urllivetrack}">Live Track</option>
+                                    <option value="{$urlhistorical}">Historical</option>
+                                    <option value="{$urlalltrack}" selected="selected">Live Stream</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td align="right" class="w300 date-historical" style="width:330px; padding:0;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="live-track">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" align="left" class="wfull">
+                    	<div id='cstreamload' style="margin:-46px 226px 17px;height:20px">
+                        		<div id="stream_load"><img src='images/loader.gif' width="11px" height="11px"/>Preparing your stream...</div>
+							</div> 
+                        <div class="content">
+                        	                      		
+                        	<table id="grid" width="100%" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+                        		<tbody>
+                        		</tbody>
+                        	</table>
+                            <div class="paging-livetrack">
+                        	<a href="javascript:void(0);" onclick="prev_feed();return false;" class="previous-feeds">Previous Feeds</a>&nbsp;&nbsp;
+                            <a href="javascript:void(0);" onclick="next_feed();return false;" class="next-feeds">Next Feeds</a>
+                            </div>
+                        	
+                        </div>
+                    </td>
+                    <td valign="top" align="left" class="w300" style="padding:0; width:330px;">
+                    	<div class="box-info" style="width:310px;">
+                        	<div class="box green-box">
+                            	<h3>People Talking</h3>
+                                <h1 id="people">{$talking|smac_number}</h1>
+                            </div>
+                        	<div class="box orange-box">
+                            	<h3>Total Mentions</h3>
+                                <h1 id="mentions">{$mentions|smac_number}</h1>
+                            </div>
+                        	<div class="box green-box">
+                            	<h3>Potential Reach</h3>
+                                <h1 id="reach">{$reach|smac_number}</h1>
+                            </div>
+                        </div>
+                        <div id='ltwordcloud'>
+                    	{$favoriteWord}
+                    	</div>
+                    </td>
+                  </tr>
+                </table>
+            </div><!-- #key-opinion -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/2381/trunk/web/engines/Utility/postmark
+END
+Adapter_Interface.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/2381/trunk/web/engines/Utility/postmark/Adapter_Interface.php
+END
+CHANGELOG.md
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/2381/trunk/web/engines/Utility/postmark/CHANGELOG.md
+END
+Postmark.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/2381/trunk/web/engines/Utility/postmark/Postmark.php
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/2381/trunk/web/engines/Utility/postmark/README.md
+END

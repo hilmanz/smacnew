@@ -1,0 +1,563 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/smac/!svn/ver/1615/trunk/web/api2
+END
+people_tweet.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/smac/!svn/ver/1615/trunk/web/api2/people_tweet.php
+END
+blog-list.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/api2/blog-list.php
+END
+save_campaign.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/save_campaign.php
+END
+summary.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/api2/summary.php
+END
+feed.power.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/1615/trunk/web/api2/feed.power.php
+END
+rt_over_time.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/smac/!svn/ver/1615/trunk/web/api2/rt_over_time.php
+END
+wom-popup-profile-wordcloud.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/smac/!svn/ver/1615/trunk/web/api2/wom-popup-profile-wordcloud.php
+END
+keyword_imp_over_time.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/api2/keyword_imp_over_time.php
+END
+wordcloud.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/api2/wordcloud.php
+END
+influenced_by.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/influenced_by.php
+END
+blog-important-conversation.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/smac/!svn/ver/1615/trunk/web/api2/blog-important-conversation.php
+END
+people-involved-daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/api2/people-involved-daily.php
+END
+fb-important-conversation-daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/1615/trunk/web/api2/fb-important-conversation-daily.php
+END
+all-people-total.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1615/trunk/web/api2/all-people-total.php
+END
+wom-ambassador.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/api2/wom-ambassador.php
+END
+pie.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/smac/!svn/ver/1615/trunk/web/api2/pie.php
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/smac/!svn/ver/1615/trunk/web/api2/test.php
+END
+flag_tweet.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/1615/trunk/web/api2/flag_tweet.php
+END
+update_campaign.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/update_campaign.php
+END
+keyword_analysis_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/api2/keyword_analysis_list.php
+END
+historical_all_data.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1615/trunk/web/api2/historical_all_data.php
+END
+tweep-profile.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/tweep-profile.php
+END
+potential-impact-score.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/api2/potential-impact-score.php
+END
+dashboard.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/api2/dashboard.php
+END
+profile_impact_score.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/api2/profile_impact_score.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/smac/!svn/ver/1615/trunk/web/api2/common.php
+END
+feed_updates.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/smac/!svn/ver/1615/trunk/web/api2/feed_updates.php
+END
+livestream_stats.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1615/trunk/web/api2/livestream_stats.php
+END
+all-people.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/1615/trunk/web/api2/all-people.php
+END
+keyword_over_time.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/1615/trunk/web/api2/keyword_over_time.php
+END
+wom-categorical-ambas.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/api2/wom-categorical-ambas.php
+END
+geosearch.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/api2/geosearch.php
+END
+top-profile.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/1615/trunk/web/api2/top-profile.php
+END
+historical.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/1615/trunk/web/api2/historical.php
+END
+feed_processor.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/api2/feed_processor.php
+END
+topic_overview.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/api2/topic_overview.php
+END
+keyword-total.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/keyword-total.php
+END
+livetrack_wordcloud.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1615/trunk/web/api2/livetrack_wordcloud.php
+END
+summary-opinion.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/summary-opinion.php
+END
+wom-categories-total.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/api2/wom-categories-total.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/smac/!svn/ver/1615/trunk/web/api2/index.php
+END
+fb-important-conversation.xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/1615/trunk/web/api2/fb-important-conversation.xml.php
+END
+campaign_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/campaign_list.php
+END
+twitter-list.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/smac/!svn/ver/1615/trunk/web/api2/twitter-list.php
+END
+keyword_mention.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/keyword_mention.php
+END
+flag_people.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/1615/trunk/web/api2/flag_people.php
+END
+test_campaign.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/test_campaign.php
+END
+account_usage.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/account_usage.php
+END
+sentiment_mention_daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/1615/trunk/web/api2/sentiment_mention_daily.php
+END
+profile_wordcloud.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/1615/trunk/web/api2/profile_wordcloud.php
+END
+class.geoplanet.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/class.geoplanet.php
+END
+keyword.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/api2/keyword.php
+END
+pii_over_time.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/pii_over_time.php
+END
+wom-topdata.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/1615/trunk/web/api2/wom-topdata.php
+END
+keyword_pii_over_time.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/api2/keyword_pii_over_time.php
+END
+fb-list.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/api2/fb-list.php
+END
+upgrade-impressions.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1615/trunk/web/api2/upgrade-impressions.php
+END
+wom-chart.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/api2/wom-chart.php
+END
+sentiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/api2/sentiment.php
+END
+people-involved.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/people-involved.php
+END
+login.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/smac/!svn/ver/1615/trunk/web/api2/login.php
+END
+all-people-lang.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/all-people-lang.php
+END
+fb-important-conversation.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1615/trunk/web/api2/fb-important-conversation.php
+END
+people_mention.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/api2/people_mention.php
+END
+activation-total-stats.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/api2/activation-total-stats.php
+END
+campaign_duration.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/1615/trunk/web/api2/campaign_duration.php
+END
+top_keyword_stats.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/1615/trunk/web/api2/top_keyword_stats.php
+END
+important-conversation.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/api2/important-conversation.php
+END
+important-conversation-daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1615/trunk/web/api2/important-conversation-daily.php
+END
+keyword_analysis.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1615/trunk/web/api2/keyword_analysis.php
+END
+wordcloud_json.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/api2/wordcloud_json.php
+END
+mentions.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/smac/!svn/ver/1615/trunk/web/api2/mentions.php
+END
+impact_daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/smac/!svn/ver/1615/trunk/web/api2/impact_daily.php
+END
+profile.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/api2/profile.php
+END
+source.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/smac/!svn/ver/1615/trunk/web/api2/source.php
+END
+campaign_detail.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/campaign_detail.php
+END
+topic_usage.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/1615/trunk/web/api2/topic_usage.php
+END
+feed.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/smac/!svn/ver/1615/trunk/web/api2/feed.php
+END
+blog-important-conversation.xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/1615/trunk/web/api2/blog-important-conversation.xml.php
+END
+summary-opinion-daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/api2/summary-opinion-daily.php
+END
+fb-important-conversation-daily.xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/1615/trunk/web/api2/fb-important-conversation-daily.xml.php
+END
+workflow.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/smac/!svn/ver/1615/trunk/web/api2/workflow.php
+END
+impact.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/smac/!svn/ver/1615/trunk/web/api2/impact.php
+END
+map-feed.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/smac/!svn/ver/1615/trunk/web/api2/map-feed.php
+END
+influencer_of.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/influencer_of.php
+END
+sentiment_tweet.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/sentiment_tweet.php
+END
+campaign.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/smac/!svn/ver/1615/trunk/web/api2/campaign.php
+END
+keyword-service.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/api2/keyword-service.php
+END
+change-campaign-status.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/api2/change-campaign-status.php
+END
+people_tweet_all.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1615/trunk/web/api2/people_tweet_all.php
+END
+categories.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/1615/trunk/web/api2/categories.php
+END
+wom-categories.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/api2/wom-categories.php
+END
+sentiment_top.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/1615/trunk/web/api2/sentiment_top.php
+END

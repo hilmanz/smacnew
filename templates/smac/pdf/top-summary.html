@@ -1,0 +1,48 @@
+
+            <div id="top-summary" style="clear:both;width:780px;">
+                <div style="padding:10px 0 10px 15px;">
+                    <h1><span class="title-text">Topic Summary</span></h1>
+                </div>
+                <div id="content-top-summary">
+                <table class="w1" width="600" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="200px">
+                            <div style="background:none;color:#777; text-align:center;">
+                                <span>Potential Impact Index</span>
+                                <h1 style="margin: 10px 0;">{$impact}</h1>
+                                {if $pii_change>0}                      
+                                <span class="triangle">{$pii_change}%</span>
+                                {elseif $pii_change<0}
+                                 <span class="triangle arrow_down">{$pii_change}%</span>
+                                {/if}       
+                                <span class="desc">An indicator of how much impact this topic had in social media conversations, includes sentiment & dominance</span>                   
+                            </div>
+                    </td>
+                    <td width="200px"><!-- .w1-->
+                    <div style="background:none;color:#777; text-align:center;">
+                                <span>Total Mention</span>
+                                 <h1 style="margin: 10px 0;">{$mention|smac_number}</h1>
+                                  {if $mention_change>0}                      
+                                <span class="triangle">{$mention_change}%</span>
+                                {elseif $mention_change<0}
+                                 <span class="triangle arrow_down">{$mention_change}%</span>
+                                {/if}
+                                <span class="desc">How many times the keywords you registered have been mentioned throughout the listening time span</span>  
+                            </div>
+                    </td>
+                    <td width="200px">
+                    <div style="background:none;color:#777; text-align:center;">
+                                <span>Potential Impressions</span>
+                                 <h1 style="margin: 10px 0;">{$impressi|smac_number}</h1>
+                                  {if $imp_change>0}                      
+                                <span class="triangle">{$imp_change}%</span>
+                                {elseif $imp_change<0}
+                                 <span class="triangle arrow_down">{$imp_change}%</span>
+                                {/if}  
+                                <span class="desc">How many "eyeballs" the keywords you registered reached throughout the listening time span, basically mentions times followers</span>
+                            </div>
+                    </td>
+                  </tr>
+                </table>
+                </div>
+            </div>

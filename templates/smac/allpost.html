@@ -1,0 +1,162 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container" class="allPostpage">
+    		{$menu}
+            <div class="title-bar">
+            	<h1><a href="#">All Post</a></h1>
+				{*}
+			   <div class="wfilters"> {$widget_datefilter}</div>
+				{/*}
+			</div>
+            <div id="allPostnav">
+                <h1>
+                <span class="navTwitter"><a href="#tabs/twitterTab" class="iconTwitter theTolltip" title="Twitter">&nbsp;</a></span>
+                <span class="navFacebook"><a href="#tabs/facebookTab" class="iconFacebook theTolltip" title="Facebook">&nbsp;</a></span>
+                <span class="navWeb"><a href="#tabs/webTab" class="iconWeb theTolltip" title="Blog">&nbsp;</a></span>
+                <span class="navForum"><a href="#tabs/forumTab" class="iconForum theTolltip" title="Forum">&nbsp;</a></span>
+                <span class="navNews"><a href="#tabs/newsTab" class="iconNews theTolltip" title="News">&nbsp;</a></span>
+                <span class="navEcommerce"><a href="#tabs/ecommerceTab" class="iconEcommerce theTolltip" title="Ecommerce">&nbsp;</a></span>
+                <span class="navCorporate"><a href="#tabs/corporateTab" class="iconCorporate theTolltip" title="Corporate/Personal">&nbsp;</a></span>
+                </h1>
+            </div>
+            {if $data_available}
+            <div id="mainContent">
+            	<div id="channels">
+                    <div id="twitterTab" class="pageContent" style="display:block;">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="twitterTabTD">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                             
+                        </div><!-- .bgGreys -->
+                         	<div id="twitter_raw_download" class="raw-download">
+                          		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=1&type=1'}">Download Raw</a>
+                          	</div>
+                          <div id="twitter_posts_page" class="paging">
+                            
+                         </div><!-- .paging -->
+                    </div><!-- #twitterTab -->
+                    <div id="facebookTab" class="pageContent">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="facebookTabTD">
+                                       
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- .bgGreys -->
+                        	<div id="fb_raw_download" class="raw-download">
+                          		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=2&type=1'}">Download Raw</a>
+                          	</div>
+                          <div id="fb_posts_page" class="paging">
+                           
+                         </div><!-- .paging -->
+                    </div><!-- #facebookTab -->
+                    <div id="webTab" class="pageContent">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="webTabTD">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- .bgGreys -->
+                        	<div id="web_raw_download" class="raw-download">
+                          		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=3&type=1&group_type_id=1'}">Download Raw</a>
+                          	</div>
+                          <div id="web_posts_page" class="paging">
+                            
+                         </div><!-- .paging -->
+                    </div><!-- #webTab -->
+					<div id="forumTab" class="pageContent">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="forumTabTD">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- .bgGreys -->
+                    	<div id="forum_raw_download" class="raw-download">
+                      		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=3&type=1&group_type_id=2'}">Download Raw</a>
+                      	</div>
+                          <div id="forum_posts_page" class="paging">
+                            
+                         </div><!-- .paging -->
+                    </div><!-- #forumTab -->
+					<div id="newsTab" class="pageContent">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="newsTabTD">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- .bgGreys -->
+                        <div id="news_raw_download" class="raw-download">
+                          		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=3&type=1&group_type_id=3'}">Download Raw</a>
+                          	</div>
+                          <div id="news_posts_page" class="paging">
+                            
+                         </div><!-- .paging -->
+                    </div><!-- #newsTab -->
+					<div id="ecommerceTab" class="pageContent">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="ecommerceTabTD">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- .bgGreys -->
+                        <div id="ecommerce_raw_download" class="raw-download">
+                          		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=3&type=1&group_type_id=5'}">Download Raw</a>
+                          	</div>
+                          <div id="ecommerce_posts_page" class="paging">
+                            
+                         </div><!-- .paging -->
+                    </div><!-- #ecommerceTab -->
+					<div id="corporateTab" class="pageContent">
+                        <div class="bgGreys">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td id="corporateTabTD">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- .bgGreys -->
+                        <div id="corporate_raw_download" class="raw-download">
+                          		<a href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=3&type=1&group_type_id=0'}">Download Raw</a>
+                          	</div>
+                          <div id="corporate_posts_page" class="paging">
+                            
+                         </div><!-- .paging -->
+                    </div><!-- #newsTab -->
+               </div><!-- #channels -->
+            </div><!-- #mainContent -->
+            {else}
+            	<div id="notAvailable">
+            			<div class="blankText">
+            				<h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+            			</div>
+                        <div class="screenCap">
+                        	<img src="images/blank_dashboard.gif" />
+                        </div>
+                </div>
+            {/if}
+        </div><!-- #container -->
+    </div><!-- #main-container -->

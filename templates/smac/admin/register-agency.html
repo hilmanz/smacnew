@@ -1,0 +1,43 @@
+<div style="padding:10px;">
+	<h2 class="title-form">Agency Registrations</h2>
+	{literal}
+	<form class="search-form">
+	<input type="hidden" name="s" value="register" />
+	<input type="hidden" name="act" value="agency" />
+	<input type="text" name="find" value="Search name..." onfocus="if(this.value == 'Search name...') { this.value = ''; }" />
+	<input type="submit" value=" Search " />
+	</form>
+	{/literal}
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Name</strong></td>
+		<td><strong>Company</strong></td>
+		<td><strong>Register Date</strong></td>
+		<td><strong>Status</strong></td>
+		<td><strong>Action</strong></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].agency_name}</td>
+		<td>{$list[i].company_name}</td>
+		<td>{$list[i].register_date}</td>
+		<td>
+			{if $list[i].n_status eq 0}
+				Pending
+			{elseif $list[i].n_status eq 1}
+				Active
+			{elseif $list[i].n_status eq 2}
+				Disable
+			{else}
+				Banned
+			{/if}
+		</td>
+		<td>
+			<a href="?s=register&act=editAgency&id={$list[i].id}" class="addSubPage">Edit</a>
+		</td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

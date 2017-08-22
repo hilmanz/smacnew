@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/smac/!svn/ver/2227/trunk/web/service
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/2227/trunk/web/service/test.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/smac/!svn/ver/1615/trunk/web/service/index.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/service/common.php
+END

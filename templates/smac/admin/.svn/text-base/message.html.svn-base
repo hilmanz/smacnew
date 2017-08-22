@@ -1,0 +1,33 @@
+<div style="padding:10px;">
+	<h2 class="title-form">Message</h2>
+	{literal}
+	<form class="search-form">
+	<input type="hidden" name="s" value="message" />
+	<input type="text" name="find" value="Search account..." onfocus="if(this.value == 'Search account...') { this.value = ''; }" />
+	<input type="submit" value=" Search " />
+	</form>
+	{/literal}
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Account</strong></td>
+		<td><strong>Message</strong></td>
+		<td><strong>Type</strong></td>
+		<td><strong>Date</strong></td>
+		<td><strong></strong></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{if $list[i].name eq ''}All{else}{$list[i].name}{/if}</td>
+		<td>{$list[i].notification}</td>
+		<td>{$list[i].type}</td>
+		<td>{$list[i].date_add}</td>
+		<td>
+			<a href="?s=message&act=edit&id={$list[i].id}" class="addSubPage">Edit</a>&nbsp;
+			<a href="?s=message&act=delete&id={$list[i].id}" onclick="javascript:if( !confirm('Are you sure wan\'t to delete this message?') ) return false;">Delete</a>
+		</td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

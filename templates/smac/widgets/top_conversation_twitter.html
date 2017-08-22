@@ -1,0 +1,20 @@
+{section name=i loop=$tw}
+ <div class="list">
+     <div class="smallthumb">
+         <a href="#?w=650&id={$tw[i].author_id}" class="poplight" rel="profile"><img src="{$tw[i].image}" /></a>
+     </div>
+     <div class="entry">
+         <h3>{$tw[i].name}</h3><span class="date">{$tw[i].published_date}</span>
+         <span>{$tw[i].txt|stripslashes|strip_tags}</span>
+     </div><!-- .entry -->
+     <div class="entry-action">
+     	<a href="#" {if $tw[i].device eq 'blackberry'}class="active"{/if}><span class="blackberry" >&nbsp;</span></a>
+     	<a href="#" {if $tw[i].device eq 'apple'}class="active"{/if}><span class="apple" >&nbsp;</span></a>
+     	<a href="#" {if $tw[i].device eq 'android'}class="active"{/if}><span class="android" >&nbsp;</span></a>
+         <a class="icon-rts tip_trigger" style="margin-left: 15px;"> {$tw[i].rt}  <span class="tip">Retweet Frequency</span></a>
+         <a class="icon-imp tip_trigger"> {$tw[i].imp}  <span class="tip">Total Impressions</span></a>
+         <a class="icon-share tip_trigger">{$tw[i].share}% <span class="tip">Share</span></a>
+     	<a class="reply tip_trigger" href="#" onclick="mark_for_reply('{$tw[i].id}','{$tw[i].reply_url}')">&nbsp;<span class="tip">Mark for Reply</span></a>
+     </div><!-- .entry-action -->
+ </div>
+{/section}

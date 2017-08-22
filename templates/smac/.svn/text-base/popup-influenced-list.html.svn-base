@@ -1,0 +1,113 @@
+<div id="popup-influenced-list" class="popup_block popupWidth popup-unmark">
+	<div class="headpopup">
+    	<h1 class="fleft">Influenced By: <span class="fgreen" id="wf_keyword"></span></h1>
+    </div>
+    <div class="content-popup">
+    	<div class="influenced-list">
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+            <div class="list">
+                <div class="smallthumb mr10">
+                    <a href="#">
+                        <img src="http://a0.twimg.com/profile_images/533755745/gadis-profile_pict_normal.JPG" />
+                    </a>
+                </div>
+                <div class="entry">
+                	<h3>Gadis</h3>
+                </div>
+            </div><!-- .list -->
+    	</div><!-- .influenced-list -->
+        <div class="paging">
+            <a class="prev" href="javascript:wf_prev();">PREV</a>
+            <a class="next" href="javascript:wf_next();">NEXT</a>
+        </div><!-- .paging -->
+    </div><!-- .content-popup -->
+</div><!-- #popup-sentiment -->

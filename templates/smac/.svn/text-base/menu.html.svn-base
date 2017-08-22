@@ -1,0 +1,59 @@
+
+        	<div class="top">
+            	<div class="block-info">
+                    <div class="box campaign-name">
+                    	<span>Topic Name</span>
+                        <h1>{$campaign.name}</h1>
+                    </div>
+                    <div class="box country-name">
+                    	<span>Country</span>
+                    	{if $campaign.country_single}
+                        <h1>{$campaign.country}</h1>
+                        {else}
+                        <h1 style="font-size:12px;">{$campaign.country}</h1>
+                        {/if}
+                    </div>
+                    <div class="box start-date">
+                    	<span>Start Date</span>
+                        <h1>{$campaign.start}</h1>
+                    </div>
+                    {*}
+                    <div class="box end-date">
+                    	<span>End Date</span>
+                        <h1>{$campaign.end|date_format}</h1>
+                    </div>
+                    {/*}
+                    <div class="box status" {if !$filterByGeo}style="border:none;"{/if}>
+                    	<span>Status</span>
+                        <h1>{if $campaign.n_status eq '1'}Active{elseif $campaign.n_status eq '2'}Paused{else}Non-Active{/if}</h1>
+                    </div>
+                    
+					{if $filterByGeo}
+					<div class="box filter-geography">
+						<span>Language</span>
+						<h1>{$campaign.lang_str}</h1>
+					{*}
+                        <form id="filter-geography">
+                    		<span>Filter Data by Language </span>
+                            <select id="selectLanguage">
+								{section name=i loop=$language}
+                                <option value="{$language[i].link}" {if $language[i].value eq $langNow}selected="selected"{/if}>{$language[i].name}</option>
+                                {/section}
+                            </select>
+                        </form>
+                     {/*}
+                    </div>
+					{/if}					
+				</div>
+                <div class="menu-icon">
+                	<span class="dashboard"><a class="menuAtas1 dashboard theTolltip" href="{$urlhome}" title="Dashboard">&nbsp;</a></span>
+                	<span class="opinion"><a class="menuAtas2 opinion theTolltip" href="{$urlkeyopinion}" title="Key Opinion Leader">&nbsp;</a></span>
+                	<span class="analisis"><a class="menuAtas3 analisis theTolltip" href="{$urlkeywordanalysis}" title="Keyword Analysis">&nbsp;</a></span>
+                	<span class="livetrack"><a class="menuAtas4 livetrack theTolltip" href="{$urllivetrack}" title="Live Track">&nbsp;</a></span>
+                	<!--<a class="menuAtas5 responder tip_trigger" href="{$urlautoresponder}">&nbsp;<span class="tip">Autoresponders</span></a>-->
+                	{*}<a class="menuAtas6 sentiment theTolltip" href="{$urlsentiment}" title="Sentiment">&nbsp;</a>{/*}
+                	<span class="topsummary"><a class="menuAtas5 topsummary theTolltip" href="{$urltopsummary}" title="Download Report">&nbsp;</a></span>
+                    <span class="icon_workflowmenu"><a href="{$urlworkflow}" class="menuAtas6 icon_workflowmenu theTolltip" title="Workflow">&nbsp;</a></span>
+                    {if $has_market}<span class="icon_marketmenu"><a href="{$urlmarket}" class="menuAtas7 icon_marketmenu theTolltip" title="Markets">&nbsp;</a></span>{/if}
+                </div>
+            </div><!-- .top -->

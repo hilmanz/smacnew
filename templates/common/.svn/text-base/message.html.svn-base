@@ -1,0 +1,15 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+        	<div class="round10 bgGrey" align="center" style="margin:100px auto 0; width: 400px; padding: 50px;">
+			    <div align="center" class="suksesMessage">
+			      <h3>
+			          <strong>{$msg|stripslashes}</strong>
+			      </h3>			      
+			    </div>			    
+			</div>
+			<div style="margin: 0 auto;width:100px;text-align:center;">
+				<p><a class="continue" href="{$url}">Continue >></a></p>
+			</div>
+        </div><!-- #container -->
+</div><!-- #main-container -->

@@ -1,0 +1,21 @@
+<div id="popup-generate" class="popup_block popupWidth popup-unmark">
+	<div id="section1">
+        <div class="headpopup">
+            <h1>GENERATE REPORT</h1>
+        </div>
+        <div class="content-popup">
+        	<form class="generatePdf">
+            	<div class="row">
+                	{$widget_datefilter}
+                </div>
+                <div class="row">
+                	<label>Report Name</label>
+                	<input id='report_label' class="reportName" type="text" value="Fill Report Name" onclick="this.value='';" />
+                </div>
+                <div class="row" style="border:none;">
+                	<input type="submit" value="Proceed" class="greenBtn" onclick="generate_pdf();"/>
+                </div>
+            </form>
+        </div><!-- .content-popup -->
+   	</div><!-- #section1 -->
+</div><!-- #popup-sentiment -->

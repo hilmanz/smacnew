@@ -1,0 +1,203 @@
+	<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+          					  	<h1>{if $market}<span id='txtmarket'>Market Dashboard - {$market}</span>{else}<span id='txtmarket'>Global Dashboard - </span><span id='dtsource'>Twitter</span>{/if} 
+                           {if $market} <a id='btnglobaldata' href='{encrypt url='index.php?page=home&act=toggle_geo'}'>Switch to Global Data</a>{/if}</h1>
+                        </td>
+                        <td align="right">
+                           <div style="float:right"> {$widget_datefilter}</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            {if $data_available}
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="w1" align="left" valign="top">
+                    <div id="home-twitter" {if $web_total>0}style="display:none;"{/if}>
+                            <div class="list-box" style="width: 645px;">
+                                <div class="box">
+                                    <span>Potential Impact Index</span>
+                                        <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">An index that rates and concludes your listening topic comprising of weighted scores of mentions, sentiment, dominance and meaning.</span></a>
+                                    <h1 style="margin: 10px 0;">{$impact}</h1>
+                                    
+                                    {if $pii_diff>0}                      
+                                    <span class="triangle fleft">&nbsp;</span>
+                                    {elseif $pii_diff<0}
+                                     <span class="triangle arrow_down fleft">&nbsp;</span>
+                                    {/if}
+                                    <span class="fright f18">{if $pii_diff <> 0}{$pii_diff}{/if}</span>
+                                </div>
+                                <div class="box">
+                                    <span>Total Mention</span>
+                                        <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">How many times your keywords have been mentioned accumulatively through the topic's timespan</span></a>
+                                     <h1 style="margin: 10px 0;">{$mention}</h1>
+                                     {if $mention_change <> 0}   
+                                    {if $mention_change<0}
+                                     <span class="triangle arrow_down fleft">
+                                    {else}              
+                                    <span class="triangle fleft">
+                                    {/if}
+                                    {if $mention_change < 300}{$mention_change}%{/if}
+                                    </span>
+                                    {/if}
+                                   
+                                    <span class="fright f18">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+                                </div>
+                                <div class="box">
+                                    <span>Potential Impressions</span>
+                                        <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers.</span></a>
+                                     <h1 style="margin: 10px 0;">{$impressi}</h1>
+                                   {if $imp_change <> 0}                  
+                                   {if $imp_change<0}
+                                     <span class="triangle arrow_down fleft">
+                                    {else}              
+                                    <span class="triangle fleft">
+                                    {/if}
+                                   
+                                   {if $imp_change < 300}{$imp_change}%{/if}
+                                   </span>
+                                    {/if}
+                                    <span class="fright f18">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+                                </div>
+                            </div>
+                            <div class="big-title link-bar">
+                                <h1><a href="#">{$people} People</a> in conversation over {$total_days|number_format} days</h1>
+                            </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td valign="top" width="330">
+                                    <div id="wgwords"></div>
+                                   {*} <script>dashcontent("{encrypt url='index.php?page=home&act=favourite_words&ajax=1'}",'wgwords','Loading Topic Wordcloud');</script>{/*}
+                                </td>
+                                <td valign="top">
+                                    <div id="wgkol"></div>
+                                     {*}<script>dashcontent("{encrypt url='index.php?page=home&act=topKOL&ajax=1' filter_date_from=$filter_date_from filter_to_date=$filter_to_date}",'wgkol','Loading Key Opinion Leader');</script>{/*}
+                                </td>
+                              </tr>
+                            </table>
+                            {*}
+                            {$favoriteWord}
+                            {$keyOpinion}
+                            {/*}
+                      </div><!-- # End Home Twitter-->
+          			  <div id="home-facebook" style="display:none;">
+                        <div class="list-box" style="width: 645px;">
+                            <div class="box facebook-box">
+                                <span>Post Likes</span>
+                                    <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">An index that rates and concludes your listening topic comprising of weighted scores of mentions, sentiment, dominance and meaning.</span></a>
+                                <h1 style="margin: 10px 0;">{$fb_likes}</h1>
+                                
+                               
+                                {if $like_change>0}                      
+                                <span class="triangle fleft">{$fb_like_change} %</span>
+                                {elseif $fb_like_change<0}
+                                 <span class="triangle arrow_down fleft">{$fb_like_change} %</span>
+                                {/if}
+                                <span class="fright f18">{if $fb_like_diff <> 0}{$fb_like_diff}{/if}</span>
+                                
+                            </div>
+                            <div class="box facebook-box">
+                                <span>Public Posts</span>
+                                    <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">How many times your keywords have been mentioned accumulatively through the topic's timespan</span></a>
+                                 <h1 style="margin: 10px 0;">{$fb_mentions}</h1>
+                                  {if $fb_mention_change>0}                      
+                                <span class="triangle fleft">{$fb_mention_change} %</span>
+                                {elseif $mention_change<0}
+                                 <span class="triangle arrow_down fleft">{$fb_mention_change} %</span>
+                                {/if}
+                                <span class="fright f18">{if $fb_mention_diff <> 0}{$fb_mention_diff}{/if}</span>
+                                
+                                
+                                
+                            </div>
+                        </div>  
+                        <div class="big-title link-bar">
+                            <h1><a href="#">{$fb_people} People</a> in conversation over {$total_days|number_format} days</h1>
+                        </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td valign="top" width="330">
+                      				  <div id="wgwords2"></div>
+                                </td>
+                                <td valign="top">
+                  				      <div id="wgkol2"></div>
+                                </td>
+                              </tr>
+                            </table>
+            		  </div><!-- # End Home Facebook-->
+          			  <div id="home-blog" style="display:none;">
+                        <div class="list-box" style="width: 645px;">
+                            <div class="box blog-box">
+                                <span>Total Websites</span>
+                                    <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">An index that rates and concludes your listening topic comprising of weighted scores of mentions, sentiment, dominance and meaning.</span></a>
+                                <h1 style="margin: 10px 0;">{$total_websites}</h1>
+                                
+                                {*}
+                                {if $pii_change>0}                      
+                                <span class="triangle fleft">&nbsp;</span>
+                                {elseif $pii_change<0}
+                                 <span class="triangle arrow_down fleft">&nbsp;</span>
+                                {/if}
+                                <span class="fright f18">{if $pii_diff <> 0}{$pii_diff}{/if}</span>
+                                {/*}
+                            </div>
+                            <div class="box blog-box">
+                                <span>Total Posts</span>
+                                    <a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">How many times your keywords have been mentioned accumulatively through the topic's timespan</span></a>
+                                 <h1 style="margin: 10px 0;">{$web_mentions}</h1>
+                                {*}
+                                <span class="triangle fleft">{$mention_change}%</span>
+                               
+                                <span class="fright f18">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+                                {/*}
+                            </div>
+                        </div>
+                        {*}  
+                        <div class="big-title link-bar">
+                            <h1><a href="#">{$total_websites} Websites</a> in conversation over {$total_days|number_format} days</h1>
+                        </div>
+                        {/*}
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td valign="top" width="330">
+                      				  <div id="wgwords3"></div>
+                                </td>
+                                <td valign="top">
+                  				      <div id="wgkol3"></div>
+                                </td>
+                              </tr>
+                            </table>
+            		  </div><!-- # End Home Blog-->
+                    </td><!-- .w1-->
+                    <td class="w2" align="left" valign="top">
+                    
+                        <div id="wgtab"></div>
+                        <script>dashcontent("{encrypt url='index.php?page=home&act=top_conversation&ajax=1' filter_date_from=$filter_date_from filter_to_date=$filter_to_date tab=$default_tab}",'wgtab','Loading Top Conversations');</script>
+                        {*}{$tabNetwork}{/*}
+                    
+                    </td><!-- .w2-->
+                  </tr>
+                </table>
+            {else}
+            	<div id="notAvailable">
+            			<div class="blankText">
+            				<h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+            			</div>
+                        <div class="screenCap">
+                        	<img src="images/blank_dashboard.gif" />
+                        </div>
+                </div>
+            {/if}
+        </div><!-- #container -->
+    </div><!-- #main-container -->

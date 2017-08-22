@@ -1,0 +1,507 @@
+.relative{
+	position:relative;
+	}
+.absolute{
+	position:absolute;
+	}
+.textRpad1015{
+	padding: 10px 15px;
+    text-align: right;
+}
+.fnormal{
+	font-weight:normal;
+	}
+.fLeft{
+	float:left;
+	}
+.fRight{
+	float:right;
+	}
+.dBlock{
+	display:block;
+	}
+.dInBlock{
+	display:inline-block;
+	}
+.grey{
+	color:#999;
+	}
+.white{
+	color:white;
+	}
+.margin0{
+	margin:0;
+	}
+.marginT15{
+	margin-top:15px;
+	}
+.padR15{
+	padding-right:15px;
+	}
+.padL15{
+	padding-left:15px;
+	}
+.pad5TB{
+	padding:5px 0;
+	}
+.pad0515{
+	padding:5px 15px;
+	}
+.pad05L15{
+	padding:5px 0 5px 15px;
+	}
+.pad05R15{
+	padding:5px 15px 5px 0;
+	}
+.pad1015{
+	padding: 10px 15px;
+	}
+.pad2550{
+	padding:25px 50px;
+	}
+.bgGrey{
+	background:#f0f0f0;
+	}
+.bgWhite{
+	background:#FFF;
+	}
+.bgGreen{
+	background:#8dc44a;
+	}
+.bgDarkGrey{
+	background:#c2c2c2;
+	}
+.round5{
+  -webkit-border-radius: 5px; 
+     -moz-border-radius: 5px; 
+          border-radius: 5px; 
+       
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+	}
+.round10{	
+  -webkit-border-radius: 10px; 
+     -moz-border-radius: 10px; 
+          border-radius: 10px; 
+          
+          
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+	}
+.roundT10{
+  -webkit-border-radius: 10px 10px 0 0; 
+     -moz-border-radius: 10px 10px 0 0; 
+          border-radius: 10px 10px 0 0; 
+          
+          
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+	}
+.roundB10{
+  -webkit-border-radius: 0 0 10px 10px; 
+     -moz-border-radius: 0 0 10px 10px; 
+          border-radius: 0 0 10px 10px; 
+          
+          
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+	}
+.round15{
+  -webkit-border-radius: 15px; 
+     -moz-border-radius: 15px; 
+          border-radius: 15px; 
+          
+          
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+	}
+.circle{	
+  -webkit-border-radius: 125px; 
+     -moz-border-radius: 125px; 
+          border-radius: 125px; 
+          
+          
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+	}
+.circleSize1{
+    height: 10px;
+    padding: 1px 5px 5px;
+    width: 5px;
+	}
+.circleSize2{
+    height: 19px;
+    padding: 4px 9px 0 0;
+    width: 14px;
+	}
+	
+	
+/*CAMPAIGN*/
+.link-bar a{
+	color:#333;
+	text-decoration:none;
+}
+.link-bar h1 a:hover{
+	color:#77cd3a;
+}
+
+#campaign .bg_grey{
+	background:#f3f3f3;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-khtml-border-radius:10px;
+	padding:30px 40px;
+	display:table;
+}
+#campaign .helpsmall{
+	display:inline;
+	padding:3px 10px;
+	float:none;
+	margin:0 10px;
+}
+#campaign input[type="button"].clear-selected,#campaign input[type="button"].clear-all{
+	float:left;
+	border:none;
+	background:#cbcbcb;
+	padding:5px 20px;
+	text-align:center;
+	color:#fff;
+	width:auto;
+	margin:10px 0;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-khtml-border-radius:5px;
+	-moz-box-shadow:0 1px 1px 0 #fff;
+	-webkit-box-shadow:0 1px 1px 0 #fff;
+	box-shadow:0 1px 1px 0 #fff;
+}
+#campaign input[type="button"].clear-all{
+	float:right;
+}
+#campaign input[type="button"].clear-selected:hover,#campaign input[type="button"].clear-all:hover{
+	background:#666;
+}
+#campaign input[type="text"], #campaign input[type="password"] {
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    height: 35px;
+    padding: 0 5px;
+	width:40%;
+	float:left;
+	-moz-box-shadow:0 1px 1px 0 #fff;
+	-webkit-box-shadow:0 1px 1px 0 #fff;
+	box-shadow:0 1px 1px 0 #fff;
+}
+#campaign input[type="text"]#addGroup{
+	width:57%;
+	}
+#campaign input[type="submit"]{
+	background:url(../images/btn-green.png) no-repeat;
+	border: medium none;
+    color: #FFFFFF;
+    height: 36px;
+    padding: 0 40px 0 0;
+    text-align: center;
+    width: 243px;
+	cursor:pointer;
+	float:right;
+	}
+#campaign input[type="submit"]:active{
+	background:url(../images/btn-grey.png) no-repeat;
+	}
+#campaign select{
+	float:left;
+    width: 41%;
+}	
+#campaign input[type="button"]{
+	background:url(../images/btn-green.png) no-repeat;
+	border: medium none;
+    color: #FFFFFF;
+    height: 36px;
+    padding: 0 40px 0 0;
+    text-align: center;
+    width: 243px;
+	cursor:pointer;
+	float:right;
+	}
+input[type="button"]#cStartOver{
+	background:url(../images/btn-green_reverse.png) no-repeat;
+	border: medium none;
+    color: #FFFFFF;
+    height: 36px;
+    padding: 0 0 0 40px;
+    text-align: center;
+    width: 243px;
+	cursor:pointer;
+	float:right;
+}
+#campaign input[type="button"]:active{
+	background:url(../images/btn-grey.png) no-repeat;
+	}
+input[type="button"]#cStartOver:active{
+	background:url(../images/btn-grey_reverse.png) no-repeat;
+}	
+#campaign label {
+    margin: 10px 15px 0 0;
+	color:#666;
+	font-weight:normal;
+}
+#campaign .question{
+	cursor:pointer;
+	float:left;
+	margin:10px;
+	}
+#campaign .question:active{
+	background:#999;
+	color:#FFF;
+	}
+#campaign textarea {
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    height: 100px;
+    /*padding: 5px;*/
+    width: 100%;
+}
+#campaign textarea.type2{
+	height: 250px;
+	
+	}
+#cStep1, #cStep2, #cStep3, #cStep4, #arrowRight, #arrowLeft{
+	cursor:pointer;
+	}
+#btn-add{
+	border: medium none;
+    color: #FFFFFF;
+    height: 36px;
+    text-align: center;
+    width: 90px;
+	cursor:pointer;
+	float:left;
+	margin:0 0 0 10px
+	}
+#btn-add:active{
+	background:#999;
+	}
+#tbl-campaign td + td + td + td + td + td + td,
+#tbl-title td + td + td + td + td + td + td{
+	
+}
+#tbl-campaign tr td:first-child, #tbl-title tr td:first-child{
+	padding:10px 0 10px 15px;
+	border:none;
+	}
+#tbl-campaign tr td, #tbl-title tr td{
+	padding:10px 15px 10px 15px;
+	border-left:dotted 1px #CCC;
+	line-height:25px;
+	}
+#tbl-campaign tr td:last-child, #tbl-title tr td:last-child{
+	padding:10px 15px 10px 15px;
+	}
+table#tbl-account{
+	border:1px solid #ccc;
+	}
+#tbl-account tr td:first-child, #tbl-title tr td:first-child{
+	padding:10px 0 10px 15px;
+	}
+#tbl-account tr td, #tbl-title tr td{
+	padding:10px 15px 10px 15px;
+	}
+#tbl-account tr td:last-child, #tbl-title tr td:last-child{
+	padding:10px 15px 10px 15px;
+	}
+	
+#btn-edit1, #btn-edit2{
+	border: medium none;
+    color: #FFFFFF;
+    height: 36px;
+    text-align: center;
+    width: 200px;
+	cursor:pointer;
+	margin:0 0 0 10px
+	}
+#btn-edit1:active, #btn-edit2:active{
+	background:#999;
+	}
+
+.piUp{
+	background:url(../images/campaign-stats.png) no-repeat 0 0;
+	width:18px;
+	height:15px;
+	display:block;
+	margin:0 10px 0 0;
+	}
+.piDown{
+	background:url(../images/campaign-stats.png) no-repeat -18px 0;
+	width:18px;
+	height:15px;
+	display:block;
+	margin:0 10px 0 0;
+	}
+a.details{
+	background:url(../images/campaign-control.png) no-repeat -22px 0;
+	width:21px;
+	height:21px;
+	display:inline-block;
+	}
+a.run{
+	background:url(../images/campaign-control.png) no-repeat -44px 0;
+	width:21px;
+	height:21px;
+	display:inline-block;
+	margin:0 0 0 0;
+	text-indent:31px;
+	line-height:23px;
+	color:#666;
+	text-decoration:none;
+	}
+a.pause{
+	background:url(../images/campaign-control.png) no-repeat 0 0;
+	}
+
+#faq .fRight{
+	background:url(../images/btn-updown.png) no-repeat 0 0;
+	height:18px;
+	width:18px;
+	display:block;
+	cursor:pointer;
+	margin: 10px 15px;
+	}
+#faq .down{
+	background:url(../images/btn-updown.png) no-repeat -18px 0;
+	}
+#faq .fLeft{
+	margin: 10px 15px;
+	}
+#faq span{
+	background:url(../images/list-arrow.png) no-repeat 0 3px;
+	display: block;
+    padding: 0 0 10px 20px;
+	}
+	
+/*TIP CUSTOM*/
+.tip2{
+	background: none repeat scroll 0 0 #666666;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    display: none;
+    font-size: 11px;
+    padding: 10px;
+    position: absolute;
+    z-index: 99999;
+    left:-55px;
+    top:35px;
+}
+.tip_triggers{
+	position:relative;
+}
+
+a.cLink{
+	color:black; text-decoration:underline;
+}
+a:hover.cLink{
+	color:#8dc44a;
+}
+
+thead tr .header{
+	cursor:pointer;
+	background-image: url(../images/tablesorter/bg.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+thead tr .headerSortUp{
+	 background-image: url(../images/tablesorter/asc.gif);
+}
+thead tr .headerSortDown{
+	 background-image: url(../images/tablesorter/desc.gif);
+}
+
+/*Registration style*/
+#agencyRegister label.error{
+	color:#CC0000;
+	width:350px;
+	font-weight:normal;
+}
+/*WordClouds*/
+#wordcloud .w1{
+	width:auto;
+}
+.ka_wordcloud .w1{
+	width:auto;
+}
+
+/*ICON*/
+a#add{
+	 background: url("../images/addremove.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 23px;
+    width: 35px;
+    margin: 0 auto;
+}
+a#remove{
+	 background: url("../images/addremove.png") no-repeat scroll 0 -22px transparent;
+    display: block;
+    height: 23px;
+    width: 35px;
+    margin: 0 auto;
+}
+span.cari{
+	background: url("../images/campaign-control.png") no-repeat scroll -22px 0 transparent;
+    display: block;
+    height: 23px;
+    width: 21px;
+	float:left;
+	margin:8px 0 0 7px;
+}
+li.active span.cari{
+	background: url("../images/campaign-control_hover.png") no-repeat scroll -22px 0 transparent;
+}
+a.reg1{
+	background: url("../images/register_logos.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 40px;
+    width: 40px;
+    float:left;
+    margin: 0 27px 0 0;
+}
+a.reg2{
+	background: url("../images/register_logos.png") no-repeat scroll -56px 0 transparent;
+	display: block;
+    height: 40px;
+    width: 40px;
+    float:left;
+    margin: 0 27px 0 0;
+}
+a.reg3{
+	background: url("../images/register_logos.png") no-repeat scroll -112px 0 transparent;
+	display: block;
+    height: 40px;
+    width: 40px;
+    float:left;
+    margin: 0 27px 0 0;
+}
+a.reg4{
+	background: url("../images/register_logos.png") no-repeat scroll -168px 0 transparent;
+	display: block;
+    height: 40px;
+    width: 40px;
+    float:left;
+    margin: 0 27px 0 0;
+}
+a.reg5{
+	background: url("../images/register_logos.png") no-repeat scroll -224px 0 transparent;
+	display: block;
+    height: 50px;
+    width: 40px;
+    float:left;
+}
+
+/*arrow*/
+.arrow_down{
+	background: url("../images/icon_segitiga_down.png") no-repeat scroll 0 3px transparent;
+}
+
+
+#container a.smallthumbs .bintang{
+	left:-8px;
+	top: -8px;
+	height: 23px;
+	width: 23px;
+	position: absolute;
+}

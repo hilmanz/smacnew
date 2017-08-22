@@ -1,0 +1,674 @@
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <h1>{if $market}<span id='txtmarket'>Market Key Opinion Leader - {$market}</span>{else}<a href="{$urlkeyopinion}">Key Opinion Leader</a>{/if} 
+         	    {if $market} <a id='btnglobaldata' href="{encrypt url='index.php?page=home&act=toggle_geo'}">Switch to Global Data</a>{/if}</h1>
+            </div>
+            <div class="title-bar">
+            	<div id="tabKol">
+                	<a id="buttonTwitter" class="theTolltip" href="#tabTwitter" title="Twitter"><span class="iconTwitter">&nbsp;</span></a>
+                	<a id="buttonFacebook" class="theTolltip" href="#tabFacebook" title="Facebook"><span class="iconFacebook">&nbsp;</span></a>
+                	<a id="buttonWeb" class="theTolltip" href="#tabWeb" title="Blog"><span class="iconWeb">&nbsp;</span></a>
+                	<a id="buttonForum" class="theTolltip" href="#tabForum" title="Forum"><span class="iconForum">&nbsp;</span></a>
+                	<a id="buttonNews" class="theTolltip" href="#tabNews" title="News"><span class="iconNews">&nbsp;</span></a>
+                	<a id="buttonEcommerce" class="theTolltip" href="#tabEcommerce" title="Ecommerce"><span class="iconEcommerce">&nbsp;</span></a>
+                	<a id="buttonCorporate" class="theTolltip" href="#tabCorporate" title="Corporate/Personal"><span class="iconCorporate">&nbsp;</span></a>
+                	{*}<a id="buttonVideo" class="theTolltip" href="#tabVideo" title="Video"><span class="iconVideo">&nbsp;</span></a>{/*}
+                </div>
+				<div id="mainKOL">
+					<div class="filters"><input type="checkbox" id="exclude1" onchange="KOLDataCollectionToggle();"/>Exclude News &amp; Corporate Accounts</div>
+				</div>
+				<div id="detailKOL">
+					<a href="#" class="smallArrow">Back</a>
+				</div>
+			</div>
+            <div id="key-opinion">
+                {if $data_available}
+            	<div id="tabTwitter" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>
+                        <div id="idTwitExcludeKOL" class="wfilters">
+                            <label>Exclude By</label>
+                            <select name="d" id="twitExcludeKOL">
+								<option value="1">News</option>
+								<option value="2">Corporate Accounts</option>
+							</select>
+                        </div>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a id="twitKOL" href="#tab-Post">Top 10 KOL</a></li>
+                                {*}
+								<li><a href="#tab-PotentialImpression">Potential Impression</a></li>
+                                <li><a href="#tab-Influence">Mention</a></li>
+                                <li><a href="#tab-Sentiment">Sentiment</a></li>{/*}
+                                <li><a id="twitAllDT" href="#tab-AllPeople">All People</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container" style="position: relative;">
+								<div id="top10KOLFilter" class="wfilters" style="position: absolute; top:20px; right: 20px;z-index:5;">
+										<label>View By</label>
+										<select name="d" id="top10KOLFilterSelect">
+											<option value="0">Overall</option>
+											<option value="1">Daily Mentions</option>
+											<option value="2">Daily Impressions</option>
+										</select>
+								</div>
+                                <div id="tab-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBar" style="float: left;min-width: 800px;">
+											
+                                        </tr>
+										<tr id="kolTopPeopleFoto" style="float: left;">
+								
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+								<div id="tab-Mentions" class="tab_content">
+									<div style="min-width:750px;height:350px;" id="kolTwitDailyMentions"></div>
+								</div>
+								<div id="tab-Impression" class="tab_content">
+									<div style="min-width:750px;height:350px;" id="kolTwitDailyImpression"></div>
+								</div>
+                                <div id="tab-PotentialImpression" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolTwitPotentialImpression"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tab-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolTwitMention"></div>
+                                </div><!-- #tab-Influence -->
+                                {*}
+								<div id="tab-Sentiment" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="chart3"></div>
+                                </div><!-- #tab-Sentiment -->
+                                {/*}
+								<div id="tab-AllPeople" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="twit-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Impression</strong></th>
+                                            <th><strong>% Share</strong></th>
+                                            <th><strong>PII</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                     <a class="smallArrow" href="#allPeopleTwitter">View All</a>
+                                </div>
+								<div id="twitPositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+                                     <a class="smallArrow" href="#allPeopleTwitter">View All</a>
+                                </div>
+                                <div id="twitNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabTwitter -->
+            	<div id="tabFacebook" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>
+                        <div id="idFbExcludeKOL" class="wfilters">
+                            <label>Exclude By</label>
+                            <select name="d" id="fbExcludeKOL">
+								<option value="1">News</option>
+								<option value="2">Corporate Accounts</option>
+							</select>
+                        </div>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabfb-Post">Post</a></li>
+                                <li><a href="#tabfb-Likes">Likes</a></li>
+                                <li><a href="#tabfb-AllPeople" >All People</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabfb-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarFB" style="float: left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoFB" style="float: left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabfb-Likes" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolFBLikes"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabfb-AllPeople" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="fb-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Impression</strong></th>
+                                            <th><strong>% Share</strong></th>
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleFB">View All</a>
+                                </div>
+                                <div id="fbPositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleFB">View All</a>
+                                </div>
+                                <div id="fbNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabFacebook -->
+            	<div id="tabWeb" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>                     
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabweb-Post">Post</a></li>
+                                {*}<li><a href="#tabweb-Comments">Comments</a></li>
+                                <li><a href="#tabweb-Influence">Influence</a></li>
+                                {/*}<li><a href="#tabweb-allsite" >All Websites</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabweb-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarWeb" style="float: left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoWeb" style="float: left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabweb-Comments" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolWebComment"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabweb-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolWebInfluence"></div>
+                                </div><!-- #tab-Influence -->
+                                <div id="tabweb-allsite" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="web-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Post</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleWeb">View All</a>
+                                </div>
+                                <div id="webPositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+									<a class="smallArrow" href="#allPeopleWeb">View All</a>
+                                </div>
+                                <div id="webNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabWeb -->
+				<div id="tabForum" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>                     
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabforum-Post">Post</a></li>
+                                {*}<li><a href="#tabforum-Comments">Comments</a></li>
+                                <li><a href="#tabforum-Influence">Influence</a></li>
+                                {/*}<li><a href="#tabforum-allsite" >All Websites</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabforum-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarForum" style="float: left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoForum" style="float: left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabforum-Comments" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolForumComment"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabforum-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolForumInfluence"></div>
+                                </div><!-- #tab-Influence -->
+                                <div id="tabforum-allsite" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="forum-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Post</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleForum">View All</a>
+                                </div>
+                                <div id="forumPositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+									<a class="smallArrow" href="#allPeopleForum">View All</a>
+                                </div>
+                                <div id="forumNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabForum -->
+				<div id="tabNews" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>                     
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabnews-Post">Post</a></li>
+                                {*}<li><a href="#tabnews-Comments">Comments</a></li>
+                                <li><a href="#tabnews-Influence">Influence</a></li>
+                                {/*}<li><a href="#tabnews-allsite" >All Websites</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabnews-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarNews" style="float: left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoNews" style="float: left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabnews-Comments" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolNewsComment"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabnews-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolNewsInfluence"></div>
+                                </div><!-- #tab-Influence -->
+                                <div id="tabnews-allsite" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="news-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Post</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleNews">View All</a>
+                                </div>
+                                <div id="newsPositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+									<a class="smallArrow" href="#allPeopleNews">View All</a>
+                                </div>
+                                <div id="newsNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabNews -->
+				<div id="tabEcommerce" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>                     
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabecommerce-Post">Post</a></li>
+                                {*}<li><a href="#tabecommerce-Comments">Comments</a></li>
+                                <li><a href="#tabecommerce-Influence">Influence</a></li>
+                                {/*}<li><a href="#tabecommerce-allsite" >All Websites</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabecommerce-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarEcommerce" style="float: left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoEcommerce" style="float: left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabecommerce-Comments" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolEcommerceComment"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabecommerce-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolEcommerceInfluence"></div>
+                                </div><!-- #tab-Influence -->
+                                <div id="tabecommerce-allsite" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="ecommerce-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Post</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleEcommerce">View All</a>
+                                </div>
+                                <div id="ecommercePositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+									<a class="smallArrow" href="#allPeopleEcommerce">View All</a>
+                                </div>
+                                <div id="ecommerceNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabEcommerce -->
+				<div id="tabCorporate" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>                     
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabcorporate-Post">Post</a></li>
+                                {*}<li><a href="#tabcorporate-Comments">Comments</a></li>
+                                <li><a href="#tabcorporate-Influence">Influence</a></li>
+                                {/*}<li><a href="#tabcorporate-allsite" >All Websites</a></li>
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabcorporate-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarCorporate" style="float: left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoCorporate" style="float: left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabcorporate-Comments" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolCorporateComment"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabcorporate-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolCorporateInfluence"></div>
+                                </div><!-- #tab-Influence -->
+                                <div id="tabcorporate-allsite" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="corporate-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Pic</strong></th>
+                                            <th><strong>Username</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Post</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleCorporate">View All</a>
+                                </div>
+                                <div id="corporatePositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+									<a class="smallArrow" href="#allPeopleCorporate">View All</a>
+                                </div>
+                                <div id="corporateNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabCorporate -->
+				<div id="tabVideo" class="pageContent">
+                    <div class="titles">
+                        <h3>Top 10 People</h3>                     
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="w200" valign="top" align="left">
+                            <ul class="tabs">
+                                <li><a href="#tabvideo-Post">Post</a></li>
+								<li><a href="#tabvideo-AllVideo" >All Videos</a></li>
+                              {*}
+                                <li><a href="#tabvideo-Influence">Influence</a></li>
+                              {/*}
+                            </ul>
+                        </td>
+                        <td class="wfull" valign="top" align="left">
+                            <div class="tab_container">
+                                <div id="tabvideo-Post" class="tab_content">
+                                   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr id="kolTopPeopleBarVideo" style="float:left;min-width: 800px;">  
+										</tr>
+                                        <tr id="kolTopPeopleFotoVideo" style="float:left;">                                        
+                                        </tr>
+                                    </table>
+                                </div> <!-- #tab-Post -->
+                                <div id="tabvideo-Comments" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolVideoComment"></div>
+                                </div><!-- #tab-PotentialImpression -->
+                                <div id="tabvideo-Influence" class="tab_content" >
+                                   <div style="min-width:750px;height:350px;" id="kolVideoInfluence"></div>
+                                </div><!-- #tab-Influence -->
+                                <div id="tabvideo-AllVideo" class="tab_content" >
+                                    <div style="min-width:750px">
+                                   <table id="video-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+                                        <thead>
+                                        <tr>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Post</strong></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                                   </div>
+                                </div><!-- #all-people -->
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>
+                                    <a class="smallArrow" href="#allPeopleVideo">View All</a>
+                                </div>
+                                <div id="videoPositiveKOL"></div>
+                            </div><!-- #ambassador -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+									<a class="smallArrow" href="#allPeopleVideo">View All</a>
+                                </div>
+                                <div id="videoNegativeKOL"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #tabVideo -->
+				<div id="allPeopleTwitter" class="pageContent">
+                    <div class="titles">
+                        <h3 id="allInfluencer"></h3>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top" align="left">
+                            <div id="greenbox" class="box">
+                                <div class="titles">
+                                    <h3>Positive Influencers</h3>                             
+                                </div>
+                                <div id="twitAllPositiveKOL"></div>
+								<div id="cPaging" class="paging"></div>
+                            </div><!-- #green -->
+                            <div id="redbox" class="box">
+                                <div class="titles">
+                                    <h3>Negative Influencers</h3>
+                                </div>
+                               <div id="twitAllNegativeKOL"></div>
+							   <div id="negativeKOLPaging" class="paging"></div>
+                            </div><!-- #troll -->
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- #All People -->
+                <div id="noDashboardDataPage" style="display:none;">
+					<div id="mytopic-banner">
+						<div class="content">
+							<h1 style="margin-top: 38px;">Sorry, there seems to be no posts yet<br>for this channel</h1>
+						</div>
+					</div>
+				</div>  
+				  {else}
+                    <div id="notAvailable">
+                            <div class="blankText">
+                                <h1>Your first report is not ready yet.</h1>
+                                <p>You have to wait 24 hours before it's completed.</p>
+                    <p>In the meantime you can visit the "Live Track" page <br />
+                        to see what's happening with your Topic in real-time..</p>
+                                <a href="{encrypt url='index.php?page=liveTracked'}" class="btnGreenBar">See Live Track</a>
+                            </div>
+                            <div class="screenCap">
+                                <img src="images/blank_kol.gif" />
+                            </div>
+                    </div>
+	             {/if}
+            </div><!-- #key-opinion -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->

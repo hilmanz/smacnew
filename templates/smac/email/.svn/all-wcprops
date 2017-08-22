@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/2381/trunk/web/templates/smac/email
+END
+email-trial-limit.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/smac/!svn/ver/1615/trunk/web/templates/smac/email/email-trial-limit.html
+END
+email-trial-limit-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-trial-limit-plain.html
+END
+email-support-notif.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/smac/!svn/ver/1615/trunk/web/templates/smac/email/email-support-notif.html
+END
+email-new-password.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/1615/trunk/web/templates/smac/email/email-new-password.html
+END
+email-new-password-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-new-password-plain.html
+END
+email-welcome.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1615/trunk/web/templates/smac/email/email-welcome.html
+END
+email-welcome-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-welcome-plain.html
+END
+email-confirm.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1615/trunk/web/templates/smac/email/email-confirm.html
+END
+email-confirm-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-confirm-plain.html
+END
+email-first-topic.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/smac/!svn/ver/2323/trunk/web/templates/smac/email/email-first-topic.html
+END
+email-first-topic-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-first-topic-plain.html
+END
+email-approved.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/1615/trunk/web/templates/smac/email/email-approved.html
+END
+email-approved-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-approved-plain.html
+END
+email-reset-password.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-reset-password.html
+END
+email-reset-password-plain.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/smac/!svn/ver/2381/trunk/web/templates/smac/email/email-reset-password-plain.html
+END

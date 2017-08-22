@@ -1,0 +1,43 @@
+{if $num > 0}
+                    <h1><span class="numbers"></span><span class="title-text">Branded Twitter Account</span></h1>
+                                <h1 class="fleft">{$branded.name}</h1>
+                                <img src="images/twitter.png" />
+                    			<p>
+<table width="600" cellpadding="2" cellspacing="2">
+                               <tr>
+                               	<td>Followers:<br />{$branded.followers|number_format}</td>
+                                <td>Mentions:<br />{$branded.mentions|number_format}</td>
+                                <td>Total Impressions:<br />{$branded.total_imp|number_format}</td>
+                                <td><strong>Rank</strong></td>
+                               </tr>
+                               <tr>
+                               	<td>Retweet Frequency:<br />{$branded.rt_percent}%</td>
+                                <td>Retweeted Impression:<br />{$branded.rt_imp|number_format}</td>
+                                <td>Share:<br />{$branded.share}%</td>
+                                <td><h1>{$branded.rank}</h1></td>
+                               </tr>
+                               </table>
+                              </p>
+                              <p>
+                            <table class="zebra"  border="0" cellspacing="2" cellpadding="2" width="600">
+                                <tr bgcolor="#999999">
+                                    <td width="70%">Tweet</td>
+                                    <td width="10%">RT</td>
+                                    <td width="10%">Impression</td>
+                                    <td width="10%">Share</td>
+                                 </tr>
+								{section name=i loop=$branded.tweets}
+                                <tr>
+                                    <td>{$branded.tweets[i].content|wordwrap:80:"<br />"}</td>
+                                    <td>{$branded.tweets[i].rt|number_format}</td>
+                                    <td>{$branded.tweets[i].imp|number_format}</td>
+                                    <td>{$branded.tweets[i].share}</td>
+                                </tr>
+                                {/section}
+                            </table>
+                            </p>
+{else}
+<h1>Branded Twitter Account</h1>
+<h3 class="fleft">{$branded.name}</h3>
+    No Data Available.
+{/if}

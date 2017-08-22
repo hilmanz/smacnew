@@ -1,0 +1,98 @@
+<script type="text/javascript" src="js/dynDateTime/jquery.dynDateTime.js"></script>
+<script type="text/javascript" src="js/dynDateTime/lang/calendar-en.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="js/dynDateTime/css/calendar-system.css"  />
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="#">Topic Group(s)</a> <span class="grey">&gt; Manage</span></h1>
+            		</td>
+                    <td align="right">
+                    	
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div class="p10">
+                <div id="campaign">
+                    <p>This is a list of your topics and groups, drag and drop your topics into the desired groups below.</p>
+                    
+                    {if $err}
+                    <p style="color:#f00;"><strong>{$err}</strong></p>
+                    {/if}
+                    <div id="mytopic">
+                        {section name=i loop=$groups}
+                        <div id="g-{$groups[i].id}" class="droppable">
+                        	<div id="grouppane">
+                            	<a href="#" onclick="show_edit_popup({$groups[i].id},'{$groups[i].group_name|urlencode}');"> <span class="titleGroups">{$groups[i].group_name|stripslashes|htmlentities} </span>
+                                <span class="smallLoader" style="display:none;"><img src="images/smallloader.png" /></span></a>
+                            </div>
+                        	<div id="topicpane">
+                        		{section name=j loop=$groups[i].topics}
+                        		<div id="t-{$groups[i].topics[j].id}" class="draggable">{$groups[i].topics[j].name}</div>
+                        		{/section}
+                        	</div>
+                        </div>
+                        {/section}
+                    </div>
+                </div>
+          </div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+<script type="application/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="application/javascript">
+	var update_url = "{$update_url}";
+</script>
+{literal}
+<script type="application/javascript">
+	function show_edit_popup(i,n){
+		var sHtmlForm ="";
+		sHtmlForm+='<form method="post" enctype="application/x-www-form-urlencoded">'+
+					'<input type="text" name="name" value="'+urldecode(n)+'" autocomplete="off"/><input type="hidden" name="id" value="'+i+'"/>'+
+					'<input type="submit" name="btnSubmit" value="Save"/>'+
+					'<input type="hidden" name="update_group" value="1"/></form>';
+		popup_msg("Edit Topic",sHtmlForm,null,null);
+		return false;
+	}
+	$(document).ready(function(){
+		$(".draggable").draggable();
+		$(".droppable").droppable({
+			drop: function( event, ui ) {
+				var $container= $(this);
+				var $item = ui.draggable;
+				
+				$item.fadeOut(function(){
+					$item.css('top',0);
+					$item.css('left',0);
+					change_group($item,$container,$container.attr('id'),$item.attr('id'));
+				});
+			}
+		});
+	});
+	function change_group($item,$container,g,t){
+		var _group_id = g.replace("g-","");
+		var _topic_id = t.replace("t-","");
+		$("#"+g).find('span.smallLoader').show();
+		$.ajax({
+			  type: "POST",
+			  url: update_url,
+			  data: { group_id:_group_id , topic_id:_topic_id},
+			  success: function(response){
+			  		$("#"+g).find('span.smallLoader').hide();
+			  		$item.css('top',0);
+					$item.css('left',0);
+					$item.appendTo($container.find('div#topicpane')).show(
+						function(){
+							$item.css('top',0);
+							$item.css('left',0);
+						}
+					);
+			  }
+		});
+	}
+</script>
+{/literal}

@@ -1,0 +1,575 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/smac/!svn/ver/2416/trunk/web/templates/smac
+END
+marketPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/2029/trunk/web/templates/smac/marketPage.html
+END
+banner-create-topic.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1615/trunk/web/templates/smac/banner-create-topic.html
+END
+key-word-analysis-top.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/1615/trunk/web/templates/smac/key-word-analysis-top.html
+END
+popup_create_topic.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_create_topic.html
+END
+header.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/2323/trunk/web/templates/smac/header.html
+END
+popup_video.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2183/trunk/web/templates/smac/popup_video.html
+END
+popup_sentiment.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/2281/trunk/web/templates/smac/popup_sentiment.html
+END
+corporatePage.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2302/trunk/web/templates/smac/corporatePage.html
+END
+credit_usage.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/2273/trunk/web/templates/smac/credit_usage.html
+END
+registration-account-confirm.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/smac/!svn/ver/1615/trunk/web/templates/smac/registration-account-confirm.html
+END
+popup_finish_topic.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/2173/trunk/web/templates/smac/popup_finish_topic.html
+END
+my-campaign.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1629/trunk/web/templates/smac/my-campaign.html
+END
+campaign-new.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/1615/trunk/web/templates/smac/campaign-new.html
+END
+my-keyword.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/templates/smac/my-keyword.html
+END
+popup_generate_report.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_generate_report.html
+END
+popup_first_topic.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1957/trunk/web/templates/smac/popup_first_topic.html
+END
+workflow.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1799/trunk/web/templates/smac/workflow.html
+END
+webPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/2302/trunk/web/templates/smac/webPage.html
+END
+compare-channels.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/smac/!svn/ver/1615/trunk/web/templates/smac/compare-channels.html
+END
+active_subscription.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/2188/trunk/web/templates/smac/active_subscription.html
+END
+ka_rule.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/1807/trunk/web/templates/smac/ka_rule.html
+END
+message.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/1615/trunk/web/templates/smac/message.html
+END
+kol.html
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/2272/trunk/web/templates/smac/kol.html
+END
+meta.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/2340/trunk/web/templates/smac/meta.html
+END
+home.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1626/trunk/web/templates/smac/home.html
+END
+login-default.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/1615/trunk/web/templates/smac/login-default.html
+END
+ka.html
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/2369/trunk/web/templates/smac/ka.html
+END
+ecommercePage.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2302/trunk/web/templates/smac/ecommercePage.html
+END
+twitterPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2402/trunk/web/templates/smac/twitterPage.html
+END
+workflow_job_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1615/trunk/web/templates/smac/workflow_job_list.html
+END
+live-track-historical.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/1615/trunk/web/templates/smac/live-track-historical.html
+END
+activation.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/templates/smac/activation.html
+END
+live-track.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1615/trunk/web/templates/smac/live-track.html
+END
+edit-campaign.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2035/trunk/web/templates/smac/edit-campaign.html
+END
+videoPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/2183/trunk/web/templates/smac/videoPage.html
+END
+menu.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/2105/trunk/web/templates/smac/menu.html
+END
+overview.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1957/trunk/web/templates/smac/overview.html
+END
+auto-responder.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1615/trunk/web/templates/smac/auto-responder.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1615/trunk/web/templates/smac/login.html
+END
+popup_ka_conversation.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/2278/trunk/web/templates/smac/popup_ka_conversation.html
+END
+popup_compare.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_compare.html
+END
+line_usage.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/2273/trunk/web/templates/smac/line_usage.html
+END
+allpost.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/2310/trunk/web/templates/smac/allpost.html
+END
+registration-agency.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1615/trunk/web/templates/smac/registration-agency.html
+END
+seru.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/templates/smac/seru.html
+END
+my-account.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/1879/trunk/web/templates/smac/my-account.html
+END
+my-keyword-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/2197/trunk/web/templates/smac/my-keyword-list.html
+END
+key-word-analysis.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1615/trunk/web/templates/smac/key-word-analysis.html
+END
+message-activation.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/1615/trunk/web/templates/smac/message-activation.html
+END
+market.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/1615/trunk/web/templates/smac/market.html
+END
+popup_map_feed.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1860/trunk/web/templates/smac/popup_map_feed.html
+END
+forumPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/2302/trunk/web/templates/smac/forumPage.html
+END
+popup-influenced-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup-influenced-list.html
+END
+popup_new_group.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_new_group.html
+END
+summaryPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2402/trunk/web/templates/smac/summaryPage.html
+END
+new_register.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/1615/trunk/web/templates/smac/new_register.html
+END
+top-summary.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2376/trunk/web/templates/smac/top-summary.html
+END
+under-maintenance.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1615/trunk/web/templates/smac/under-maintenance.html
+END
+workflows.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/2307/trunk/web/templates/smac/workflows.html
+END
+master_register.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/1615/trunk/web/templates/smac/master_register.html
+END
+wom.html
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/templates/smac/wom.html
+END
+term-of-use.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/templates/smac/term-of-use.html
+END
+registration-account.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/1615/trunk/web/templates/smac/registration-account.html
+END
+channelPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2095/trunk/web/templates/smac/channelPage.html
+END
+faq.html
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/templates/smac/faq.html
+END
+privacy-policy.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1615/trunk/web/templates/smac/privacy-policy.html
+END
+registration.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/1615/trunk/web/templates/smac/registration.html
+END
+maintenance.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/templates/smac/maintenance.html
+END
+registration-user.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1615/trunk/web/templates/smac/registration-user.html
+END
+dashboard.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/2312/trunk/web/templates/smac/dashboard.html
+END
+lock.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/smac/!svn/ver/1615/trunk/web/templates/smac/lock.html
+END
+popup_unmark_tweet.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/1896/trunk/web/templates/smac/popup_unmark_tweet.html
+END
+popup_workflow_folder.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_workflow_folder.html
+END
+master.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/2406/trunk/web/templates/smac/master.html
+END
+key-opinion-leader.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/1615/trunk/web/templates/smac/key-opinion-leader.html
+END
+liveTracked.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2102/trunk/web/templates/smac/liveTracked.html
+END
+footer.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/1615/trunk/web/templates/smac/footer.html
+END
+popup_screenshot.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/smac/!svn/ver/2407/trunk/web/templates/smac/popup_screenshot.html
+END
+edit_group.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/2124/trunk/web/templates/smac/edit_group.html
+END
+preferences.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2252/trunk/web/templates/smac/preferences.html
+END
+tracking.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1615/trunk/web/templates/smac/tracking.html
+END
+popup.html
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1836/trunk/web/templates/smac/popup.html
+END
+reset_password.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/2388/trunk/web/templates/smac/reset_password.html
+END
+top-summary-pdf.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/1615/trunk/web/templates/smac/top-summary-pdf.html
+END
+expired_subscription.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/2188/trunk/web/templates/smac/expired_subscription.html
+END
+welcome-page.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/1615/trunk/web/templates/smac/welcome-page.html
+END
+new-campaign.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/2418/trunk/web/templates/smac/new-campaign.html
+END
+facebookPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/2302/trunk/web/templates/smac/facebookPage.html
+END
+report_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/2340/trunk/web/templates/smac/report_list.html
+END
+sentiment.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/templates/smac/sentiment.html
+END
+popup_message.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_message.html
+END
+popup_estimate_profiling.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/1615/trunk/web/templates/smac/popup_estimate_profiling.html
+END
+live-track-all.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1615/trunk/web/templates/smac/live-track-all.html
+END
+sidebar.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/2273/trunk/web/templates/smac/sidebar.html
+END
+newsPage.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/2302/trunk/web/templates/smac/newsPage.html
+END

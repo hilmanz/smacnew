@@ -1,0 +1,173 @@
+<script>
+var n_rules_added = {$n_rules|intval};
+var sl_url = "{encrypt url='index.php?page=keyword&act=update_label&ajax=1' cid=$cid}";
+{literal}
+$(document).ready(function(){
+$('#btnaddrule').click(function(){
+	$("#addrule").show();
+});
+$(".submit-keyword").click(function(){
+	if($("#keyword1").val().length>0&&$("#label").val().length>0){
+		if(n_rules_added<5){
+			$("#frmaddrule").submit();
+		}else{
+			alert("Sorry, Currently you can only have up to 5 rules.");
+		}
+	}
+});
+
+
+});
+{/literal}
+</script>
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="#">My Rules</a></h1>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div id="campaign" class="pad1015">
+              {*}<p>Below are your current active rules</p>{/*}
+              <div>
+              <a href="#" id='btnaddrule'>Add New Rule</a>
+              </div>
+         
+             <form id="frmaddrule" action="{$addlink}" method="post" enctype="application/x-www-form-urlencoded">
+             <table id="addrule" width="100%" border="0" cellspacing="0" cellpadding="0" class="bgGrey round10" style="margin:0 0 10px 0; padding:20px 20px 35px 20px;display:none;">
+                    <tr>
+                        <td colspan="3">
+                        <span class="errKeyword4 fLeft" style="display:none;color: red;margin-top: 10px;">You should create at least 1 rule.</span>
+                        </td>
+                    </tr>
+                     <tr>
+                    	<td width="200"><label>Location</label></td>
+                        <td width="100%">
+                            {$location}
+                        </td>
+                    </tr>
+                     <tr>
+                    	<td width="200"><label>Language</label></td>
+                        <td width="100%">
+                            {$language}
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                    	<td width="200"><label>Label</label></td>
+                        <td width="100%">
+                            <input id="label" class="round5" type="text" name="label" style="width:320px" value="" maxlength="50"/>
+                            <span class="errLabel fLeft" style="display:none;color: red;margin-top: 10px;">Please enter your label</span>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                    	<td width="200"><label>All of these words</label></td>
+                        <td width="100%">
+                            <input id="keyword1" class="round5" type="text" name="keyword1" style="width:320px" value=""/>
+                            <span class="errKeyword1 fLeft" style="display:none;color: red;margin-top: 10px;">Please enter your main keywords</span>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                    	<td width="200"><label>Any of these words (optional)</label></td>
+                        <td width="100%">
+                            <input id="keyword2" class="round5" type="text" name="keyword2" style="width:320px" value=""/>
+                            <span class="errKeyword2 fLeft" style="display:none;color: red;margin-top: 10px;">please separate the keyword by coma</span>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td width="200"><label>Not these words (optional)</label></td>
+                        <td width="100%">
+                            <input id="keyword3" class="round5" type="text" name="keyword3" style="width:320px" value=""/>
+                            <span class="errKeyword3 fLeft" style="display:none;color: red;margin-top: 10px;">please separate the keyword by coma</span>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td width="200"></td>
+                        <td width="100%">
+                        <input type="hidden" name="add" value="1" />
+                        	<a href="javascript:void(0);" class="submit-keyword">Add New Rule</a>
+                        </td>
+                    </tr>
+                </table>
+                 </form>
+                 <div class="table-style">
+                    <table id="tbl-campaign" width="100%" border="0" cellspacing="0" cellpadding="0" class="zebra">   
+                        <tr class="white roundT10 bgGreen">
+                            <td valign="top">
+                                <h3 class="margin0">Label</h3>
+                            </td>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0">Rules</h3>
+                            </td>
+                            <td valign="top">
+                                <h3 class="margin0">Action</h3>
+                            </td>
+                        </tr>
+                        
+                        {section name=i loop=$list}
+                        <tr>
+                            <td valign="top"><a href="#" onclick="change_label('{$list[i].keyword_id}','{$list[i].label|htmlspecialchars}',sl_url);">{if $list[i].label} {$list[i].label} {else} N/A {/if}</a></td>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0"><a class="cLink" href="javascript:void(0);">{$list[i].keyword_txt|translate_rule}</a></h3>
+                            </td>
+                            <td valign="top">
+                                <a class="remove-btn" href="{$list[i].remove_link}" onclick="javascript: if( ! confirm('Are you sure want to delete this keyword?') ) return false;">Remove</a>
+                            </td>
+                        </tr>
+                        {/section}
+                        
+                       {*}
+                       <tr>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0"><a class="cLink" href="#">Tiket</a></h3>
+                            </td>
+                            <td valign="top">
+                                <a class="remove-btn" href="#">Remove</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0"><a class="cLink" href="#">Tiket</a></h3>
+                            </td>
+                            <td valign="top">
+                                <a class="remove-btn" href="#">Remove</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0"><a class="cLink" href="#">Tiket</a></h3>
+                            </td>
+                            <td valign="top">
+                                <a class="remove-btn" href="#">Remove</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0"><a class="cLink" href="#">Tiket</a></h3>
+                            </td>
+                            <td valign="top">
+                                <a class="remove-btn" href="#">Remove</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" style="width:555px;">
+                                <h3 class="margin0"><a class="cLink" href="#">Tiket</a></h3>
+                            </td>
+                            <td valign="top">
+                                <a class="remove-btn" href="#">Remove</a>
+                            </td>
+                        </tr>
+                        {/*}
+                    </table>
+          		</div>
+           	</div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+

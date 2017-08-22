@@ -1,0 +1,174 @@
+<script src="https://maps.google.com/maps?file=api&v=2&key={$google_map_key}" type="text/javascript"></script>
+<script type="text/javascript">
+n_wc = 1;
+</script>
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+            				<h1><a id="menuAtas" href="#" no="3">Workflow</a></h1>
+                        </td>
+                        <td align="right">
+							<span style="display:inline-block; padding:0 30px 0 0;">
+                            <form class="filter-kol" action="">
+                                <label>Filter by:</label>
+                                <select id="filter-kol">
+                                <option value="{encrypt url='index.php?page=workflow'}">Everything</option>
+                                {section name=i loop=$keywords}
+                                    <option value="{$keywords[i].url|stripslashes|strip_tags}" {if $keywords[i].keyword eq $filter_by}selected{/if}>{$keywords[i].keyword|stripslashes|strip_tags}</option>
+                                {/section}
+                                </select>
+                            </form>
+							</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="workflow">
+            	<div id="channels">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="w200" valign="top" align="left">
+                        <ul class="tabs">
+                            <li><a href="#tab-marked" class="tab-marked">Marked (<span id='n-marked'>0</span>)</a></li>
+                            <li><a href="#tab-reply" class="tab-reply">Marked for Reply (<span id='n-reply'>0</span>)</a></li>
+                            <li><a href="#tab-exclusions" class="tab-exclusions" >Exclusions (<span id='n-exclude'>0</span>)</a></li>
+							<li><a href="#tab-analyze" class="tab-analyze" >Analyze (<span id='n-analize'>0</span>)</a></li>
+							{section name=i loop=$folder}
+							<li><a href="#tab-custom{$folder[i].folder_id|intval}" class="tab-custom" id="tab_custom_{$folder[i].folder_id|intval}">{$folder[i].folder_name|strip_tags|stripslashes} (<span id='n-custom{$folder[i].folder_id|intval}'>0</span>)</a></li>
+							{/section}
+							<li><a href="#tab-newfolder" class="tab-newfolder" >Add New Folder</a></li>
+                        </ul>
+                    </td>
+                    <td class="wfull" valign="top" align="left">
+                    	<div class="tab_container" style="min-width:750px;">
+                            <div id="tab-marked" class="tab_content">
+                            	<div id="wf_marked">
+                                </div>
+                                
+                                <div class="paging">
+                                    <a class="prev" href="javascript:wf_marked_prev();">PREV</a>
+                                    <a class="next" href="javascript:wf_marked_next();">NEXT</a>
+                                </div><!-- .paging -->
+                            </div><!-- #tab-marked -->
+                            <div id="tab-reply" class="tab_content">
+                            	<div id="wf_reply">
+                               
+                                </div>
+                                <div class="paging" style="margin-bottom:30px;">
+                                    <a class="prev" href="javascript:wf_reply_prev();">PREV</a>
+                                    <a class="next" href="javascript:wf_reply_next();">NEXT</a>
+                                </div><!-- .paging -->
+                                
+                            </div><!-- #tab-reply -->
+                            <div id="tab-exclusions" class="tab_content" >
+                            	<div id="wf_exc"></div>
+                                
+                                <div class="paging">
+                                    <a class="prev" href="javascript:wf_exc_prev();">PREV</a>
+                                    <a class="next" href="javascript:wf_exc_next();">NEXT</a>
+                                </div><!-- .paging -->
+                            </div><!-- #tab-exclusions -->
+							<div id="tab-analyze" class="tab_content" >
+                            	<div class="analyze" id="analyze">
+                                    <div id="wf_analize"></div>
+                                </div><!-- .analyze -->
+                            	<div class="analyze-detail" id="analyze-1" style="display:none;">
+                                </div><!-- .analyze -->
+								{include file='smac/popup-influenced-list.html'}
+                                <div class="paging">
+                                    <a class="prev" href="javascript:wf_analize_prev();">PREV</a>
+                                    <a class="next" href="javascript:wf_analize_next();">NEXT</a>
+                                </div><!-- .paging -->
+                            </div><!-- #tab-analyze -->
+                            <!-- custom -->
+                            {section name=i loop=$folder}
+                            <div id="tab-custom{$folder[i].folder_id|intval}" class="tab_content tab_workflow_custom" style="position:relative;">
+                            	<div id="customhead"><a href="#" class="tplbtn" style="float: right;position: absolute;right: 11px;top: 5px; width: 200px;" onclick="remove_folder({$folder[i].folder_id|intval});">Remove These Folder</a></div>
+                            	<div id="wf_custom{$folder[i].folder_id|intval}">
+                                </div>
+                                <div class="paging">
+                                    <a class="prev" href="javascript:wf_custom_prev({$folder[i].folder_id|intval});">PREV</a>
+                                    <a class="next" href="javascript:wf_custom_next({$folder[i].folder_id|intval});">NEXT</a>
+                                </div><!-- .paging -->
+                            </div><!-- #tab-marked -->
+                            {/section}
+                            <!-- create new folder -->
+                            <div id="tab-newfolder" class="tab_content">
+                                <div id="section2">
+                                    <div class="headpopup">
+                                        <div class="content-left">
+                                            <h1>Add New Folder</h1>
+                                        </div><!-- .content-left -->
+                                    </div>
+                                    <div class="content">
+                                            <div id="new-folder">
+                                               <form class="add-new-folder">
+                                               <div class="row">
+                                                   <textarea id="wf_new_folder_txt"></textarea>
+                                                   <input type="button" value="Add New Folder" onclick="wf_add_folder2();"/>
+                                                   </form>
+                                               </div>
+                                            </div>
+                                    </div><!-- .content-popup -->
+                                </div><!-- #section2 -->
+                            </div><!-- #tab-marked -->
+                            <!-- custom -->
+                        </div>
+                    </td>
+                  </tr>
+                </table>
+                </div><!-- #channels -->
+            </div><!-- #workflow -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+        <script type="text/javascript" >
+        {literal}
+        folders = {};
+       
+       
+        {/literal}
+        var wf_url1 = "{encrypt url='index.php?page=workflow&act=getTabContent&type=1&ajax=1' filter_by=$filter_by}";
+        var wf_url2 = "{encrypt url='index.php?page=workflow&act=getTabContent&type=2&ajax=1' filter_by=$filter_by}";
+        var wf_url3 = "{encrypt url='index.php?page=workflow&act=getTabContent&type=3&ajax=1' filter_by=$filter_by}";
+        var wf_url4 = "{encrypt url='index.php?page=workflow&act=getTabContent&type=4&ajax=1' filter_by=$filter_by}";
+        var wf_url5 = "{encrypt url='index.php?page=workflow&act=get_search_queue&ajax=1'}";
+        var reply_url = "{encrypt url='index.php?page=twitter&act=tweet&ajax=1'}";
+        var gmap_url = "{encrypt url='index.php?page=workflow&act=gmap_wrapper&ajax=1'}";
+        var is_authorized = {$is_authorized|intval};
+        var rf_url = "{encrypt url='index.php?page=workflow&act=remove_folder&ajax=1'}";
+        </script>          
+        {literal}
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#tab-analyze .smallthumb a,.back-analyze").click(function(){
+                    var targetID = jQuery(this).attr('href');
+                    jQuery(".analyze-detail,.analyze").hide();
+                    jQuery(targetID).fadeIn();
+                    
+                    return false;
+                });
+				jQuery("a.newfolder").click(function(){
+					var targetID = jQuery(this).attr('href');
+					jQuery(targetID).fadeIn();
+					return false;
+				});
+                {/literal}
+                	{section name=i loop=$folder}
+                    folders['tab_custom_{$folder[i].folder_id|intval}']="index.php?req={$folder[i].url}";
+                    wf_load_custom({$folder[i].folder_id|intval},'index.php?req={$folder[i].url}');
+                    
+                    {/section}
+                    {literal}
+                wf_load_content([wf_url1,wf_url2,wf_url3,wf_url4,wf_url5]);
+        		//setInterval(exc_check,10000);
+        		setTimeout(function() {
+  					exc_check();
+				}, 10000); 
+            });
+        </script>
+        {/literal}

@@ -1,0 +1,139 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="w1" align="left" valign="top">
+            <div id="sumChart" class="bgGreen">
+                <div class="titles">
+                    <h3>All channel performance</h3>
+                    <div class="wfilters">
+                        <select id="dailySelect" name="d">
+							<option value="sumVolbyMention">Volume by Mention</option>
+                            <option value="sumVolbyImpression">Volume by Impression</option>
+                            <option value="sumVolbyPositive">Volume by Positive Sentiment</option>
+							<option value="sumVolbyNegative">Volume by Negative Sentiment</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="sumVolumebySentiment" class="theChart" style="width:600px;height:207px;background: white;">
+				</div>
+            </div>
+            <div id="sumList" class="list-box">
+                <div id="sumPII" class="box firstBox">
+                    <span>People &amp; Sites</span>
+                    <a class="helpsmall theTolltip" href="#" title="People &amp; Sites."></a>
+                    <h1 class="sumPII"></h1>
+                    <span class="triangle fleft">&nbsp;</span>
+					<span class="counts"></span>
+                </div>
+                <div id="sumTM" class="box">
+                    <span>Total Posts</span>
+                     <a href="#" class="helpsmall theTolltip" title="How many times your keywords have been mentioned accumulatively through the topic's timespan."></a>
+                     <h1 class="theTolltip" title="sd"></h1>
+					 <span class="triangle fleft">&nbsp;</span>
+					 <span class="counts"></span>
+					 {*}
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+                    <span class="counts">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+					{/*}
+                </div>
+                <div id="sumPI" class="box">
+                    <span>Potential Impressions</span>
+                     <a href="#" class="helpsmall theTolltip" title="The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers."></a>
+                     <h1></h1>
+					 <span class="triangle fleft">&nbsp;</span>
+					 <span class="counts"></span>
+					{*}
+				   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+					{/*}
+                </div>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" width="330">
+                    <div class="favorite-word">
+                        <h1>Topic Wordcloud</h1>
+						<div id="sumTopWords" class="wordclouds">
+						</div>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div id="wgkol_new">
+						<div class="thePeoples">
+							<h1>Top People</h1>
+							<a class="smallArrow" href="{encrypt url='index.php?page=kol'}#tabTwitter">View All</a>
+							<div id="sumTopPeople" class="content">
+							</div><!-- .content-->
+						</div><!-- .thePeoples-->
+					</div>
+                </td>
+              </tr>
+            </table>
+    </td><!-- .w1-->
+    <td class="w2" align="left" valign="top">
+        <div id="pieChart1">
+            <div class="titles">
+                <h3>Share of Voice - All Rules</h3>
+            </div>
+            <div class="bgGreys">
+                <div id="sumShareofVoice" class="theChart" style="width: 290px; height: 350px;">
+                </div>
+            </div>
+        </div><!-- # End pieChart1-->
+        <div id="pieChart2">
+            <div class="titles">
+                <h3>Sentiment All Channels</h3>
+            </div>
+            <div class="bgGreys">
+                <div id="sumSentimentAllChannels" class="theChart" style="width: 290px; height: 325px;">
+                </div>
+            </div>
+        </div><!-- # End pieChart2-->
+    </td><!-- .w2-->
+  </tr>
+  <tr>
+    <td colspan="2">                    
+        <div id="topPost">
+          <div class="titles">
+            <h3>Top Posts</h3>
+           
+  		    <a class="smallArrow" href="{encrypt url='index.php?page=allpost'}#twitterTab">View All</a>&nbsp;<a class="smallArrow" href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=0&type=1'}">Raw Posts</a>
+          </div>
+          <div id="channels" class="bgGreys">
+            <div id="tab-twitter">
+              <div id="sumTopPost">
+              </div>
+            </div>
+          </div><!-- .bgGreys -->
+        </div><!-- .topPost -->
+    </td>
+  </tr>
+</table>
+
+<script>
+{literal}
+	$("#dailySelect").live('change', function() {
+		if(sumCount != null){
+			if(sumCount != 0){
+				allChannelPerformance(this.value);
+			}
+		}
+    });
+{/literal}
+</script>

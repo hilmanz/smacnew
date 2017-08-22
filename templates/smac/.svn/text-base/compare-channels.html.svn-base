@@ -1,0 +1,310 @@
+<script type="text/javascript">
+//tw
+var totalPerPage = {$totalPerPage|intval};
+var numPage = {$numPageTw|intval} - 1;
+var page = 0;
+var curPage = 0;
+
+//fb
+//var totalPerPage = {$totalPerPage|intval};
+var numPageFB = {$numPageFB|intval} - 1;
+var pageFB = 0;
+var curPageFB = 0;
+
+//blog
+//var totalPerPage = {$totalPerPage|intval};
+var numPageBLOG = {$numPageBLOG|intval} - 1;
+var pageBLOG = 0;
+var curPageBLOG = 0;
+
+{literal}
+jQuery(document).ready(function() {
+
+$('#prev').hide();
+
+if(numPage <= 0){
+	$('#next').hide();
+}
+
+$('#next').click(function(){
+	//alert('page: '+curPage+' < numpage: '+numPage);
+	if( curPage < numPage){
+		for(var i=page;i<(page + totalPerPage);i++){
+			$('#tr-'+i).hide();
+		}
+		nextPage = page + totalPerPage; 
+		for(var i=nextPage;i<(nextPage + totalPerPage);i++){
+			$('#tr-'+i).fadeIn('slow');
+		}
+		page = nextPage;
+		if(page == (totalPerPage * numPage)){
+			$('#next').hide();
+		}
+		$('#prev').show();
+		curPage++;
+	}
+});
+$('#prev').click(function(){
+	if( curPage > 0){
+		for(var i=page;i<(page + totalPerPage);i++){
+			$('#tr-'+i).hide();
+		}
+		nextPage = page - totalPerPage; 
+		for(var i=nextPage;i<(nextPage + totalPerPage);i++){
+			$('#tr-'+i).fadeIn('slow');
+		}
+		page = nextPage;
+		if(page <= 0){
+			$('#prev').hide();
+		}
+		$('#next').show();
+		curPage--;
+	}
+});
+
+//FB
+$('#prevFB').hide();
+
+if(numPageFB <= 0){
+	$('#nextFB').hide();
+}
+
+$('#nextFB').click(function(){
+	//alert('page: '+curPage+' < numpage: '+numPage);
+	if( curPageFB < numPageFB){
+		for(var i=pageFB;i<(pageFB + totalPerPage);i++){
+			$('#fb-'+i).hide();
+		}
+		nextPage = pageFB + totalPerPage; 
+		for(var i=nextPage;i<(nextPage + totalPerPage);i++){
+			$('#fb-'+i).fadeIn('slow');
+		}
+		pageFB = nextPage;
+		if(pageFB == (totalPerPage * numPageFB)){
+			$('#nextFB').hide();
+		}
+		$('#prevFB').show();
+		curPageFB++;
+	}
+});
+$('#prevFB').click(function(){
+	if( curPageFB > 0){
+		for(var i=pageFB;i<(pageFB + totalPerPage);i++){
+			$('#fb-'+i).hide();
+		}
+		nextPage = pageFB - totalPerPage; 
+		for(var i=nextPage;i<(nextPage + totalPerPage);i++){
+			$('#fb-'+i).fadeIn('slow');
+		}
+		pageFB = nextPage;
+		if(pageFB <= 0){
+			$('#prevFB').hide();
+		}
+		$('#nextFB').show();
+		curPageFB--;
+	}
+});
+
+//BLOG
+$('#prevBLOG').hide();
+
+if(numPageBLOG <= 0){
+	$('#nextBLOG').hide();
+}
+
+$('#nextBLOG').click(function(){
+	//alert('page: '+curPage+' < numpage: '+numPage);
+	if( curPageBLOG < numPageBLOG){
+		for(var i=pageBLOG;i<(pageBLOG + totalPerPage);i++){
+			$('#blog-'+i).hide();
+		}
+		nextPage = pageBLOG + totalPerPage; 
+		for(var i=nextPage;i<(nextPage + totalPerPage);i++){
+			$('#blog-'+i).fadeIn('slow');
+		}
+		pageBLOG = nextPage;
+		if(pageBLOG == (totalPerPage * numPageBLOG)){
+			$('#nextBLOG').hide();
+		}
+		$('#prevBLOG').show();
+		curPageBLOG++;
+	}
+});
+$('#prevBLOG').click(function(){
+	if( curPageBLOG > 0){
+		for(var i=pageBLOG;i<(pageBLOG + totalPerPage);i++){
+			$('#blog-'+i).hide();
+		}
+		nextPage = pageBLOG - totalPerPage; 
+		for(var i=nextPage;i<(nextPage + totalPerPage);i++){
+			$('#blog-'+i).fadeIn('slow');
+		}
+		pageBLOG = nextPage;
+		if(pageBLOG <= 0){
+			$('#prevBLOG').hide();
+		}
+		$('#nextBLOG').show();
+		curPageBLOG--;
+	}
+});
+
+});
+{/literal}
+</script>
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+            	<h1><a id="menuAtas" href="index.php" no="1">Dashboard</a>&nbsp;&gt;&nbsp;Source</h1>
+                <a href="{$urlback}" class="back">&laquo;&nbsp;Back</a>
+            </div>
+            <div id="channels">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="compare-channels">
+              <tr>
+				{if $channels[1]}
+                <td class="twitter-box" width="30%" valign="top">
+                	<a href="#" class="tab-twitter"><span>&nbsp;</span>{$source_count.twitter}%</a>
+                        <div id="tab-twitter" class="channel_box">
+                            {if !$tw}
+		                     	<div class="nodata" style="text-align:center; margin: 100px 0 0;">
+	                        		<img src="images/nodata-grey.jpg" width="127" style="margin: 0 0 10px 0" />
+	                        		<p>Data not available for the moment</p>
+                            	</div>
+		                	{/if}
+                            {section name=i loop=$tw}
+                            
+		                        {if $smarty.section.i.index < $totalPerPage}
+									{assign var=display value=''}
+								{else}
+									{assign var=display value='display:none;'}
+								{/if}
+		                        
+		                        <div class="list" style="{$display}" id="tr-{$smarty.section.i.index}">
+		                            <div class="smallthumb">
+		                                <a href="#?w=650&id={$tw[i].author_id}" class="smallthumb poplight" rel="profile"><img src="{$tw[i].image}" /></a>
+		                            </div>
+		                            <div class="entry">
+		                                <h3>{$tw[i].name}</h3><span class="date">{$tw[i].published_date}</span>
+		                                <span>{$tw[i].txt|stripslashes|strip_tags}</span>
+		                            </div><!-- .entry -->
+		                            <div class="entry-action">
+		                            	<a href="#" {if $tw[i].device eq 'blackberry'}class="active"{/if}><span class="blackberry" >&nbsp;</span></a>
+		                            	<a href="#" {if $tw[i].device eq 'apple'}class="active"{/if}><span class="apple" >&nbsp;</span></a>
+		                            	<a href="#" {if $tw[i].device eq 'android'}class="active"{/if}><span class="android" >&nbsp;</span></a>
+                                        <a class="icon-rts tip_trigger" style="margin-left: 15px;"> {$tw[i].rt}  <span class="tip">Retweet Frequency</span></a>
+                                        <a class="icon-imp tip_trigger"> {$tw[i].imp}  <span class="tip">Total Impressions</span></a>
+                                        <a class="icon-share tip_trigger">{$tw[i].share}% <span class="tip">Share</span></a>
+                                		<a class="reply tip_trigger" href="#">&nbsp;<span class="tip">Mark for Reply</span></a>
+		                            </div><!-- .entry-action -->
+		                        </div><!-- .list -->
+                            
+                            {/section}
+                            
+                            <div class="paging">
+                                <a href="javascript:void(0);" id="prev">Prev</a>
+                                <a href="javascript:void(0);" id="next">Next</a>
+                            </div><!-- .paging -->
+                            
+                            
+                        </div><!-- #tab-twitter -->
+                </td>
+				{/if}
+				
+				{if $channels[2]}
+                <td class="facebook-box" width="30%" valign="top">
+                	<a href="#" class="tab-facebook"><span>&nbsp;</span>{$source_count.fb}%</a>
+                        <div id="tab-facebook" class="channel_box">
+                        	{if !$fb}
+		                     	<div class="nodata" style="text-align:center; margin: 100px 0 0;">
+	                        		<img src="images/nodata-white.jpg" width="127" style="margin: 0 0 10px 0" />
+	                        		<p>Data not available for the moment</p>
+                            	</div>
+		                     {/if}
+                             {section name=i loop=$fb}
+                            
+		                        {if $smarty.section.i.index < $totalPerPage}
+									{assign var=display value=''}
+								{else}
+									{assign var=display value='display:none;'}
+								{/if}
+		                       
+		                    
+		                        <div class="list" style="{$display}" id="fb-{$smarty.section.i.index}">
+		                            <div class="smallthumb">
+		                                {*}
+		                                <a href="{$fb[i].url}" target="_blank" class="smallthumb poplight" rel="profile"><img src="{$fb[i].image}" /></a>
+		                                {/*}
+		                                <a href="{$fb[i].url}" target="_blank" class="smallthumb poplight" rel="profile"><img src="{$fb[i].image}" /></a>
+		                            </div>
+		                            <div class="entry">
+		                                <h3><a href="{$fb[i].url}" target="_blank">{$fb[i].name}</a></h3>
+		                                <span>{$fb[i].txt|stripslashes|strip_tags}</span>
+		                            </div><!-- .entry -->
+		                            <div class="entry-action">
+		                            	<a href="#" {if $fb[i].device eq 'blackberry'}class="active"{/if}><span class="blackberry" >&nbsp;</span></a>
+		                            	<a href="#" {if $fb[i].device eq 'apple'}class="active"{/if}><span class="apple" >&nbsp;</span></a>
+		                            	<a href="#" {if $fb[i].device eq 'android'}class="active"{/if}><span class="android" >&nbsp;</span></a>
+		                            	<a class="like" href="#">{$fb[i].reach}</a>
+		                            	
+		                            </div><!-- .entry-action -->
+		                        </div><!-- .list -->
+                            
+                            {/section}
+                           
+                            <div class="paging">
+                                <a href="javascript:void(0);" id="prevFB">Prev</a>
+                                <a href="javascript:void(0);" id="nextFB">Next</a>
+                            </div><!-- .paging -->
+                        </div><!-- #tab-facebook -->
+                </td>
+				{/if}
+				
+				{if $channels[3]}
+                <td class="blog-box" width="30%" valign="top">
+                	<a href="#" class="tab-blog"><span>&nbsp;</span>{$source_count.blog}%</a>
+                        <div id="tab-blog" class="channel_box">
+                        {if !$blog}
+		                     	<div class="nodata" style="text-align:center; margin: 100px 0 0;">
+	                        		<img src="images/nodata-grey.jpg" width="127" style="margin: 0 0 10px 0" />
+	                        		<p>Data not available for the moment</p>
+                            	</div>
+		                {/if}
+                        {section name=i loop=$blog}
+							
+								{if $smarty.section.i.index < $totalPerPage}
+									{assign var=display value=''}
+								{else}
+									{assign var=display value='display:none;'}
+								{/if}
+							
+                            <div class="list" style="{$display}" id="blog-{$smarty.section.i.index}">
+                                <div class="smallthumb">
+                                    <img src="content/default-blog.jpg" />
+                                </div>
+                                <div class="entry">
+                                    <h3><a href="{$blog[i].link|stripslashes|strip_tags}" target="_blank">{$blog[i].name|stripslashes|strip_tags}</a></h3>
+                                    <span>{$blog[i].txt|stripslashes|strip_tags}</span>
+                                </div><!-- .entry -->
+                                <div class="entry-action">
+                                	<a href="#" {if $blog[i].device eq 'wordpress'}class="active"{/if}><span class="wordpress" >&nbsp;</span></a>
+                                	<a href="#" {if $blog[i].device eq 'blogger'}class="active"{/if}><span class="blog" >&nbsp;</span></a>
+                                	<a href="#" {if $blog[i].device eq 'joomla'}class="active"{/if}><span class="jomla" >&nbsp;</span></a>
+                                	{*}<a class="like" href="#">{$blog[i].reach}</a>{/*}
+                                </div><!-- .entry-action -->
+                            </div><!-- .list -->
+                           {/section}
+                            <div class="paging">
+                                <a href="javascript:void(0);" id="prevBLOG">Prev</a>
+                                <a href="javascript:void(0);" id="nextBLOG">Next</a>
+                            </div><!-- .paging -->
+                        </div><!-- #tab-blog -->
+                </td>
+				{/if}
+				
+              </tr>
+            </table>
+           </div><!-- #channels -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->

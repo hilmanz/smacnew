@@ -1,0 +1,208 @@
+<script src="js/jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript">
+var urlchecksubdomain = "{encrypt url='index.php?page=registration&act=checksubdomain&ajax=1'}";
+{literal}
+$(document).ready(function(){
+	$("#agencyRegister").validate();
+	
+	var delay = (function(){
+		var timer = 0;
+		return function(callback, ms){
+			clearTimeout (timer);
+			timer = setTimeout(callback, ms);
+		};
+	})();
+	
+	$('#subdomain').keyup(function() {
+		delay(function(){
+		  //alert('Time elapsed!');
+		  checkSubdomain($('#subdomain').val());
+		}, 1000 );
+	});
+	
+});
+
+function checkSubdomain(sb){
+	var d = new Date();
+	var rand = d.getTime();
+	$.ajax({
+		url: urlchecksubdomain+'&rand='+rand+'&sb='+sb,
+		dataType: 'json',
+		success: function( data ) {
+		  	if( data.success == 1){
+				$('#subdomain-no').fadeOut();
+				$('#subdomain-yes').fadeIn();
+			}else{
+				$('#subdomain-yes').fadeOut();
+				$('#subdomain-no').fadeIn();
+			}
+		}
+	});
+}
+
+</script>
+{/literal}
+
+		
+<div id="register" style="width:1020px;">
+        	<a href="index.php" class="logobig" style="margin:30px auto;">&nbsp;</a>
+        	<div class="register-content" style="width:960px; position:relative;">
+            	<h1 style="color:#666666;font-size:12px;">SMAC is now open for trials! Fill in your details below to submit your request for a free trial</h1>
+            	<div style="position: absolute; top:30px; right: 40px; font-size:11px;">
+                        	Already have an account? <a style="color:#8cc34a; text-decoration: none;" target="_blank" href="#">Use your existing login</a>
+                </div>
+            	{if $err != ''}
+				<p style="color:#cc0000;">
+					{$err}
+					
+					{if $validErr}
+					<ul>
+					{section name=i loop=$validErr}
+						<li>{$validErr[i]}</li>
+					{/section}
+					</ul>
+					{/if}
+				</p>
+				{/if}
+                <form class="registerform" id="agencyRegister" method="POST" action="index.php?req=iFa-615kpUoth9Dg1ps_84JrF9ncCpN_">
+                	<div class="registerbox">
+                	<div class="w-left" style="width:550px;">
+                		{*}
+                		<div class="row" style="margin:0 0 15px 0">
+                			<label style="width:550px;">SMAC is now open for trials! Fill in your details below to submit your request for a free trial</label>
+                		</div>
+                    	{/*}
+                    	<div class="row">
+                            <label style="font-weight:normal;">NAME</label>
+                            <input value="{$name}" type="text" name="name" class="required" minlength="2" style="width:380px;" />
+						</div>
+						<div class="row">
+                        <label style="font-weight:normal;">EMAIL</label>
+                        <input value="{$email}" type="email" name="email" class="required" style="width:380px;" />
+                        </div>
+                        <div class="row">
+                        <label style="font-weight:normal;">CONTACT/MOBILE</label>
+                        <input value="{$contact}" type="text" name="contact" class="required number" style="width:380px;" />
+                        </div>
+                        <div class="row">
+                        	<label style="font-weight:normal;">COUNTRY</label>
+                        	<!--<input type="text" name="country" class="required" />-->
+                        
+                        	<select name="country" id="country" style="width:396px;">
+                    		{section name=i loop=$country}
+								{if $country2}
+								<option value="{$country[i].country_id}" {if $country[i].country_id eq $country2} selected="selected"{/if}>{$country[i].country_name}</option>
+								{else}
+                    			<option value="{$country[i].country_id}" {if $country[i].country_id eq 'ID'} selected="selected"{/if}>{$country[i].country_name}</option>
+								{/if}
+							{/section}
+                    		</select>
+                        
+                        </div>
+<!--                         <div class="row">
+                        <label style="font-weight:normal;">STATE</label>
+                       		
+                       		<select name="state" id="state" style="width:396px;">
+		                	{section name=i loop=$state}
+		                			<option value="{$state[i].state_id}">{$state[i].state_name}</option>
+		                	{/section}
+		                	</select>
+                        
+                        </div>
+                    	<div class="row">
+                        <label style="font-weight:normal;">CITY</label>
+                        	<select name="city" id="city" style="width:396px;">
+		                	{section name=i loop=$city}
+		                			<option value="{$city[i].loc_id}">{$city[i].city_name}</option>
+		                	{/section}
+		                	</select>
+						</div>-->
+						<div class="row" id="city-other" style="display:none;">
+						<label>&nbsp;</label>
+							<input value="" type="text" name="city_other" style="width:380px;" />
+						</div>
+                       
+                    	
+                    	
+                    	<div class="row">
+                        <label style="font-weight:normal;">LANGUAGE PREFERENCE</label>
+
+                       		<select size="1" id="language" name="lang" style="width:396px;">
+                                <option value="id" {if $lang eq 'id'}selected="selected"{/if}>Bahasa Indonesia</option>
+                                <option value="en" {if $lang eq 'en'}selected="selected"{/if}>English</option>
+								<option value="other" {if $lang != 'id' and $lang != 'en' and $lang != ''}selected="selected"{/if}>Other</option>
+                            </select>
+                        </div>
+						<div class="row" id="lang-other"  {if $lang != 'id' and $lang != 'en' and $lang != ''}{else}style="display:none;"{/if}>
+						<label>&nbsp;</label>
+							<input value="{$langOther}" type="text" name="lang_other" style="width:380px;" />
+						</div>
+						
+						<div class="row">
+                        <label style="font-weight:normal;">SUBDOMAIN</label>
+							<input value="{$subdomain}" type="text" id="subdomain" name="subdomain" maxlength="30" size="30" />&nbsp;.smacapp.com
+							<div id="subdomain-yes" style="display:none;">Available</div>
+							<div id="subdomain-no" style="display:none;">Not Available</div>
+                        </div>
+						
+						
+                        <div class="row" style="margin:15px 0 15px 0">
+                			<label style="width:550px; font-size:12px;">Please fill in the form below if you are an agency</label>
+                		</div>
+                    	 <div class="row">
+	                        <label style="font-weight:normal;">AGENCY NAME</label>
+	                        <input value="{$agencyName}" type="text" name="agency_name" style="width:380px;" />
+                        </div>
+                         <div class="row">
+	                        <label style="font-weight:normal;">COMPANY NAME</label>
+	                        <input value="{$companyName}" type="text" name="company_name" style="width:380px;" />
+                        </div>
+                    	 <div class="row">
+	                        <label style="font-weight:normal;">CONTACT PERSON NO.</label>
+	                        <input value="{$contactPerson}" type="text" name="contact_person" class="number" style="width:380px;" />
+                        </div>
+                   	
+                    </div>
+                	<div class="w-right">
+                    	{*}
+                    	<div class="row">
+                            <label>Tell Us About Your Company</label>
+                            <textarea name="about"></textarea>
+						</div>
+                    	<div class="row">
+                        <label>Why Are You Interested With Smac?</label>
+                            <textarea name="why"></textarea>
+                        </div>
+                    	<div class="row">
+                        <label class="left">ACCOUNT TYPE</label>
+                        <select name="type">
+                        	<option value="0">Account</option>
+							<option value="1">Agency</option>
+                        </select>
+                        </div>
+                        {/*}
+                        
+                        <div class="row round10 bgDarkGrey" style="min-height:310px; color:white;padding: 10px 20px;">
+                            <p style="text-align:center;color:white;font-size:15px;border-bottom: 1px dashed #FFF;margin:15px 0;padding: 0 0 15px;">Why SMAC</p>
+                            <a href="#" class="reg1"></a><a href="#" class="reg2"></a><a href="#" class="reg3"></a><a href="#" class="reg4"></a><a href="#" class="reg5"></a>
+                            <p style="border-top: 1px dashed #FFF;float:left;margin:5px 0 0 0;padding: 15px 0 0 0;">
+Smac is a complete social media monitoring solution for brands and agencies. Smac helps you to integrate, archive, analyze and generate consumer insights from online conversation. Smac will monitor your PR campaigns, your reputation and also your competition. <br><br>We track any keywords, phrases, hash-tags, or links across social media, blogs and forums.
+                            	
+                            </p>
+                            
+						</div>
+						<div class="row" style="margin: 56px 0 0 0;">
+							<input type="checkbox" value="1" name="aggrement" class="required">
+								By signing up, I agree to the 
+								<a style="color:#8cc34a; text-decoration: none;" target="_blank" href="{$urltermofuse}">terms of use</a>
+						</div>
+                    </div>
+                    </div>
+                    <input type="hidden" name="add" value="1" />
+                    <div class="row-button">
+                    <input type="button" value="CANCEL" class="grey-btn" onClick="history.go(-1)">
+                    <input type="submit" value="REGISTER" class="green-btn" />
+                    </div>
+                </form>
+            </div><!-- .login-content -->
+</div><!-- #login -->

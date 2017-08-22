@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/smac/!svn/ver/1646/trunk/web/com/CredentialApp/modules
+END
+validate_session.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/1615/trunk/web/com/CredentialApp/modules/validate_session.php
+END
+user_login.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/1646/trunk/web/com/CredentialApp/modules/user_login.php
+END

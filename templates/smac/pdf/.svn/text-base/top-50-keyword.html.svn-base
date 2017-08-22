@@ -1,0 +1,25 @@
+
+            <div id="top-50-keyword"  style="clear:both;width:640px;">
+                <div class="title-bar">
+                    <h1><span class="numbers"></span><span class="title-text">Top 50 Keywords</span></h1>
+                </div>
+               
+                    <table  border="0" cellspacing="2" cellpadding="0" width="600px">
+                        <tr>
+                            <td width="20" bgcolor="#999999">No</td>
+                            <td bgcolor="#999999">Word</td>
+                            <td bgcolor="#999999">Frequency</td>
+                            <td bgcolor="#999999">People Mentioning</td>
+                        </tr>
+						{assign var=num value=1}
+						{section name=i loop=$top_keywords}
+						<tr>
+                            <td>{$num}.</td>
+                            <td>{$top_keywords[i].word}</td>
+                            <td>{$top_keywords[i].percent|number_format}</td>
+                            <td>{$top_keywords[i].total|number_format}</td>
+                        </tr>
+						{assign var=num value=$num+1}
+						{/section}
+                    </table>
+            </div><!-- #top-50-keyword-->

@@ -1,0 +1,30 @@
+
+    	<div id="signIn">
+        	<a href="index.php" class="logobig">&nbsp;</a>
+        	<div class="login-content login-default">
+                <form class="loginform" id="login" method="post" enctype="application/x-www-form-urlencoded">
+                	<div class="row">
+                    <label>Account Domain</label>
+                    <input type="text" name="subdomain" class="account-domain" id="subdomain" value="" />
+                    <span class="labeldomain">.smacapp.com</span>
+                    </div>
+                    <div class="row">
+                    <label>Username</label>
+                    <input type="text" name="username" value="" />
+                    </div>
+                    <div class="row">
+                    <label>Password</label>
+                    <input type="password" name="password" value="" />
+                    </div>
+                    <div class="row">
+                    <input name="login" id="login" type="hidden" value="1" />
+					
+                    <input type="submit" value="&nbsp;" />
+                    </div>
+                </form>
+            </div><!-- .login-content -->
+            <div class="forgot">
+            	<p>Forgot your password? <a href="{encrypt url='?page=login&act=reset_password'}">Get a new one here</a></p> 
+            	<p><a href="index.php?req=iFa-615kpUoth9Dg1ps_84JrF9ncCpN_">Register</a></p>
+            </div>
+        </div><!-- #login -->

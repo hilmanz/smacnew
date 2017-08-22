@@ -1,0 +1,179 @@
+<div id="main-container">
+	{$sidebar}
+	<div id="container">
+		{$menu}
+		<div class="title-bar">
+			<h1><a href="#">Download Report</a></h1>
+		</div>
+		<div id="allPostnav">
+			<h3>
+				<span class="navCustom active"><a href="#tabs/customReport" class="theTolltip" title="Custom Reports">Custom Reports</a></span>
+				<span class="navRaw"><a href="#tabs/rawPost" class="theTolltip" title="Raw Post(s)">Raw Post(s)</a></span>
+				<span class="navExclusive"><a href="#tabs/exclusiveReport" class="theTolltip" title="Exclusive Reports">Exclusive Reports</a></span>
+			</h3>
+		</div>
+		{if $data_available}
+		<div id="top-summary" class="summary-report" style="width: auto;">
+			<div id="reportSummary">
+				<div id="customReport" class="pageContent bgGreys" style="display: block;">
+					<div class="text">
+						<h1>Get Your Report in PDF</h1>
+						<p>Select which metrics you want and download your SMAC topic data in PDF format.  Each custom report request will be queued in our system and will be ready for download momentarily. We're adding more metrics over time, so check back to download only the data you want!</p>
+					</div>
+					<div id="listReport">
+						<form class="checkReport"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="zebra">
+							<tr>
+							<td><label>Overall Summary</label></td>
+							<td width="10"><input type="checkbox" id="t1" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td><label>Volume Over Time</label></td>
+							<td width="10"><input type="checkbox" id="t2" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td><label>Sentiment Over Time</label></td>
+							 <td width="10"><input type="checkbox" id="t3" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td><label>Top Keywords</label></td>
+							 <td width="10"><input type="checkbox" id="t4" values="1"/></td>
+						  </tr>
+					  
+						  <tr>
+							<td><label>Volume By Channel</label></td>
+							 <td width="10"><input type="checkbox" id="t6" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td><label>Top Keyword's Conversation</label></td>
+							 <td width="10"><input type="checkbox" id="t7" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td><label>Top Influencers</label></td>
+							<td width="10"><input type="checkbox" id="t8" values="1"/></td>
+						  </tr>
+						   <tr>
+							<td><label>Top Posts</label></td>
+							 <td width="10"><input type="checkbox" id="t11" values="1"/></td>
+						  </tr>
+						 {*} <tr>
+							<td><label>Key Issues</label></td>
+							 <td width="10"><input type="checkbox" id="t9" values="1"/></td>
+						  </tr> {/*}                         
+						  <tr>
+							<td><label>Brand Twitter Account</label></td>
+							 <td width="10"><input type="checkbox" id="t10" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td><label>Top Websites</label></td>
+							 <td width="10"><input type="checkbox" id="t12" values="1"/></td>
+						  </tr>
+						  <tr>
+							<td colspan="2"><a href="#?w=410&id=generate" rel="popup-generate" class="greenBtn poplight">GENERATE REPORT</a></td>
+						  </tr>
+						</table>
+						</form>
+					</div>
+					  {include file='smac/popup_generate_report.html'}
+				
+					<div style="height:33px;">
+						<div style="float:left;width:100px;">
+							<h3>Custom Reports</h3>
+						</div>
+						<div id="reportloader" style="padding:10px 0 0 0;">&nbsp;</div>
+					</div>
+					<div id="hasilReport">
+					
+					</div>
+					<div class="reportlistfoot" style="display:none;">
+					<p> The reports will take some time to generate, as indicated by the "Generating" status. Once the reports has completed, you can download the report by clicking the download link button.</p>
+					</div>
+				</div>
+				
+				<div id="rawPost" class="pageContent bgGreys">
+					{if $total_raw>0}
+					<div id="hasilReport2">
+					<h3>Raw Post(s)</h3>
+					 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="zebra">
+					   <tr class="head">
+						 <td>Date</td>
+						 <td>Filename</td>
+						 <td>Status</td>
+						 <td align="center">Download Link</td>
+					   </tr>
+					   {section name=i loop=$raw}
+						  <tr>
+						 <td>{$raw[i].submit_date}</td>
+						 <td>{$raw[i].filename}</td>
+						 <td><span id="download-progress-{$raw[i].id|intval}">{$raw[i].progress|floatval}</span>%
+							{if $raw[i].n_status < 2}
+							<script>
+								raw_progress("download-progress-{$raw[i].id|intval}","{$raw[i].api_call}");
+							</script>
+							{/if}
+						 </td>
+						 <td width="145"><a class="iconPdf" href="contents/{$raw[i].download_dir}/{$raw[i].filename}" target="_blank">&nbsp;</a></td>
+						</tr>
+						{/section}
+						</table>
+					</div>
+					{$paging}
+					{/if}
+				</div>
+				
+				<!--report special-->
+				<div id="exclusiveReport" class="pageContent bgGreys">
+					<div style="width:100%;height:33px;">
+						<div style="float:left;width:160px;">
+							<h3>Exclusive Reports</h3>
+						</div>
+						<div id="reportloader2" style="padding:10px 0 0 0;">&nbsp;</div>
+					</div>
+					<div id="hasilReport3">
+						
+					</div>
+				</div>
+				<script type="text/javascript">
+					exclusive_reports("{encrypt url='index.php?page=topsummary&act=exclusive_reports&ajax=1'}&st=0");
+				</script>
+				<script type="text/javascript">
+				{literal}
+				function reload_reports(){
+					{/literal}
+					load_topic_report("{encrypt url='index.php?page=topsummary&act=report_list&ajax=1'}",'hasilReport','Loading Report(s)');
+					//setTimeout("reload_reports()",30000);
+					
+				{literal}
+					}
+				{/literal}
+				reload_reports();
+				</script>
+				
+			</div>
+		</div><!-- #top-summary-->
+		  {else}
+			<div id="notAvailable">
+					<div class="blankText">
+						<h1>Your first report is not ready yet.</h1>
+						<p>You have to wait 24 hours before it's completed.</p>
+						<p>In the meantime you can visit the "Live Track" page <br />
+							to see what's happening with your Topic in real-time..</p>
+						<a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+					</div>
+					<div class="screenCap">
+						<img src="images/blank_report.gif" />
+					</div>
+			</div>
+		{/if}
+	</div><!-- #container -->
+</div><!-- #main-container -->
+
+<script>
+	var rawData = {if $total_raw>0}{$total_raw}{else}0{/if};
+	{literal}
+	$(document).ready(function(){
+		if(rawData == 0){
+			$('#rawPost').html(noDataReport);
+		}
+	});
+	{/literal}
+</script>

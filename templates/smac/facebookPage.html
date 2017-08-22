@@ -1,0 +1,126 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  	<td colspan="4">
+        <div class="bgOldBlue">
+            <div class="titles">
+                <h3 class="lfilters">Facebook Performance</h3>
+				<div class="wfilters">
+					<select name="d" id="fbDailySelect">
+						<option value="fbVolbyMention">Performance by Mention</option>
+						{*}<option value="fbVolbyImpression">Performance by Impression</option>{/*}			
+					</select>
+				</div>
+            </div>
+            <div id="fbDailyVolume" class="theChart" style="width: 943px; height: 280px; background: none repeat scroll 0% 0% white; position: relative;">
+               
+            </div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+  	<td colspan="4">
+            <div class="list-box">
+                <div id="fbTotalPost" class="box firstBox">
+                    <span>Total Posts</span>
+                    <a class="helpsmall theTolltip" href="#" title="Total Posts."></a>
+					<h1></h1>
+					<span class="triangle fleft">&nbsp;</span>
+					<span class="counts"></span>
+					{*}
+					<h1>{$impact}</h1>
+                    {if $pii_diff>0}                      
+                    <span class="triangle fleft">&nbsp;</span>
+                    {elseif $pii_diff<0}
+                     <span class="triangle arrow_down fleft">&nbsp;</span>
+                    {/if}
+                    <span class="counts">{if $pii_diff <> 0}{$pii_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+                <div id="fbLikes" class="box">
+                    <span>Likes</span>
+                    <a class="helpsmall theTolltip" href="#" title="Likes."></a>
+					<h1></h1>
+					<span class="triangle fleft">&nbsp;</span>
+					<span class="counts"></span>
+                    {*} 
+					 <h1>{$mention}</h1>
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+                    <span class="counts">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+                <div id="fbPeople" class="box">
+                    <span>People</span>
+                    <a class="helpsmall theTolltip" href="#" title="Peoples."></a>
+					<h1></h1>
+					<span class="triangle fleft">&nbsp;</span>
+					<span class="counts"></span>
+					{*}
+                     <h1>{$impressi}</h1>
+                   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+            </div><!-- end .list-box-->
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" width="310">
+    	<div id="topKeyword" class="favorite-word">
+			<h1>Top Keywords</h1>			
+			<div id="fbTopWords" class="wordclouds"></div>
+        </div>
+    </td>
+    <td align="left" valign="top">
+            <div class="thePeoples">
+                <h1>Top People</h1>
+ 			    <a class="smallArrow" href="{encrypt url='index.php?page=kol'}#tabFacebook">View All</a>
+                <div id="fbTopPeople" class="content">
+                     
+                </div><!-- .content-->
+            </div><!-- .opinion-->
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+        <div id="topPost">
+          <div class="titles">
+            <h3>Top Posts</h3>
+    		<a class="smallArrow" href="{encrypt url='index.php?page=allpost'}#tabs/facebookTab">View All</a>&nbsp;<a class="smallArrow" href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=2&type=1'}">Raw Posts</a>
+          </div>
+          <div id="channels" class="bgGreys">
+            <div id="tab-facebook">
+              <div id="fbTopPost">               
+                
+              </div>
+            </div>
+          </div><!-- .bgGreys -->
+        </div><!-- .topPost -->
+    </td>
+  </tr>
+</table>
+<script>
+{literal}
+	$("#fbDailySelect").live('change', function() {
+		if(fbCount != 0){
+			channelPerformance('fbDailyVolume', this.value, 'Facebook');
+		}
+    });
+{/literal}
+</script>

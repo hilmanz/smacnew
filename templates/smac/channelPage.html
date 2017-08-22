@@ -1,0 +1,190 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="w1" align="left" valign="top">
+    	<div id="colTwitter" class="w480">
+            <div class="bgBlue">
+                <div class="titles" style="position: relative;height: 40px;overflow: visible;">
+                    <h3 class="iconTwitters">My Twitter: @<span id="myChannelTwitID"></span></h3>
+					{*}
+                    <a class="smallArrow popupListBtn" href="#listTwitID">Change Account</a>
+					{/*}
+					<div id="listTwitID" class="popupList">
+						
+					</div>
+                </div>
+                <div id="myTwitterChart" class="bgWhite" style="width:440px;height:280px;">
+					<div style='text-align: center;'><span style='color:black;display:block;margin-bottom: 10px;'>Loading Twitter</span><img src='images/loader-med.gif'/></div>
+                </div>
+            </div>
+            <div class="list-box">
+                <div class="box firstBox">
+                    <span>Mentions</span>
+                    <span>RT</span>
+                     <a href="#" class="helpsmall theTolltip" title="How many times your keywords have been mentioned accumulatively through the topic's timespan."></a>
+                     <h1 id="myChannelTwitMention"></h1>
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+                    <span class="counts">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+                </div>
+                <div class="box">
+                    <span>RT</span>
+                     <a href="#" class="helpsmall theTolltip" title="How many times your keywords have been mentioned accumulatively through the topic's timespan."></a>
+                     <h1 id="myChannelTwitRT"></h1>
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+                    <span class="counts">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+                </div>
+                <div class="box firstBox">
+                    <span>New Followers</span>
+                     <a href="#" class="helpsmall theTolltip" title="The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers."></a>
+                     <h1 id="myChannelTwitNewFollowers"></h1>
+                   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+                </div>
+                <div class="box">
+                    <span>Unfollows</span>
+                     <a href="#" class="helpsmall theTolltip" title="The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers."></a>
+                     <h1 id="myChannelTwitUnfollows"></h1>
+                   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+                </div>
+            </div>
+         </div>
+    </td>
+    <td align="left" valign="top">
+    	<div id="colFacebook" class="w480">
+            <div class="bgOldBlue">
+                <div class="titles" style="position: relative;height: 40px;overflow: visible;">
+                    <h3 class="iconFacebooks">My Fanpage: <span id="myChannelFBID" style="display: inline-block;line-height: 20px;margin-bottom: -6px;overflow: hidden;width: 315px;"></span></h3>
+                   {*}
+					<a class="smallArrow popupListBtn" href="#listFBID">Change Account</a>
+					{/*}
+					<div id="listFBID" class="popupList popupListFB">
+						
+					</div>
+                </div>
+                <div id="myFacebookChart" class="bgWhite" style="width:440px;height:280px;">
+					<div style='text-align: center;'><span style='color:black;display:block;margin-bottom: 10px;'>Loading Facebook</span><img src='images/loader-med.gif'/></div>
+                </div>
+            </div>
+            <div class="list-box">
+                <div class="box firstBox">
+                    <span>Posts</span>
+                    <a class="helpsmall theTolltip" href="#" title="An index that rates and concludes your listening topic comprising of weighted scores of mentions, sentiment, dominance and meaning."></a>
+                    <h1 id="myChannelFBPosts">{$impact}</h1>
+                    {if $pii_diff>0}                      
+                    <span class="triangle fleft">&nbsp;</span>
+                    {elseif $pii_diff<0}
+                     <span class="triangle arrow_down fleft">&nbsp;</span>
+                    {/if}
+                    <span class="counts">{if $pii_diff <> 0}{$pii_diff}{/if}</span>
+                </div>
+                <div class="box">
+                    <span>Like</span>
+                     <a href="#" class="helpsmall theTolltip" title="How many times your keywords have been mentioned accumulatively through the topic's timespan."></a>
+                     <h1 id="myChannelFBLikes"></h1>
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+                    <span class="counts">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+                </div>
+                <div class="box firstBox">
+                    <span>New Like</span>
+                     <a href="#" class="helpsmall theTolltip" title="The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers."></a>
+                     <h1 id="myChannelFBNewlikes">{$impressi}</h1>
+                   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+                </div>
+                <div class="box">
+                    <span>Unlike</span>
+                     <a href="#" class="helpsmall theTolltip" title="The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers."></a>
+                     <h1 id="myChannelFBUnlike">{$impressi}</h1>
+                   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+                </div>
+            </div>
+    	</div>
+    	
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">                    
+    	
+        <div id="topPost">
+          <div class="titles">
+            <h3>Top Posts</h3>
+          </div>
+		  <div id="allPostnav2">
+                <h1>
+                <span class="navTwitter active"><a class="iconTwitter" href="#" onclick="myChannelTwitterPost(null, 0); return false;">&nbsp;</a></span>
+                <span class="navFacebook"><a class="iconFacebook" href="#" onclick="myChannelFBPost(null, 0); return false;">&nbsp;</a></span>
+                </h1>
+				 <a class="smallArrow" href="{encrypt url='index.php?page=allpost'}#twitterTab">View All</a>
+            </div>
+          <div id="channels" class="bgGreys">
+            <div id="tab-twitter">
+              <div id="twitter-topconv">      
+                
+              </div>
+            </div>
+          </div><!-- .bgGreys -->
+        </div><!-- .topPost -->
+    </td>
+  </tr>
+</table>

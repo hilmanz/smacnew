@@ -1,0 +1,31 @@
+<div style="padding:10px;">
+	<h2 class="title-form">List of Transactions for {$name}</h2>
+	
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Transaction Time</strong></td>
+		<td><strong>Type</strong></td>
+		
+		<td><strong>Description</strong></td>
+		<td><strong>Amount</strong></td>
+	</tr>
+	{section name=i loop=$data}
+	<tr>
+		<td>{$data[i].transaction_date}</td>
+		<td>{$data[i].transaction_type}</td>
+		<td>{if $data[i].transaction_type|strtoupper eq 'CREDIT'}
+        	 	{if $data[i].transaction_detail eq ''}
+        	 		SMAC Credit(s) Redeemed 
+        	 	{else}
+        	 		{$data[i].transaction_detail}
+        	 	{/if}
+        	 {else}
+        	 	30 days subcription for topic '{$data[i].transaction_detail}'
+        	 {/if}</td>
+		<td>{$data[i].amount|number_format}</td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

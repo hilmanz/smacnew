@@ -1,0 +1,48 @@
+<div style="padding:10px;">
+<h2>Add Message</h2>
+<hr>
+
+<form id="editForm" action="index.php?s=message&act=add" method="POST" enctype="application/x-www-form-urlencoded">
+<input type="hidden" value="1" name="add" />
+
+{if $err != ''}
+<p style="color:#ff0000;font-size:14px;font-weight:bold;">{$err}</p>
+{/if}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr>
+		<td>Type</td>
+		<td>
+			<select name="type" id="type">
+				<option value="all">All</option>
+				<option value="personal">Personal</option>
+			</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>To Account</td>
+		<td>
+			<select name="account_id">
+				{section name=i loop=$list}
+				<option value="{$list[i].id}">{$list[i].name}</option>
+				{/section}
+			</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td valign="top">Message</td>
+		<td>
+			<textarea name="notification" cols="50" rows="10"></textarea>
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><input type="submit" value=" Add " /></td>
+	</tr>
+
+</table>
+</form>
+	
+</div>

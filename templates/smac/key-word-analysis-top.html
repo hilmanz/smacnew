@@ -1,0 +1,1149 @@
+<script src="js/charts/highcharts.js" type="text/javascript"></script>
+<script>n_wc={$n_keyword|intval};</script>
+<script>
+//var ka = {$ka};
+
+//alert(ka[0][0].id);
+
+var kw = [{$arrKey}];
+var urlgetsentiment = "{encrypt url='index.php?page=sentiment&act=getsentiment&ajax=1'}";
+var nmBulan = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var editSentimentShow = false;
+{literal}
+	
+$(document).ready(function(){
+	$("#tbl-sentiment").removeAttr('style');
+	$('#show-editsentiment').click(function(){
+		if( editSentimentShow ){
+			$('#tabel-sentiment-block').hide();
+			$('#tabel-tweets-block').fadeIn();
+			editSentimentShow = false;
+			$(this).html('Edit Sentiment');
+		}else{
+			$('#tabel-tweets-block').hide();
+			$('#tabel-sentiment-block').fadeIn();
+			editSentimentShow = true;
+			$(this).html('Done Editing');
+		}
+	});
+			var options = null;
+			options = {
+				chart: {
+					renderTo: 'chart',
+					zoomType: 'x',
+					type: 'bar'
+				},
+				credits: {
+			        enabled: false
+			    },
+				title: {
+					text: ''
+				},
+				subtitle: {
+			         text: document.ontouchstart === undefined ?
+			                 'Click and drag in the plot area to zoom in' :
+			                 'Drag your finger over the plot to zoom in'
+			           },
+				xAxis: {
+					gridLineWidth: 1,
+				  	lineColor: '#000',
+				  	tickColor: '#000',
+				  	maxZoom: 14 * 24 * 3600000, // fourteen days
+					enabled: false,
+					categories: [{/literal}{$kategori}{literal}],
+				},
+				yAxis: {
+					minorTickInterval: 'auto',
+					  lineColor: '#000',
+					  lineWidth: 1,
+					  tickWidth: 1,
+					  tickColor: '#000',
+					title: {
+						text: ''
+					},
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+					
+				},
+				tooltip: {
+			         formatter: function() {
+			            return ''+
+			               this.series.name +': '+ Highcharts.numberFormat(this.y, 0, ',');
+			         }
+			    },
+			    
+				legend: {
+					enabled: true
+				},
+				series: [{name: 'mentions',
+								data: [{/literal}{$kw.mentions}{literal}]
+							}]
+			};
+			var chart = null;
+			chart = new Highcharts.Chart(options);
+			
+			
+			//Load langsung retweet
+			var options2 = null;
+	options2 = {
+		chart: {
+			renderTo: 'chart2',
+			type: 'bar'
+		},
+		credits: {
+	        enabled: false
+	    },
+		title: {
+			text: ''
+		},
+		xAxis: {
+			gridLineWidth: 1,
+		  	lineColor: '#000',
+		  	tickColor: '#000',
+			enabled: false,
+			categories: [{/literal}{$kategori}{literal}],
+			//tickPixelInterval: 150
+		},
+		yAxis: {
+			minorTickInterval: 'auto',
+			  lineColor: '#000',
+			  lineWidth: 1,
+			  tickWidth: 1,
+			  tickColor: '#000',
+			title: {
+				text: ''
+			},
+			plotLines: [{
+				value: 0,
+				width: 1,
+				color: '#808080'
+			}]
+		},
+		tooltip: {
+	         formatter: function() {
+	            return ''+
+	               this.series.name +': '+ Highcharts.numberFormat(this.y, 0, ',');
+	         }
+	    },
+		legend: {
+			enabled: true
+		},
+		series: [{name: 'Retweets',
+									data: [{/literal}{$kw.rt}{literal}]
+								}]
+	};
+	var chart2 = null;
+		chart2 = new Highcharts.Chart(options2);
+		
+	//load langsung impressi
+	var options3 = null;
+				options3 = {
+					chart: {
+						renderTo: 'chart3',
+						type: 'bar'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						gridLineWidth: 1,
+					  	lineColor: '#000',
+					  	tickColor: '#000',
+						enabled: false,
+						categories: [{/literal}{$kategori}{literal}],
+						//tickPixelInterval: 150
+					},
+					yAxis: {
+						minorTickInterval: 'auto',
+						  lineColor: '#000',
+						  lineWidth: 1,
+						  tickWidth: 1,
+						  tickColor: '#000',
+						title: {
+							text: ''
+						},
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ Highcharts.numberFormat(this.y, 0, ',');
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: [{name: 'Impression',
+									data: [{/literal}{$kw.imp}{literal}]
+								}]
+				};
+				
+				var chart3 = null;
+				chart3 = new Highcharts.Chart(options3);
+				
+	//load langsung pii
+	var options4 = null;
+				options4 = {
+					chart: {
+						renderTo: 'chart4',
+						type: 'line'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						gridLineWidth: 1,
+					  	lineColor: '#000',
+					  	tickColor: '#000',
+						enabled: false,
+						categories: [{/literal}{$kategori}{literal}],
+						//tickPixelInterval: 150
+					},
+					yAxis: {
+						minorTickInterval: 'auto',
+						  lineColor: '#000',
+						  lineWidth: 1,
+						  tickWidth: 1,
+						  tickColor: '#000',
+						title: {
+							text: ''
+						},
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ Highcharts.numberFormat(this.y, 0, ',');
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: [ {/literal}
+									{section name=i loop=$kw}
+										{literal}
+										{
+											name: {/literal}'{$kw[i].name}'{literal},
+											data: [{/literal}{$kw[i].pii}{literal}]
+										},
+										{/literal}
+									{/section}
+									{literal} ]
+				};
+				
+				var chart4 = null;
+				chart4 = new Highcharts.Chart(options4);
+					
+	jQuery.fn.dataTableExt.oSort['formatted-num-asc'] = function(x,y){
+		 x = x.replace(/[^\d\-\.\/]/g,'');
+		 y = y.replace(/[^\d\-\.\/]/g,'');
+		 if(x.indexOf('/')>=0)x = eval(x);
+		 if(y.indexOf('/')>=0)y = eval(y);
+		 return x/1 - y/1;
+		}
+		jQuery.fn.dataTableExt.oSort['formatted-num-desc'] = function(x,y){
+		 x = x.replace(/[^\d\-\.\/]/g,'');
+		 y = y.replace(/[^\d\-\.\/]/g,'');
+		 if(x.indexOf('/')>=0)x = eval(x);
+		 if(y.indexOf('/')>=0)y = eval(y);
+		 return y/1 - x/1;
+		}
+	
+	 
+			 
+	$('#tbl-campaign').dataTable({
+			 "bJQueryUI": true,
+			 "sPaginationType": "full_numbers",
+			 "aoColumns": [
+                null,
+                { "sType": "formatted-num" },
+            ]
+			 });	
+
+	/*
+			var wnum = kw.length;
+			for(i=0;i<wnum;i++){
+				getWord(kw[i],i);
+			}
+	*/
+	
+});
+
+//Prev sentiment tweet popup
+$('#popup-sentiment .paging .prev').click(function(){
+	prevSentimentTweet();
+});
+
+//Next sentiment tweet popup
+$('#popup-sentiment .paging .next').click(function(){
+	nextSentimentTweet();
+});
+
+//Prev list tweet
+$('#list-tweet .paging .prev').click(function(){
+	prevlistTweet();
+});
+
+//Next list tweet
+$('#list-tweet .paging .next').click(function(){
+	nextlistTweet();
+});
+
+//retweets chart
+function loadChart2(){
+	
+	$('#tabel-bottom').fadeIn();
+	
+	$("#chart2").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+	var options = null;
+	options = {
+		chart: {
+			renderTo: 'chart2',
+			type: 'line'
+		},
+		credits: {
+	        enabled: false
+	    },
+		title: {
+			text: ''
+		},
+		xAxis: {
+			gridLineWidth: 1,
+		  	lineColor: '#000',
+		  	tickColor: '#000',
+			enabled: false,
+			categories: [],
+			//tickPixelInterval: 150
+		},
+		yAxis: {
+			minorTickInterval: 'auto',
+			  lineColor: '#000',
+			  lineWidth: 1,
+			  tickWidth: 1,
+			  tickColor: '#000',
+			title: {
+				text: ''
+			},
+			plotLines: [{
+				value: 0,
+				width: 1,
+				color: '#808080'
+			}]
+		},
+		tooltip: {
+	         formatter: function() {
+	            return ''+
+	               this.series.name +': '+ Highcharts.numberFormat(this.y, 0, ',');
+	         }
+	    },
+		legend: {
+			enabled: true
+		},
+		series: []
+	};
+	
+	// Load the data from the XML file 
+	
+	{/literal}
+	var urlx = "{encrypt url='index.php?page=keywordanalysis&act=getretweets&ajax=1'}";
+	{literal}
+	
+	$.get(urlx, function(xml) {
+		
+		// Split the lines
+		var $xml = $(xml);
+		var visibility;
+		// push categories
+		$xml.find('categories item').each(function(i, category) {
+			
+			options.xAxis.categories.push(Highcharts.dateFormat('%d/%m', $(category).text()));
+		});
+		
+		// push series
+		$xml.find('series').each(function(i, series) {
+			if(i>0){
+				visibility = false
+			}else{
+				visibility = true
+			}
+			var seriesOptions = {
+				name: $(series).find('name').text(),
+				data: [],
+				visible: visibility
+			};
+			
+			// push data points
+			$(series).find('data point').each(function(i, point) {
+				seriesOptions.data.push(
+					parseInt($(point).text())
+				);
+			});
+			
+			// add it to the options
+			options.series.push(seriesOptions);
+		});
+		var chart = null;
+		chart = new Highcharts.Chart(options);
+	});
+}
+
+//Impression chart
+
+function loadChart3(){
+
+	$('#tabel-bottom').fadeIn();
+
+				$("#chart3").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+				var options = null;
+				options = {
+					chart: {
+						renderTo: 'chart3',
+						type: 'line'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						gridLineWidth: 1,
+					  	lineColor: '#000',
+					  	tickColor: '#000',
+						enabled: false,
+						categories: [],
+						//tickPixelInterval: 150
+					},
+					yAxis: {
+						minorTickInterval: 'auto',
+						  lineColor: '#000',
+						  lineWidth: 1,
+						  tickWidth: 1,
+						  tickColor: '#000',
+						title: {
+							text: ''
+						},
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ Highcharts.numberFormat(this.y, 0, ',');
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: []
+				};
+				
+				// Load the data from the XML file 
+				
+				{/literal}
+				var urlx = "{encrypt url='index.php?page=keywordanalysis&act=getkeywordimpovertime&ajax=1'}";
+				{literal}
+				
+				$.get(urlx, function(xml) {
+					
+					// Split the lines
+					var $xml = $(xml);
+					var visibility;
+					// push categories
+					$xml.find('categories item').each(function(i, category) {
+						
+						options.xAxis.categories.push(Highcharts.dateFormat('%d/%m', $(category).text()));
+					});
+					
+					// push series
+					$xml.find('series').each(function(i, series) {
+						if(i>0){
+							visibility = false
+						}else{
+							visibility = true
+						}
+						var seriesOptions = {
+							name: $(series).find('name').text(),
+							data: [],
+							visible: visibility
+						};
+						// push data points
+						$(series).find('data point').each(function(i, point) {
+							seriesOptions.data.push(
+								parseInt($(point).text())
+							);
+						});
+						
+						// add it to the options
+						options.series.push(seriesOptions);
+					});
+					var chart = null;
+					chart = new Highcharts.Chart(options);
+				});
+			}
+			
+//Performance chart
+
+function loadChart4(){
+
+$('#tabel-bottom').fadeIn();
+
+				$("#chart4").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+				var options = null;
+				options = {
+					chart: {
+						renderTo: 'chart4',
+						type: 'line'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						gridLineWidth: 1,
+					  	lineColor: '#000',
+					  	tickColor: '#000',
+						enabled: false,
+						categories: [],
+						 labels: {
+							rotation: -45,
+							align: 'right'
+							
+						}
+						//tickPixelInterval: 150
+					},
+					yAxis: {
+						minorTickInterval: 'auto',
+						  lineColor: '#000',
+						  lineWidth: 1,
+						  tickWidth: 1,
+						  tickColor: '#000',
+						title: {
+							text: ''
+						},
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ this.y;
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: []
+				};
+				
+				// Load the data from the XML file 
+				
+				{/literal}
+				var urlx = "{encrypt url='index.php?page=keywordanalysis&act=getkeywordpiiovertime&ajax=1' from_date=$filter_from_date to_date=$filter_to_date}";
+				{literal}
+				
+				$.get(urlx, function(xml) {
+					
+					// Split the lines
+					var $xml = $(xml);
+					var visibility;
+					// push categories
+					$xml.find('categories item').each(function(i, category) {
+						
+						options.xAxis.categories.push(Highcharts.dateFormat('%d/%m', $(category).text()));
+					});
+					
+					// push series
+					$xml.find('series').each(function(i, series) {
+						if(i>0){
+							visibility = false
+						}else{
+							visibility = true
+						}
+						var seriesOptions = {
+							name: $(series).find('name').text(),
+							data: [],
+							visible: visibility
+						};	
+						// push data points
+						$(series).find('data point').each(function(i, point) {
+							seriesOptions.data.push(
+								parseFloat($(point).text())
+							);
+						});
+						
+						// add it to the options
+						options.series.push(seriesOptions);
+					});
+					var chart = null;
+					chart = new Highcharts.Chart(options);
+				});
+			}
+
+var exclude = {};
+
+function getWord(key,id){
+	var d = new Date();
+	var rand = d.getTime();
+	var strExclude = "";
+	cid=id;	
+	{/literal}
+	var urlx = "{encrypt url='index.php?page=keywordanalysis&act=getwords&ajax=1' filter=$filter}";
+	{literal}
+	
+	
+	if(exclude[key]!=undefined){
+		strExclude=exclude[key];
+	}
+	var htmlLoader = '<img src="images/loader-med.gif" style="margin-left:117px;margin-top:67px;" />';
+	$('#word-'+id).html(htmlLoader);
+	
+	$.ajax({
+		url: urlx + '&id='+id+'&rand='+rand+'&key='+key+'&exclude='+strExclude,
+		success: function( data ) {
+			if (data){					
+				//$('#word-'+id).html(htm);
+				//$("#word-"+id).jQCloud(data);
+				
+				$('#word-'+id).html(data);
+			}else{
+				//alert('Failed load wordcloud');
+				$('#word-'+id).html('Failed load wordcloud');
+			}
+			$('.ka_wordcloud span a').removeAttr('style');	
+            $(".keyword-name a").removeClass("active");
+		  }
+	});
+}
+
+function toggle_wordcloud(key,id,div_id){
+	
+		
+		if(exclude[key]==undefined){
+			exclude[key] = "";
+		}
+		if(exclude[key]==""){
+			exclude[key]=""+id;
+		}else{
+			exclude[key]=exclude[key]+","+id
+		}
+		
+		getWord(key,div_id);
+	
+}
+
+var loadTableSentimentDone = 0;
+function loadTableSentiment(){
+	
+	$('#tabel-bottom').fadeOut();
+	
+	if(loadTableSentimentDone == 0){
+		$('#tbl-sentiment').dataTable({
+			 "bJQueryUI": true,
+			 "aaSorting": [[2,'desc']],
+			 "aoColumnDefs": [ 
+		                        { "bSearchable": false, "bVisible": false, "aTargets": [ 2 ] }
+		                    ],
+			 /*
+			 "aaSorting": [[ 2, "desc" ]],
+			 "aoColumnDefs": [ 
+		                        { "bSearchable": false, "bVisible": false, "aTargets": [ 2 ] }
+		                    ],
+			*/
+			 "sPaginationType": "full_numbers",
+			"bProcessing": true,
+			"bServerSide": true,
+			"sAjaxSource": urlgetsentiment
+			 });
+		$("#tbl-sentiment").css("width","100%");
+		loadTableSentimentDone = 1;
+	}
+}
+
+function loadGraphChart(){
+listTweet(3,'');
+$('#tabel-bottom').fadeOut();
+
+				$("#graphChart").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+				var options = null;
+				options = {
+					chart: {
+						renderTo: 'graphChart',
+						type: 'column'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						gridLineWidth: 1,
+					  	lineColor: '#000',
+					  	tickColor: '#000',
+						enabled: false,
+						categories: [],
+						//tickPixelInterval: 150
+					},
+					yAxis: {
+						minorTickInterval: 'auto',
+						  lineColor: '#000',
+						  lineWidth: 1,
+						  tickWidth: 1,
+						  tickColor: '#000',
+						title: {
+							text: ''
+						},
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ Highcharts.numberFormat(this.y, 0);
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: []
+
+					
+				};
+				
+				// Load the data from the XML file 
+				
+				{/literal}
+				var urlx = "{encrypt url='index.php?page=sentiment&act=getgraph&ajax=1'}";
+				{literal}
+				
+				$.get(urlx, function(xml) {
+					
+					// Split the lines
+					var $xml = $(xml);
+					
+					// push categories
+					$xml.find('categories item').each(function(i, category) {
+						options.xAxis.categories.push($(category).text());
+					});
+					
+					// push series
+					$xml.find('series').each(function(i, series) {
+						var seriesOptions = {
+							name: $(series).find('name').text(),
+							
+							data: [],
+							
+						};
+						
+						// push data points
+						$(series).find('data point').each(function(i, point) {
+							seriesOptions.data.push(
+								parseInt($(point).text())
+							);
+						});
+						
+						// add it to the options
+						options.series.push(seriesOptions);
+					});
+					var chart = null;
+					chart = new Highcharts.Chart(options);
+				});
+			}
+
+function showTabelBottom(){
+	$('#tabel-bottom').fadeIn();
+}
+/* Tabel tweets baru */
+{/literal}
+	var sentimentTweetURL = "{encrypt url='index.php?page=sentiment&act=getsentimenttweet&ajax=1' geo=$geo}";{literal}
+	var sentimentTweetStart = 0;
+	var sentimentTweetPerPage = 5;
+	var sentimentTweetType = 0;
+	var sentimentTweetDay = '';
+	function sentimentTweet(type,tgl){
+		sentimentTweetStart = 0;
+		sentimentTweetType = type;
+		sentimentTweetDay = tgl;
+		getSentimentTweet(type,tgl,sentimentTweetStart);
+	}
+	function prevSentimentTweet(){
+		sentimentTweetStart = sentimentTweetStart - sentimentTweetPerPage;
+		getSentimentTweet(sentimentTweetType,sentimentTweetDay,sentimentTweetStart);
+	}
+	function nextSentimentTweet(){
+		sentimentTweetStart = sentimentTweetStart + sentimentTweetPerPage;
+		getSentimentTweet(sentimentTweetType,sentimentTweetDay,sentimentTweetStart);
+	}
+	function getSentimentTweet(type,tgl,start){
+		var d = new Date();
+		var rand = d.getTime();
+		
+		$.ajax({
+			url: sentimentTweetURL+'&rand='+rand+'&type='+type+'&day='+tgl+'&start='+start+'&perpage='+sentimentTweetPerPage,
+			dataType: 'json',
+			beforeSend: function(){
+				$('#popup-sentiment .paging .prev').hide();
+				$('#popup-sentiment .paging .next').hide();
+				$("#popup-sentiment .content-popup").html("<div style='width:650px;height:300px;text-align:center;padding-top:200px;background-color:#ffffff;'><img src='images/loader-med.gif' /></div>");
+				
+				$('#popup-sentiment').center();
+				$('#popup-sentiment').fadeIn().prepend('<a href="#" class="close"><img src="images/close.png" class="btn_close" title="Close Window" alt="Close"></a>');
+				$('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
+				$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer - .css({'filter' : 'alpha(opacity=80)'}) is used to fix the IE Bug on fading transparencies
+			},
+			success: function( data ) {
+			  	if(data.success == 0){
+					alert('Failed load tweets');
+				}else{
+					var raw = data.data;
+					//alert(raw[0].author_id);
+					rawnum = raw.length;
+					if(rawnum > 0){
+						var htm = '';
+						for(var i=0;i<rawnum;i++){
+							htm += '<div class="list">';
+							htm +=				'<div class="smallthumb">';
+							htm +=					'<a href="#"><img src="'+raw[i].author_avatar+'" /></a>';
+							htm +=				'</div>';
+							htm +=				'<div class="entry">';
+							htm +=					'<h3>'+raw[i].author_name+'</h3>';
+							htm +=					'<span>'+raw[i].content+'</span>';
+							htm +=					'<span class="date">'+raw[i].published_date+'</span>';
+							htm +=				'</div>';
+							htm +=			'</div>';
+						}
+						
+						if( start > 0){
+							$('#popup-sentiment .paging .prev').show();
+						}else{
+							$('#popup-sentiment .paging .prev').hide();
+						}
+						
+						if( start < data.total && (start + sentimentTweetPerPage) < data.total){
+							$('#popup-sentiment .paging .next').show();
+						}else{
+							$('#popup-sentiment .paging .next').hide();
+						}
+						
+						if(type == 1){
+							var tipe = 'Favourable';
+						}else{
+							var tipe = 'Unfavourable';
+						}
+						
+						var tgl = raw[0].published_date;
+						tgl = tgl.split('-');
+						$('#popup-sentiment .headpopup h1').html(tgl[2]+'/'+tgl[1]+'/'+tgl[0]+' - '+ Highcharts.numberFormat(data.total,0) +' '+tipe+' Tweets');
+						
+						$('#popup-sentiment .content-popup').html(htm);
+						
+					
+					}else{
+						$('#popup-sentiment .content-popup').html('');
+					}
+				}
+			}
+		});
+	}
+	{/literal}
+
+var listTweetURL = "{encrypt url='index.php?page=sentiment&act=getlisttweet&ajax=1' geo=$geo}";{literal}
+var listTweetStart = 0;
+var listTweetPerPage = 5;
+var listTweetType = 0;
+var listTweetDay = '';
+function listTweet(type,tgl){
+	listTweetStart = 0;
+	listTweetType = type;
+	listTweetDay = tgl;
+	getlistTweet(type,tgl,sentimentTweetStart);
+}
+function prevlistTweet(){
+	listTweetStart = listTweetStart - listTweetPerPage;
+	getlistTweet(listTweetType,listTweetDay,listTweetStart);
+}
+function nextlistTweet(){
+	listTweetStart = listTweetStart + listTweetPerPage;
+	getlistTweet(listTweetType,listTweetDay,listTweetStart);
+}
+function getlistTweet(type,tgl,start){
+	var d = new Date();
+	var rand = d.getTime();
+	
+	$.ajax({
+		url: listTweetURL+'&rand='+rand+'&type='+type+'&day='+tgl+'&start='+start+'&perpage='+listTweetPerPage,
+		dataType: 'json',
+		beforeSend: function(){
+			$('#list-tweet .paging .prev').hide();
+			$('#list-tweet .paging .next').hide();
+			$("#list-tweet .content-popup").html("<div style='width:650px;height:300px;text-align:center;padding-top:200px;background-color:#ffffff;'><img src='images/loader-med.gif' /></div>");
+		},
+		success: function( data ) {
+		  	if(data.success == 0){
+				alert('Failed load tweets');
+			}else{
+				var raw = data.data;
+				//alert(raw[0].author_id);
+				rawnum = raw.length;
+				if(rawnum > 0){
+					var htm = '';
+					for(var i=0;i<rawnum;i++){
+						htm += '<div class="list">';
+						htm +=				'<div class="smallthumb">';
+						//htm +=					'<a href="#"><img src="'+raw[i].author_avatar+'" /></a>';
+						htm += '<a href="#?w=650&id='+raw[i].author_id+'" class="poplight" rel="profile"><img src="'+raw[i].author_avatar+'" /></a>';
+						htm +=				'</div>';
+						htm +=				'<div class="entry">';
+						htm +=					'<h3>'+raw[i].author_name+'</h3>';
+						htm +=					'<span>'+raw[i].content+'</span>';
+						//htm +=					'<span class="date">'+raw[i].published_date+'</span>';
+						
+						if( parseInt(raw[i].sentiment) > 0){
+							htm += '<span class="icon-plus">&nbsp;</span>';
+						}else if( parseInt(raw[i].sentiment) < 0){
+							htm += '<span class="icon-min">&nbsp;</span>';
+						}
+						
+						htm +=				'</div>';
+						htm +=			'</div>';
+					}
+					
+					if( start > 0){
+						$('#list-tweet .paging .prev').show();
+					}else{
+						$('#list-tweet .paging .prev').hide();
+					}
+					
+					if( start < data.total && (start + listTweetPerPage) < data.total){
+						$('#list-tweet .paging .next').show();
+					}else{
+						$('#list-tweet .paging .next').hide();
+					}
+					
+					if(type == 1){
+						var tipe = 'Favourable';
+					}else{
+						var tipe = 'Unfavourable';
+					}
+					/*
+					var tgl = raw[0].published_date;
+					tgl = tgl.split('-');
+					$('#list-tweet .headpopup h1').html(tgl[2]+'/'+tgl[1]+'/'+tgl[0]+' - '+ Highcharts.numberFormat(data.total,0) +' '+tipe+' Tweets');
+					*/
+					$('#list-tweet .content-popup').html(htm);
+					
+				
+				}else{
+					$('#list-tweet .content-popup').html('');
+				}
+			}
+		}
+	});
+}			
+</script>
+{/literal}
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+          					  	<h1>{if $market}<span id='txtmarket'>Market Keyword Analysis - {$market}</span>{/if} 
+                           {if $market} <a id='btnglobaldata' href='{encrypt url='index.php?page=home&act=toggle_geo'}'>Switch to Global Data</a>{/if}</h1>
+                        </td>
+                        <td align="right">
+                        	<div style="float:right;">
+                                <span style="display:inline-block;">
+                                <form class="filter-kol" action="">
+                                    <label>Filter by:</label>
+                                    <select id="filter-kol">
+                                        <option value="{$filter0}" {if $filter eq 0}selected="selected"{/if}>My Keywords</option>
+                                        <option value="{$filter1}" {if $filter eq 1}selected="selected"{/if}>Top 10</option>
+                                        <option value="{$filter2}" {if $filter eq 2}selected="selected"{/if}>Top 50</option>
+                                    </select>
+                                </form>
+                                </span>
+                                &nbsp;
+                                <span style="display:inline-block;">
+                                {$widget_datefilter}
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="sentiment">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                 {if $data_available}  
+                  <tr>
+                    <td class="w200" valign="top" align="left">
+                        <ul class="tabs">
+                            <li><a href="#tab-mentions" class="tab-mentions">Mentions</a></li>
+                            <li><a href="#tab-retweets" class="tab-retweets">Retweets</a></li>
+                            <li><a href="#impression-overtime" class="impression-overtime">Impressions</a></li>
+							<li><a href="#potential-impact" class="potential-impact" onclick="loadChart4()">Potential Impact Index</a></li>
+							<li><a href="#graph-sentiment" class="graph-sentiment" onclick="loadGraphChart();loadTableSentiment();">Sentiment</a></li>
+                        </ul>
+                    </td>
+                    <td class="wfull" valign="top" align="left">
+                    	<div class="tab_container" style="min-width:750px;">
+                            <div id="tab-mentions" class="tab_content">
+								{if $filter eq 1}
+								<div style="min-width:710px;" id="chart"></div>
+								{else}
+                               <div style="min-width:710px;height:1500px;" id="chart"></div>
+								{/if}
+                            </div>
+                            <div id="tab-retweets" class="tab_content">
+								{if $filter eq 2}
+								<div style="min-width:710px;height:1500px;" id="chart2"></div>
+								{else}
+                            	<div style="min-width:710px;height:350px;" id="chart2"></div>
+								{/if}
+							</div>
+                            <div id="impression-overtime" class="tab_content" >
+								{if $filter eq 2}
+								<div style="min-width:710px;height:1500px;" id="chart3"></div>
+								{else}
+                               <div style="min-width:710px;height:350px;" id="chart3"></div>
+								{/if}
+                            </div>
+                            {*}
+							<div id="performance-overtime" class="tab_content" >
+                            
+                            </div>
+							{/*}
+							<div id="potential-impact" class="tab_content">
+                            
+                               <div style="min-width:710px;height:350px;" id="chart4"></div>
+                               <!--<img src="content/table.jpg" style="border:solid 1px #ccc;" />-->
+                            </div>
+							
+							<div id="graph-sentiment" class="tab_content">
+                               <div style="min-width:710px;height:350px;" id="graphChart"></div>
+							   
+								<div id="show-editsentiment" style="cursor:pointer;">Edit Sentiment</div>
+								
+								<div id="tabel-tweets-block">
+									<div id="list-tweet">
+										<div class="headpopup">
+											<h1 class="fleft"></h1>
+										</div>
+										<div class="content-popup">	
+										</div>
+										<div class="paging">
+											<a class="prev" href="javascript:void(0);">PREV</a>
+											<a class="next" href="javascript:void(0);">NEXT</a>
+										</div>
+									</div>
+								</div>
+                               
+								<div id="tabel-sentiment-block" style="display:none;">
+								   <table id="tbl-sentiment" style="width:100%; display:table;" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra">
+									<thead>
+									<tr>
+										<th><strong>Keyword</strong></th>
+										<th><strong>Category</strong></th>
+										<th><strong>Occurance</strong></th>
+										<th><strong>Weightage</strong></th>
+										<th width="80">&nbsp;</th>
+									</tr>
+									</thead>
+									<tbody>
+									
+									<tr>
+										<td colspan="5" class="dataTables_empty">Loading data from server</td>
+									</tr>
+									
+									
+									</tbody>
+								   </table>
+								</div>
+                             
+                               
+                            
+								
+                            </div>
+							
+                        </div>
+                        <div class="content" id="tabel-bottom">
+                        	<h1>Breakdown by your keyword</h1>
+                              {section name=i loop=$kw1} 
+                                <h2 class="topic-group keyword-name"><a href="#content-word-{$smarty.section.i.index}" onclick='getWord(kw[{$smarty.section.i.index}],{$smarty.section.i.index});'>{$kw1[i].keyword} </a></h2>
+                                <div class="accordion-content" id="content-word-{$smarty.section.i.index}" style="display:none;">
+                                	<div id="word-{$smarty.section.i.index}" class="content ka_wordcloud">
+										<img src="images/ajax-loader.gif" style="margin-left:100px;" />
+									</div>
+                                </div><!-- .accordion-content -->
+                                <!-- .sampe sini -->
+                                {/section}
+                                {literal}
+                                <script type="text/javascript" >
+                                jQuery(document).ready(function() {						
+                                     $('.keyword-name a').click(function() {
+											$('.ka_wordcloud span a').removeAttr('style');	
+                                          var targetID = jQuery(this).attr('href');
+                                           $(".keyword-name a").removeClass("active");
+                                            $(this).addClass("active");
+                                           $(targetID).toggle(500);
+                                     });
+                                });
+                                </script>
+                                {/literal}
+                        </div>
+                    </td>
+                  </tr>
+                 {else}
+	            	<tr>
+	            		<td align="center" valign="top">
+                            <div id="notAvailable">
+                                    <div class="blankText">
+                                        <h1>Your first report is not ready yet.</h1>
+                                        <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                                        <a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+                                    </div>
+                                    <div class="screenCap">
+                                        <img src="images/blank_keywordAnalysis.gif" />
+                                    </div>
+                            </div>
+	            		</td>
+	            	</tr> 	
+	            {/if}
+                </table>
+            </div><!-- #key-opinion -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->

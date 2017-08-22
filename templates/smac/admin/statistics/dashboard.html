@@ -1,0 +1,100 @@
+<script>
+	var adminDash = {$rs};
+	{literal}
+		$(function () {
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'volumedaily',
+						type: 'line',
+						marginTop: 50,
+						marginBottom: 25,
+						 zoomType: 'x'
+					},
+					title: false,
+					subtitle: false,
+					xAxis: {
+						type: 'datetime',
+		                dateTimeLabelFormats: {
+			                day: '%d/%m<br/>%Y'   
+			            }
+					},
+					yAxis: {
+						title: false,
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b><br/>'+
+								 Highcharts.dateFormat('%d/%m/%Y',this.x)+':'+Highcharts.numberFormat(this.y,0);
+							
+						}
+					},
+					legend: {
+						align: 'right',
+						verticalAlign: 'top',
+						floating: true,
+						x: -10,
+						y: 0,
+						borderWidth: 0
+					},
+					credits: false,
+					series: [{
+						name: 'Twitter',
+						data: adminDash.twitter,
+						visible: true
+						
+					}, {
+						name: 'Facebook',
+						data: adminDash.fb,
+						visible: false
+					},
+					{
+						name: 'Website',
+						data: adminDash.web,
+						visible: false
+					}
+					]
+				});
+			});
+			
+		});
+	{/literal}
+</script>
+<div>
+	 <div class="bgGrey">
+        <h1 class="titles">Overall Volume Daily</h1>
+        <div id="volumedaily" class="bgWhite">
+        </div><!-- end .bgWhite -->
+    </div><!-- end .bgGrey -->
+</div>
+
+
+<div>
+<h1>Overall Summary</h1>
+
+
+<h3>Twitter Accounts</h3>
+<table width="100%">
+	<tr class="head">
+		<td width="200">Country</td><td>Total</td>
+	</tr>
+	<tr>
+		<td>Global</td><td>{$overall.twitter|number_format}</td>
+	</tr>
+</table>
+<h3>Websites</h3>
+<table width="100%">
+	<tr class="head">
+		<td width="200">Country</td><td>Total</td>
+	</tr>
+	<tr>
+		<td>Global</td><td>{$overall.website|number_format}</td>
+	</tr>
+</table>
+</div>

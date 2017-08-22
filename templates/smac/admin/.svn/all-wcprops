@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/2415/trunk/web/templates/smac/admin
+END
+register-account.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/smac/!svn/ver/2328/trunk/web/templates/smac/admin/register-account.html
+END
+register-account-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/smac/!svn/ver/2274/trunk/web/templates/smac/admin/register-account-detail.html
+END
+register-view-email.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/register-view-email.html
+END
+register-edit-user.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/register-edit-user.html
+END
+register.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/register.html
+END
+message.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/message.html
+END
+credits_transactions.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/2108/trunk/web/templates/smac/admin/credits_transactions.html
+END
+raw_user_log.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/2318/trunk/web/templates/smac/admin/raw_user_log.html
+END
+register-agency.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/register-agency.html
+END
+credits.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2109/trunk/web/templates/smac/admin/credits.html
+END
+register-account-reset-password.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/smac/!svn/ver/2381/trunk/web/templates/smac/admin/register-account-reset-password.html
+END
+register-user.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/2415/trunk/web/templates/smac/admin/register-user.html
+END
+credits_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/2108/trunk/web/templates/smac/admin/credits_add.html
+END
+raw_activity_log.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/smac/!svn/ver/2318/trunk/web/templates/smac/admin/raw_activity_log.html
+END
+message-edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/message-edit.html
+END
+register-edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/register-edit.html
+END
+message-add.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/message-add.html
+END
+register-edit-agency.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/1615/trunk/web/templates/smac/admin/register-edit-agency.html
+END

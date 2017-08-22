@@ -1,0 +1,64 @@
+10
+
+dir
+2417
+https://acit@kana.svn.beanstalkapp.com/smac/trunk/web
+https://acit@kana.svn.beanstalkapp.com/smac
+
+
+
+2013-01-03T07:06:28.061411Z
+2417
+renaldy84
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+33e639ec-bf4f-4210-a771-f58e2ad61f29
+
+authentication
+dir
+
+service
+dir
+
+tools
+dir
+
+public_html
+dir
+
+config
+dir
+
+admin
+dir
+
+engines
+dir
+
+manage
+dir
+
+api
+dir
+
+api2
+dir
+
+com
+dir
+
+templates
+dir
+

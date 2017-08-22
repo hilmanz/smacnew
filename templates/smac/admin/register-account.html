@@ -1,0 +1,49 @@
+<div style="padding:10px;">
+<h2 class="title-form">Account Registrations</h2>
+	{literal}
+	<form class="search-form">
+	<input type="hidden" name="s" value="register" />
+	<input type="hidden" name="act" value="account" />
+	<input type="text" name="find" value="Search name..." onfocus="if(this.value == 'Search name...') { this.value = ''; }" />
+	<input type="submit" value=" Search " />
+	</form>
+	{/literal}
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Name</strong></td>
+		<td><strong>Email</strong></td>
+		<td><strong>Agency</strong></td>
+		<td><strong>Status</strong></td>
+		<td><strong>Type</strong></td>
+		<td><strong>Action</strong></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].name}</td>
+		<td>{$list[i].email}</td>
+		<td>{$list[i].agency_name}</td>
+		<td>
+			{if $list[i].n_status eq 0}
+				Disabled
+			{elseif $list[i].n_status eq 1}
+				Active
+			{/if}
+			</td>
+		<td>
+			{if $list[i].account_type eq 0}
+				Trial
+			{elseif $list[i].account_type eq 1}
+				Paid
+			{elseif $list[i].account_type eq 2}
+				Enterprise
+			{/if}
+			</td>
+		<td>
+			<a href="?s=register&act=detailAccount&id={$list[i].id|intval}" class="addSubPage">Detail</a>  <a href="?s=report&id={$list[i].id|intval}" class="addSubPage">Special Reports</a>
+		</td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

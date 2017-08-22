@@ -1,0 +1,63 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="#">Payments &amp; Usage</a></h1>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div id="campaign" class="pad1015">
+            	<div class="headTable">
+                    {$topic_usage}
+                    <p>{$name}, this is your account history of transactions within your SMAC Account.</p>
+                    {*}
+                    <div class="detailAccount">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td>Name</td>
+                            <td>Username</td>
+                          </tr>
+                          <tr>
+                            <td>Status</td>
+                            <td>Active</td>
+                          </tr>
+                        </table>
+                    </div>
+                    {/*}
+                </div>
+              <div style="display:block;width:100%;float:left;overflow: hidden">
+               	<h4>Active Subscriptions : </h4>
+                   <div id="active_subs">
+                   </div>
+            	<h4>Expired Subscriptions : </h4>
+                   <div id="expired_subs">
+                   </div>
+               </div>
+           	</div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+    
+<script>
+	var active_url = "{$active_url}";
+	var expired_url = "{$expired_url}";
+	{literal}
+	function active_subscriptions(active_url){
+		$("#active_subs").html("<div style='text-align: center;'><span style='color:black;display:block;margin-bottom: 10px;'>Loading Active Subscriptions</span><img src='images/loader-med.gif'/></div>");
+		smac_html(active_url,function(response){
+			$("#active_subs").html(response);
+		});
+	}
+	function expired_subscriptions(active_url){
+		$("#expired_subs").html("<div style='text-align: center;'><span style='color:black;display:block;margin-bottom: 10px;'>Loading Expired Subscriptions</span><img src='images/loader-med.gif'/></div>");
+		smac_html(active_url,function(response){
+			$("#expired_subs").html(response);
+		});
+	}
+	{/literal}
+	active_subscriptions(active_url);
+	expired_subscriptions(expired_url);
+</script>

@@ -1,0 +1,39 @@
+ {*}
+            <div id="top-50-keyword" class="summary-report">
+                <div class="title-bar">
+                    <h1><span class="numbers">1</span><span class="title-text">Top 50 Keywords</span></h1>
+                    
+                    <div class="title-icon">
+                     	<a class="fadeout-top-50-keyword hide" href="#top-50-keyword" style="display:none;">Hide</a>
+                     	<a class="fadein-top-50-keyword show" href="#top-50-keyword">Show</a><span class="tooltip-expand">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="content-top-50-keyword" style="display:none;">{/*}
+                <div class="content">
+                    <table class="zebra"  border="0" cellspacing="0" cellpadding="0" width="830">
+                        <thead class="tbheading">
+                            <td width="20">No</td>
+                            <td>Word</td>
+                            <td>Frequency</td>
+                            <td>People Mentioning</td>
+                        </thead>
+						{assign var=num value=1}
+						{section name=i loop=$top_keywords}
+						<tr>
+                            <td>{$num}.</td>
+                            <td>{$top_keywords[i].word}</td>
+                            <td>{$top_keywords[i].percent|number_format}</td>
+                            <td id='{$num}'>{$top_keywords[i].total|number_format}
+                            <script type="text/javascript">ts_get_people_count('{$num}',"{$top_keywords[i].word|addslashes}");</script>
+                            </td>
+                        </tr>
+						{assign var=num value=$num+1}
+						{/section}
+                    </table>
+                    <script type="text/javascript">
+					ts_get_counts();
+					</script>
+                    </div>{*}
+                </div><!-- #content-top-50-keyword-->
+            </div><!-- #top-50-keyword-->
+{/*}

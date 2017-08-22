@@ -1,0 +1,56 @@
+{*}
+            <div id="top-summary" class="summary-report">
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+          					  	<h1>{if $market}<span id='txtmarket'>Market Topic Summary - {$market}</span>{/if} 
+                           {if $market} <a id='btnglobaldata' href='{encrypt url='index.php?page=home&act=toggle_geo'}'>Switch to Global Data</a>{/if}</h1>
+                        </td>
+                        <td align="right">
+                           <div style="float:right"> {$widget_datefilter}</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+                <div id="content-top-summary">{/*}
+                <table class="w1" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top">
+                        <div class="list-box">
+                            <div class="box">
+                                <span>Potential Impact Index</span>
+                                <h1 style="margin: 10px 0;">{$impact}</h1>
+                                {if $pii_change>0}                      
+                                <span class="triangle">{$pii_change}%</span>
+                                {elseif $pii_change<0}
+                                 <span class="triangle arrow_down">{$pii_change}%</span>
+                                {/if}       
+                                <span class="desc">An indicator of how much impact this topic had in social media conversations, includes sentiment & dominance</span>                   
+                            </div>
+                            <div class="box">
+                                <span>Total Mention</span>
+                                 <h1 style="margin: 10px 0;">{$mention|smac_number}</h1>
+                                  {if $mention_change>0}                      
+                                <span class="triangle">{$mention_change}%</span>
+                                {elseif $mention_change<0}
+                                 <span class="triangle arrow_down">{$mention_change}%</span>
+                                {/if}
+                                <span class="desc">How many times the keywords you registered have been mentioned throughout the listening time span</span>  
+                            </div>
+                            <div class="box">
+                                <span>Potential Impressions</span>
+                                 <h1 style="margin: 10px 0;">{$impressi|smac_number}</h1>
+                                  {if $imp_change>0}                      
+                                <span class="triangle">{$imp_change}%</span>
+                                {elseif $imp_change<0}
+                                 <span class="triangle arrow_down">{$imp_change}%</span>
+                                {/if}  
+                                <span class="desc">How many "eyeballs" the keywords you registered reached throughout the listening time span, basically mentions times followers</span>
+                            </div>
+                        </div>
+                    </td><!-- .w1-->
+                  </tr>
+                </table>
+              {*}  </div>
+            </div><!-- #top-summary-->{/*}

@@ -1,0 +1,33 @@
+{if $exc}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zebra">
+   <tr class="head">
+ <td>Date</td>
+ <td>Filename</td>
+ <td>Description</td>
+ <td align="center">Download Link</td>
+   </tr>
+   {section name=i loop=$exc}
+      <tr>
+ <td>{$exc[i].submit_date}</td>
+ <td>{$exc[i].filename}</td>
+ <td>{$exc[i].description|strip_tags|stripslashes}
+ </td>
+ <td width="145"><a class="iconPdf" href="contents/{$exc[i].download_dir}/{$exc[i].filename}" target="_blank">&nbsp;</a></td>
+</tr>
+{/section}
+</table>
+
+ 
+ <script type="text/javascript">
+ {literal}
+	$(document).ready(function() {
+		$("table.zebra tr:odd").addClass("ganjil");
+		$("table.zebra tr:even").addClass("genap");
+		$("table.zebra th").parent().addClass("tbheading");
+		$(".reportlistfoot").fadeIn();
+	});
+{/literal}
+</script>
+ 
+ {/if}
+ {$paging}

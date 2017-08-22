@@ -1,0 +1,142 @@
+<script src="https://maps.google.com/maps?file=api&v=2&key={$google_map_key}" type="text/javascript"></script>
+<script src="js/map-historical.js" type="text/javascript"></script>
+
+<script src="js/dynDateTime/jquery.dynDateTime.js" type="text/javascript"></script>
+<script src="js/dynDateTime/lang/calendar-en.js" type="text/javascript"></script>
+<link href="js/dynDateTime/css/calendar-system.css" media="all" type="text/css" rel="stylesheet">
+
+<script type="text/javascript">
+//smap.urlx = "{encrypt url='index.php?page=livetrack&act=getfeed&ajax=1'}";
+map_enabled = true;
+var dt_from = '{$dt_from}';
+var dt_to = '{$dt_to}';
+smap.urlx = "{encrypt url='index.php?page=livetrack&act=getmapfeedhistorical&ajax=1'}";
+smap.mapurlx = "{encrypt url='index.php?page=livetrack&act=getmapfeedhistorical&ajax=1'}";
+smap.wc_urlx = "{encrypt url='index.php?page=livetrack&act=getwordcloud&ajax=1'}";
+{if $talking}
+var lt_people = {$talking|intval};
+{else}
+var lt_people = 0;
+{/if}
+{if $mentions}
+var lt_mentions = {$mentions|intval};
+{else}
+var lt_mentions = 0;
+{/if}
+{if $reach}
+var lt_reach = {$reach|intval};
+{else}
+var lt_reach = 0;
+{/if}
+
+{literal}
+$(document).ready(function(){
+	$('#select-type').change(function(){
+		document.location.href = $(this).val();
+	});
+	
+	$('input[name="dt_from"]').dynDateTime();
+	$('input[name="dt_to"]').dynDateTime();
+	
+});
+{/literal}
+</script>
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+          					  	<h1>{if $market}<span id='txtmarket'>Market Historical - {$market}</span>{/if} 
+                           {if $market} <a id='btnglobaldata' href='{encrypt url='index.php?page=home&act=toggle_geo'}'>Switch to Global Data</a>{/if}</h1>
+                        </td>
+                        <td align="right">
+                        	{*}<h3 style="padding:0 20px 0 0; display:inline;">Showing tweets from (t-1 hour)</h3>{/*}
+                            <form class="filter-live-track" action="" style="display:inline; margin:0 10px 0 0;">
+                                <select id="select-type">
+                                    <option value="{$urllivetrack}">Live Track</option>
+                                   <option value="{$urlhistorical}" selected="selected">Historical</option>
+                                     <option value="{$urlalltrack}">Live Stream</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td align="right" class="w300 date-historical" style="width:330px; padding:0;">
+                            <form class="selectDate" action="index.php" method='GET' enctype="application/x-www-form-urlencoded">
+                                <input type="hidden" name="req" value="{$urlhistorical_noindex}" />
+								<input class="round5" type="text" name="dt_from" value="{if $dt_from eq ''}{$a_dates[0].value}{else}{$dt_from}{/if}" readonly="readonly" /> To 
+                                <input class="round5" type="text" name="dt_to" value="{if $dt_to eq ''}{$a_dates[$a_dates_num].value}{else}{$dt_to}{/if}" readonly="readonly" />
+                                
+                                {*}
+                                <select id='datefilter_from' name='dt_from'>
+                                {section name=i loop=$a_dates}
+                                     <option value='{$a_dates[i].value}' {if $a_dates[i].value eq $dt_from}selected{/if}>{$a_dates[i].label}</option>
+                                {/section}
+                                </select>
+                                <label>To</label>
+                                <select id='datefilter_to' name='dt_to'>
+                                    {section name=i loop=$a_dates}
+                                    <option value='{$a_dates[i].value}' {if $a_dates[i].value eq $dt_to}selected{/if}>{$a_dates[i].label}</option>
+                                    {/section}
+                                </select>
+                               {/*}
+                                
+                                <input type="submit" value="go" class="btn-go" />
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="live-track">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" align="left" class="wfull">
+                    	<div class="map">
+                        	
+                        	<div id="map" style="width:100%;height:300px"></div>	
+                        	
+                        </div>
+                        <div class="content" style="height:500px;overflow:auto;">
+                        	
+                        	<table id="grid" width="100%" border="0" cellspacing="0" cellpadding="0" class="zebra" style="display:none;">
+                        		<thead class="head">
+                        			<td><strong>Author</strong></td>
+                        			
+                        			<td><strong>Text</strong></td>
+                        			<td width="150px"><strong>Posted Date</strong></td>
+                        		</thead>
+                        		<tbody>
+                        		</tbody>
+                        	</table>
+                        	
+                        </div>
+                    </td>
+                    <td valign="top" align="left" class="w300" style="padding:0; width:330px;">
+                    	<div class="box-info" style="width:310px;">
+                        	<div class="box green-box">
+                            	<h3>People Talking</h3>
+                                <h1 id="people">{$talking|smac_number}</h1>
+                            </div>
+                        	<div class="box orange-box">
+                            	<h3>Total Mentions</h3>
+                                <h1 id="mentions">{$mentions|smac_number}</h1>
+                            </div>
+                        	<div class="box green-box">
+                            	<h3>Potential Reach</h3>
+                                <h1 id="reach">{$reach|smac_number}</h1>
+                            </div>
+                        </div>
+                        <div id='ltwordcloud'>
+                    	{$favoriteWord}
+                    	</div>
+                    </td>
+                  </tr>
+                </table>
+            </div><!-- #key-opinion -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+<script>
+start_feed();
+</script>

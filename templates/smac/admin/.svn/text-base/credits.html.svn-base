@@ -1,0 +1,24 @@
+<div style="padding:10px;">
+	<h2 class="title-form">Credits</h2>
+	
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Name</strong></td>
+		<td><strong>Email</strong></td>
+		<td><strong>Credits</strong></td>
+		<td><strong>Debits</strong></td>
+		<td><strong>Action</strong></td>
+	</tr>
+	{section name=i loop=$data}
+	<tr>
+		<td>{$data[i].name}</td>
+		<td>{$data[i].email}</td>
+		<td>{$data[i].credits|number_format}</td>
+		<td>{$data[i].debits|number_format}</td>
+		<td><a href="?s=credits&act=add&account_id={$data[i].account_id|intval}">Add Credit</a>&nbsp;&nbsp;<a href="?s=credits&act=transactions&account_id={$data[i].account_id|intval}">Transactions</a></td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

@@ -1,0 +1,39 @@
+{*}
+	<script type="text/javascript">
+  
+	var user_id = {$user_id};
+	{literal}
+	$(document).ready(function(){
+		messageShow(user_id);
+	});
+	{/literal}
+
+	</script>
+{/*}
+	<div id="message-top" class="message-top" style="display:none;">
+		<div>
+        {section name=i loop=$message}
+		<p>{$message[i]}</p>
+        {/section}
+        </div>
+		<a href="#" class="close-message-top" onclick="javascript:setMessageCookie({$user_id});">X</a>
+    </div>
+	<div id="header">
+    	<div class="logo-block">
+        	<a class="logosmall" href="{$urlhome}">&nbsp;</a>
+        </div><!-- .logo-block -->
+        <div class="user-info">
+        	<a class="bighelp tip_trigger theTolltip" id="reload" href="#" onclick="location.reload(); return false;" title="Reload Page">&nbsp;</a>
+        	<a class="refresh tip_trigger theTolltip" href="#" title="Help">&nbsp;</a>
+            <div class="userbox">
+            	<span class="username"><a class="theTolltip" title="Click for Details" href="{encrypt url='index.php?page=account'}" style="text-decoration: none; color:#333;">{$fname} {$lname}</a></span>
+            	<span class="email-user"><a class="theTolltip" title="Click for Details" href="{encrypt url='index.php?page=account'}" style="text-decoration: none; color:#333;">{$email}</a></span>
+                <span class="status-user"><a class="theTolltip" title="Click for Details" href="{encrypt url='index.php?page=account&act=credit_usage'}" style="text-decoration: none; color:#333;">{if $status eq 1}Paid</a>{elseif $status eq 2}Enterprise</a>{elseif $status eq 3}Paid</a>{elseif $status eq 4}Paid</a>{elseif $status eq 5}Enterprise</a>{else}Trial&nbsp;</a>{*}<a href="#">(Upgrade Now!)</a>{/*}{/if}</span>
+        	    {*}
+				<span class="credit-user"><a class="theTolltip" title="SMAC Credits Left" href="{encrypt url='index.php?page=account&act=credit_usage'}" style="text-decoration: none; color:#333;">{$saldo|number_format}</a></span>
+				{/*}
+				<a class="padlock theTolltip" title="Logout" href="logout.php"></a>
+            	{*}<span class"valid-date">12/04/2012</span>{/*}
+            </div>
+        </div>
+    </div><!-- #header -->

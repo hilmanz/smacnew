@@ -1,0 +1,61 @@
+{*}
+            <div id="branded-twitter-account" class="summary-report">
+                <div class="title-bar">
+                    <h1><span class="numbers">5</span><span class="title-text">Branded Twitter Account</span></h1>
+                    <div class="title-icon">
+                     	<a class="fadeout-branded-twitter-account hide" href="#branded-twitter-account" style="display:none;">Hide</a>
+                     	<a class="fadein-branded-twitter-account show" href="#branded-twitter-account">Show</a>
+                    </div>
+                </div>
+                <div id="content-branded-twitter-account" style="display:none;">{/*}
+                    <div class="content">
+                        <div id="profile">
+                            <div class="headpopup">
+                                <h1 class="fleft">{$branded.name}</h1>
+                                <a class="logo-twitter fright" href="#">&nbsp;</a>
+                            </div>
+                            <div class="content-popup">
+                                <div class="statistik-profile">
+                                    <a class="icon1" href="#" title="Followers" no="1">{$branded.followers|number_format}</a>
+                                    <a class="icon2" href="#" title="Mentions" no="2">{$branded.mentions|number_format}</a>
+                                    <a class="icon3" href="#" title="Total Impressions" no="3">{$branded.total_imp|number_format}</a>
+                                    <a class="icon4" href="#" title="Retweet Frequency" no="4">{$branded.rt_percent}%</a>
+                                    <a class="icon5" href="#" title="Retweeted Impressions" no="5">{$branded.rt_imp|number_format}</a>
+                                    <a class="icon6" href="#" title="share" no="5">{$branded.share}%</a>
+                                </div>
+                               
+                                <div class="impact-score">
+                                    {*} <span>RANK</span>
+                                    <h1>{$branded.rank}</h1>{/*}
+                                </div>
+                                
+                            </div>
+                            <div class="legend">
+                                    <a class="icon1" href="#" title="Followers" no="1">Followers</a>
+                                    <a class="icon2" href="#" title="Mentions" no="2">Mentions</a>
+                                    <a class="icon3" href="#" title="Total Impressions" no="3">Total Impressions</a>
+                                    <a class="icon4" href="#" title="Retweet Frequency" no="4">Retweet Frequency</a>
+                                    <a class="icon5" href="#" title="Retweeted Impressions" no="5">Retweeted Impressions</a>
+                                    <a class="icon6" href="#" title="Share" no="5">Share</a>
+                            </div>
+                            <table class="zebra"  border="0" cellspacing="0" cellpadding="0" width="830">
+                                <thead class="tbheading">
+                                    <td>Tweet</td>
+                                    <td>RT</td>
+                                    <td>Impression</td>
+                                    <td>Share</td>
+                                </thead>
+								{section name=i loop=$branded.tweets}
+                                <tr>
+                                    <td>{$branded.tweets[i].content}</td>
+                                    <td>{$branded.tweets[i].rt|number_format}</td>
+                                    <td>{$branded.tweets[i].imp|number_format}</td>
+                                    <td>{$branded.tweets[i].share}</td>
+                                </tr>
+                                {/section}
+                            </table>
+                        </div>
+                    </div>{*}
+                </div><!-- #content-branded-twitter-account -->
+            </div><!-- #branded-twitter-account-->
+            {/*}

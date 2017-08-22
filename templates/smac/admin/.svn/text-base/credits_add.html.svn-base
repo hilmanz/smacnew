@@ -1,0 +1,19 @@
+<div style="padding:10px;">
+<h2 class="title-form">Add Credits for {$name|strip_tags|htmlentities}</h2>
+<form action="" method="post" enctype="application/x-www-form-urlencoded">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr>
+		<td>Amount</td><td><input type="text" name="amount" value="1"/></td>
+	</tr>
+	<tr>
+		<td>Reason</td><td><input type="text" name="reason" value="Free Credits"/></td>
+	</tr>
+	<tr><td>&nbsp;</td><td>
+		<input type="hidden" name="s" value="credits"/>
+		<input type="hidden" name="act" value="submit"/>
+		<input type="hidden" name="account_id" value="{$account_id}"/>
+		<input type="submit" name="btn" value="Submit"/>
+	</td></tr>
+</table>
+</form>
+</div>

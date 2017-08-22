@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/smac/!svn/ver/1615/trunk/web/engines/Admin
+END
+PluginManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/engines/Admin/PluginManager.php
+END
+UserManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/engines/Admin/UserManager.php
+END
+DashboardManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1615/trunk/web/engines/Admin/DashboardManager.php
+END
+Admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/smac/!svn/ver/1615/trunk/web/engines/Admin/Admin.php
+END

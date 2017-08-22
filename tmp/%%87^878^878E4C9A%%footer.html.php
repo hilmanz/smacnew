@@ -1,0 +1,14 @@
+<?php /* Smarty version 2.6.13, created on 2013-01-03 15:28:57
+         compiled from smac/footer.html */ ?>
+
+    <div id="footer">
+        <div class="copy">
+            <p>&copy;2012 SMAC - Social Media Action Center</p>
+        </div><!-- .copy -->
+        <div class="foot-nav">
+        	<p>
+            <a href="index.php?req=49ZgKrIIvGr85MNqC-MtRNY0ll7BIP7p5ku6MArkOaejrXBjl5xyag.." target="_blank">Privacy Policy</a>
+            <a href="index.php?req=g_cpEYWaYuU7R1X2AgUD7Q.." target="_blank">Terms Of Use</a>
+       		</p>
+        </div>
+    </div><!-- #footer -->

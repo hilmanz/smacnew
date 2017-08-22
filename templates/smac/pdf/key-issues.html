@@ -1,0 +1,27 @@
+
+            <div id="key-issues"  style="clear:both;width:640px;">
+                <div class="title-bar">
+                    <h1><span class="numbers"></span><span class="title-text">Key Issues</span></h1>
+                    
+                </div>
+               
+                    <table  border="0" cellspacing="0" cellpadding="0" width="640px">
+                        <tr>
+                            <td width="20" bgcolor="#999999">No</td>
+                            <td bgcolor="#999999">Keywords</td>
+                            <td bgcolor="#999999">Frequency</td>
+                            <td bgcolor="#999999">Sentiment</td>
+                        </tr>
+                        {assign var=num value=1}
+						{section name=i loop=$issue}
+                        <tr>
+                            <td>{$num}.</td>
+                            <td>{$issue[i].word}</td>
+                            <td>{$issue[i].occurance|number_format}</td>
+                            <td><span class="icon-{$issue[i].sentiment}">{$issue[i].sentiment}</span></td>
+                        </tr>
+                        {assign var=num value=$num+1}
+						{/section}
+                    </table>
+                  
+            </div>

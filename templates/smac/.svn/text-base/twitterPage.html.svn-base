@@ -1,0 +1,167 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  	<td colspan="4">
+        <div class="bgBlue">
+            <div class="titles">
+                <h3 class="lfilters">
+                    <select name="d" id="twitDailySelect">
+						<option value="twitVolbySentiment">Potential Impact Index</option>
+						<option value="twitVolbyInteraction">Interaction Index</option>
+						<option value="twitVolbyImpression">Volume by Impression</option>
+						<option value="twitVolbyMention">Volume by Mention</option>
+						<option value="twitVolbySentiment2">Volume by Sentiment</option>
+					</select>
+                </h3>
+            </div>
+            <div id="twitDailyVolume" class="theChart" style="width:943px;height:280px;background:white;">
+            </div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+  	<td colspan="4">
+            <div class="list-box">
+                <div id="twitTotalPost" class="box firstBox">
+                    <span>Total Posts</span>
+                    <a class="helpsmall theTolltip" href="#" title="Total Posts."></a>
+                    <h1></h1>
+                    <span class="triangle fleft">&nbsp;</span>       
+                    <span class="counts"></span>
+                </div><!-- end .box-->
+                <div id="twitOriginalPost" class="box">
+                    <span>Original Posts</span>
+                    <a class="helpsmall theTolltip" href="#" title="Original Posts."></a>
+                     <h1></h1>
+					 <span class="triangle fleft">&nbsp;</span>
+					 {*}
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+					{/*}
+                    <span class="counts"></span>
+                </div><!-- end .box-->
+                <div id="twitRetweet" class="box">
+                    <span>RT</span>
+                    <a class="helpsmall theTolltip" href="#" title="Retweet."></a>
+                     <h1></h1>
+					 <span class="triangle fleft">&nbsp;</span>
+					 <span class="counts"></span>
+					 {*}
+                   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}				
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+                <div id="twitPotentialImpression" class="box">
+                    <span>Potential Impressions</span>
+                     <a href="#" class="helpsmall theTolltip" title="The absolute reach or a count of how many eyeballs your keyword(s) have generated, mentions times followers."></a>
+                     <h1>{$impressi}</h1>
+					 <span class="triangle fleft">&nbsp;</span>
+					 <span class="counts"></span>
+                   {*}
+				   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+                <div id="twitPeople" class="box">
+                    <span>People</span>
+                    <a class="helpsmall theTolltip" href="#" title="People."></a>
+                     <h1></h1>
+					 <span class="triangle fleft">&nbsp;</span>
+					 <span class="counts"></span>
+                   {*}
+				   {if $imp_change <> 0}                  
+                   {if $imp_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                   
+                   {if $imp_change < 300}{$imp_change}%{/if}
+                   </span>
+                    {/if}
+                    <span class="counts">{if $imp_diff <> 0}{$imp_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+            </div><!-- end .list-box-->
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+    	<div id="topKeyword" class="favorite-word">
+			<h1>Top Keywords</h1>		
+			<div id="twitTopWords" class="wordclouds"></div>
+        </div>
+    </td>
+    <td align="left" valign="top">
+        <div id="pieChartSentiment">
+            <div class="titles">
+                <h3>Sentiment</h3>
+            </div>
+            <div class="bgGreys">
+                <div id="twitSentiment" class="theChart" style="width:280px;height:323px;">
+                   
+                </div>
+            </div>
+        </div><!-- # End pieChart1-->
+    </td>
+    <td align="left" valign="top">
+            <div class="thePeoples">
+                <h1>Top People</h1>
+  				<a class="smallArrow" href="{encrypt url='index.php?page=kol'}#tabTwitter">View All</a>
+                <div id="twitTopPeople" class="content">
+                            
+                </div><!-- .content-->
+            </div><!-- .opinion-->
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+        <div id="topPost">
+          <div class="titles">
+            <h3>Top Posts</h3>
+  		    <a class="smallArrow" href="{encrypt url='index.php?page=allpost'}#tabs/twitterTab">View All</a>&nbsp;<a class="smallArrow" href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=1&type=1'}">Raw Posts</a>
+          </div>
+          <div id="channels" class="bgGreys">
+            <div id="tab-twitter">
+              <div id="twitTopPost">
+                
+              </div>
+            </div>
+          </div><!-- .bgGreys -->
+        </div><!-- .topPost -->
+    </td>
+  </tr>
+</table>
+<script>
+{literal}
+	$("#twitDailySelect").live('change', function() {
+		if(twitCount != 0){
+			channelPerformance('twitDailyVolume', this.value, 'Twitter');
+		}
+    });
+{/literal}
+</script>

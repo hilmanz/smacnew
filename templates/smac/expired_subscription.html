@@ -1,0 +1,66 @@
+<div class="CSSTable">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">   
+<tr>
+    <td valign="top" width="180" style="text-align:left;">
+        <h4 class="margin0">Service</h4>
+    </td>
+    <td valign="top">
+         <h4 class="margin0">Start</h4>      	
+    </td>
+    <td valign="top">
+         <h4 class="margin0">End</h4>      	
+    </td>
+      <td valign="top">
+         <h4 class="margin0">Days Left</h4>      	
+    </td>
+     <td valign="top">
+         <h4 class="margin0">Price (USD)</h4>      	
+    </td>
+     <td valign="top">&nbsp;
+        
+    </td>
+</tr>
+{section name=i loop=$orders}
+<tr {if $smarty.section.i.iteration % 2 == 1} class="ganjil"{else}  class="genap"{/if}>
+    <td valign="top" width="180" style="text-align:left;">
+        {$orders[i].campaign_name|stripslashes|htmlentities}
+    </td>
+    <td valign="top">
+        {$orders[i].campaign_start}
+    </td>
+    <td valign="top">
+         {$orders[i].expired}
+    </td>
+     <td valign="top">
+         {$orders[i].days_left|number_format}	
+    </td>
+     <td valign="top">
+         {if $orders[i].last_order.total_price}{$orders[i].last_order.total_price|number_format}{else}{$default_price}{/if}
+    </td>
+     <td valign="top">
+         <span>
+            
+                {if $orders[i].last_order.n_status eq 0}
+                <a href="{$orders[i].checkout_url}" class="button">Pay Now</a>
+                {elseif $orders[i].last_order.n_status eq 2}
+                        <span class="canceledBtn">Canceled</span>
+                {else}
+                    {if $orders[i].days_left eq 0}
+                        <a href="{$orders[i].extend_url}" class="button">Extend</a>
+                    {else}
+                        <span class="activebtn">Active</span>
+                    {/if}
+                {/if}
+            
+         </span>
+         {if $orders[i].last_order.n_status eq 0}
+         <span><a href="{$orders[i].cancel_url}" class="button">Cancel Invoice</a></span>
+         {/if}
+    </td>
+</tr>
+{/section}
+</table>
+</div>
+<div>
+	{$paging}
+</div>

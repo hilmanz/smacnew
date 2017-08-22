@@ -1,0 +1,41 @@
+
+                    <div class="opinion">
+                        <h1>Key Opinion Leader</h1>
+                        <div class="content" style="height:353px">
+                        	
+                        	{section name=i loop=$opinion}
+                        	<div class="list">
+                            	<div class="smallthumb">
+                                <a href="http://www.facebook.com/{$opinion[i].author_id}" target="_blank"><img src="{$opinion[i].image}" /></a>
+                                </div>
+                                <div class="entry">
+                                    <h3>{$opinion[i].name}</h3>
+                                    
+                                    <a class="icon-posts tip_trigger">{$opinion[i].mentions}  <span class="tip">Posts</span></a>
+                                    <a class="icon-likes tip_trigger">{$opinion[i].likes}  <span class="tip">Likes</span></a>
+                                    {*}
+                                    <a href="#?w=650&page=profile&act=popup&id={$opinion[i].name}" class="iconopinion poplight" rel="profile">&nbsp;</a>
+                                	{/*}
+                                </div>
+                            </div>
+                        	{/section}
+                        	{if sizeof($opinion) < 1}
+                        	<div class="list">Not Available </div>
+                        	{/if}                      	
+                        	
+                        </div><!-- .content-->
+                    </div><!-- .opinion-->
+
+
+{literal}
+<script>
+	$(function() {
+		var $elem = $('body');
+		$('a.poplight').click(
+			function (e) {
+				$('html, body').animate({scrollTop: '0px'}, 800);
+			}
+		);
+	});
+</script>
+{/literal}

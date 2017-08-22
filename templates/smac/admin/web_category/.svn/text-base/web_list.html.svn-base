@@ -1,0 +1,62 @@
+<h3>Uncategorized Websites</h3>
+<table width="100%">
+	<tr class="head">
+		<td width="30">No.</td><td>Website</td><td>Set Group</td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$smarty.section.i.index+1+$start}</td><td><a href="http://{$list[i].sitename}">{$list[i].sitename}</a></td>
+		<td>
+			<select name="group_type" no="{$list[i].id|intval}">
+				<option value="0">Choose Category</option>
+				<option value="1">Blog</option>
+				<option value="2">Forum</option>
+				<option value="3">News</option>
+				<option value="5">ECommerce</option>
+				<option value="4">Youtube</option>
+				<option value="0">Personal / Corporate Site</option>
+				<option value="-1">Exclude</option>
+			</select>
+		</td>
+	</tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+<script>
+	var n_cap = {$total_per_page|intval};
+</script>
+{literal}
+<script>
+	$(document).ready(function(){
+		var n_flagged = 0;
+		var cat = ['Personal/Corporate','Blog','Forum','News','Youtube','E-Commerce'];
+		$("select").change(function(){
+			//console.log($(this).attr('no')+'->'+$(this).val());
+			$(this).parent().prepend('<div id="loader"><img src="images/ajax-loader.gif"/></div>');
+			var p = $(this);
+			p.hide();
+			var type = $(this).val();
+			$.ajax({
+				  url: '?s=web_category&act=toggle&type='+type+'&id='+$(this).attr('no'),
+				  dataType: 'json',
+				  success: function( response ) {
+				  		$("#loader").remove();
+				  		if(response.status==1){
+				  			n_flagged++;
+				  			if(type!=-1){
+				  				p.parent().html(cat[type]);
+				  			}else{
+				  				p.parent().html('Excluded');
+				  			}
+				  			if(n_flagged==n_cap) document.location.reload();
+				  		}else{
+				  			console.log('ney');
+				  			p.show();
+				  			
+				  		}
+				  }
+			});
+		});
+	});
+</script>
+{/literal}

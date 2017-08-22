@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/exceptions
+END
+PPConnectionException.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/exceptions/PPConnectionException.php
+END
+PPInvalidCredentialException.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/exceptions/PPInvalidCredentialException.php
+END
+PPTransformerException.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/exceptions/PPTransformerException.php
+END
+PPMissingCredentialException.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/exceptions/PPMissingCredentialException.php
+END
+PPConfigurationException.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/exceptions/PPConfigurationException.php
+END

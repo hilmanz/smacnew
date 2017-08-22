@@ -1,0 +1,22 @@
+{if $jobs}
+<div>
+Below are the processes running within the last 24 hour(s) : 
+</div>
+<div style="overflow:auto;height:300px">
+<table width='100%' border='0' cellpadding='10px' cellspacing='0px'>
+<tr class="bgGreen white">
+<td>No.</td><td>Job</td><td>Submitted</td><td>Status</td>
+</tr>
+{section name=i loop=$jobs}
+<tr style="font-size:12px">
+<td>{$jobs[i].no}</td><td>{$jobs[i].descriptions}</td><td>{$jobs[i].detail.tgl}</td>
+<td>{if $jobs[i].detail.n_status eq '1'}Processing{elseif $jobs[i].detail.n_status eq '2'}Done{else}In Queue{/if}</td>
+</tr>
+{/section}
+</table>
+</div>
+{else}
+<div>
+There's no job running right now.
+</div>
+{/if}

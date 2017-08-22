@@ -1,0 +1,129 @@
+<script type="text/javascript" src="js/dynDateTime/jquery.dynDateTime.js"></script>
+<script type="text/javascript" src="js/dynDateTime/lang/calendar-en.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="js/dynDateTime/css/calendar-system.css"  />
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="#">Edit Topic</a> <span class="grey">&gt; Topic Details</span></h1>
+            		</td>
+                    <td align="right">
+                    	
+                    </td>
+                </tr>
+            </table>
+            </div>
+            
+            <form action="{$urleditcampaign}" method="post">
+            
+            <div id="campaign" class="pad1015 step1">
+            
+            <p>This wizard will take you through the steps to define and run a edit topic within SMAC</p>
+            
+            {if $err}
+            <p style="color:#f00;"><strong>{$err}</strong></p>
+            {/if}
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bgGrey round10 pad2550" style="margin:0 0 40px 0;">
+            	<tr>
+                	<td>
+                    	<h4 style="width:160px;">TOPIC NAME</h4>	
+                    </td>
+                    <td width="100%">
+                    	<input value="{$campaign.campaign_name}" class="round5" type="text" name="name" /><span id="campaignName" class="question circle circleSize1 grey bgWhite theTolltip" title="Change/edit your topic name">?</span>
+                    </td>
+             	</tr><tr>
+                    <td>
+                    	<h4>TOPIC DESCRIPTION</h4>	
+                    </td>
+                    <td>
+                    	<input class="round5" type="text" name="desc" value="{$campaign.campaign_desc}" /><span id="campaignDesc" class="question circle circleSize1 grey bgWhite theTolltip" title="Change/edit your topic description">?</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    	<h4>TOPIC GROUP</h4>	
+                    </td>
+                    <td>
+                    	<select id="topicgroup" name="topicgroup">
+                    		{section name=i loop=$topicgroup}
+                        		<option value="{$topicgroup[i].id}" {if $campaign.group_id eq $topicgroup[i].id}selected{/if}>{$topicgroup[i].group_name|stripslashes|strip_tags}</option>
+                        	{/section}
+                        	</select>
+                           <a href="#" class="helpsmall helpform theTolltip" style="margin:1px 0 0 13px;" title="You can create topic groups within SMAC to easily compare or group together topics most relevant to your business.">&nbsp;</a>
+                            <span class="errCampaignName messageError" style="margin:2px 0 0 10px;">Please choose the topic group</span>
+                    </td>
+                </tr>
+            </table>
+            
+            <!--<input id="cSubmit1" type="button" value="SELECT KEYWORDS" onclick="javascript:campaign.goStep(2);" />-->
+            <input id="cSubmit1" type="submit" value="SAVE CHANGES" />
+            
+            </div>
+           	
+           	
+           	<div id="campaign" class="pad1015 step2" style="display:none;">
+            <p>Choose keywords that SMAC will use to listen into on your campaign. Please separate each keyword with new line</p>
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">
+            	<tr>
+                	<td width="100%">
+                    	<textarea name="keywords" class="round5" rows="3" cols="10"></textarea>
+                        <p>Keyword Count: </p>
+                    </td>
+                    <td>
+                    	<p class="padL15" style="width:200px">	Don’t know which keywords to use?<br />
+							Try our keyword recommendation tool<br />
+							<a href="#">Get Started!</a>
+                       	</p>
+                    </td>
+                </tr>
+            </table>
+           
+            <input id="cSubmit1" type="button" value="CONFIRM CAMPAIGN" onclick="javascript:campaign.goStep(4);" />
+            
+            </div>
+           	
+           	<div id="campaign" class="pad1015 step4" style="display:none;">
+            <p>Confirm your campaign settings</p>
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bgGrey round10 pad2550" style="margin:0 0 40px 0;">
+            	<tr>
+                	<td valign="top" height="500px">
+                    	
+                    	<table>
+                    		<tr>
+                    			<td>Campaign name</td><td>:</td><td><span id="co-name"></span></td>
+                    		</tr>
+                    		<tr>
+                    			<td>Campaign descriptions</td><td>:</td><td><span id="co-desc"></span></td>
+                    		</tr>
+                    		<tr>
+                    			<td>Duration</td><td>:</td><td><span id="co-start"></span> - <span id="co-end"></span></td>
+                    		</tr>
+                    		<tr>
+                    			<td>Channels</td><td>:</td><td><span id="co-twitter">Twitter</span><span id="co-facebook">Facebook</span><span id="co-blog">Blogs</span></td>
+                    		</tr>
+                    		<tr>
+                    			<td>Keywords</td><td>:</td><td><span id="co-keywords"></span></td>
+                    		</tr>		
+                    	</table>
+                    
+                    </td>
+                </tr>
+            </table>
+            
+            <input type="hidden" name="add" value="1"/>
+            <input type="hidden" name="method" value="1"/>
+            <!--<input id="cSubmit1" type="submit" value="ACTIVATE" />-->
+          
+           	</div>
+           	
+           	</form>
+           	
+        </div><!-- #container -->
+    </div><!-- #main-container -->

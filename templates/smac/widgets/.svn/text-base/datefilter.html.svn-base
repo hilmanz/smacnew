@@ -1,0 +1,68 @@
+<script type="text/javascript" src="js/dynDateTime/jquery.dynDateTime.js"></script>
+<script type="text/javascript" src="js/dynDateTime/lang/calendar-en.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="js/dynDateTime/css/calendar-system.css"  />
+
+<script type="text/javascript">
+var start_date_filter = '{if $dt_from eq ''}{else}{$dt_from}{/if}';
+var end_date_filter = '{if $dt_to eq ''}{else}{$dt_to}{/if}';
+{literal}
+$(document).ready(function(){
+	if( $('input[name="dt_from"]').length > 0){
+		$('input[name="dt_from"]').dynDateTime({
+			ifFormat:     "%d/%m/%Y",
+			onClose: function(cal){
+					var selDate = new Date(cal.date);
+					selDate.setDate(selDate.getDate()); 
+					{/literal}
+					var startDate=new Date('{$a_dates[0].value}');
+					{literal}
+					{/literal}
+					var endDate=new Date('{$a_dates[$a_dates_num].value}');
+					{literal}
+					startDate.setDate(startDate.getDate());
+					endDate.setDate(endDate.getDate());
+					if( parseInt(selDate.getTime()) < parseInt(startDate.getTime()) ){
+						$('input[name="dt_from"]').val({/literal}'{$a_dates[0].label}'{literal}) ;
+					}
+					if( parseInt(selDate.getTime()) > parseInt(endDate.getTime()) ){
+						$('input[name="dt_from"]').val({/literal}'{$a_dates[$a_dates_num].label}'{literal}) ;
+					}
+					cal.hide();
+			}
+		});
+	}
+	if( $('input[name="dt_to"]').length > 0){
+		$('input[name="dt_to"]').dynDateTime({
+			ifFormat:     "%d/%m/%Y",
+			onClose: function(cal){
+					var selDate = new Date(cal.date);
+					selDate.setDate(selDate.getDate()); 
+					{/literal}
+					var startDate=new Date('{$a_dates[0].value}');
+					{literal}
+					{/literal}
+					var endDate=new Date('{$a_dates[$a_dates_num].value}');
+					{literal}
+					startDate.setDate(startDate.getDate());
+					endDate.setDate(endDate.getDate());
+					if( parseInt(selDate.getTime()) < parseInt(startDate.getTime()) ){
+						$('input[name="dt_to"]').val({/literal}'{$a_dates[0].label}'{literal}) ;
+					}
+					if( parseInt(selDate.getTime()) > parseInt(endDate.getTime()) ){
+						$('input[name="dt_to"]').val({/literal}'{$a_dates[$a_dates_num].label}'{literal}) ;
+					}
+					cal.hide();
+			}
+		});
+	}
+});
+</script>
+{/literal}
+
+<form id="smacDateFilter" class="selectDate" action="index.php" method='GET' enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="req" value="{$datefilter_url_param}"/>
+    <input class="round5" type="text" name="dt_from" value="{if $dt_from eq ''}{$a_dates[0].label}{else}{$dt_from|dateUnixToIndo}{/if}" readonly="readonly" /> To 
+	<input class="round5" type="text" name="dt_to" value="{if $dt_to eq ''}{$a_dates[$a_dates_num].label}{else}{$dt_to|dateUnixToIndo}{/if}" readonly="readonly" />
+    
+	<input type="submit" value="go" class="btn-go" />
+</form>

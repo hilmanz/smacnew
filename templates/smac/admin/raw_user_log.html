@@ -1,0 +1,27 @@
+<div style="padding:10px;">
+	<h2 class="title-form" style="float:left;padding-left:20px;width:100%">Raw Activity Logs - {$user.name} ({$user.email})</h2>
+	<div>
+	<form  id="frm1" method="get" enctype="application/x-www-form-urlencoded" target="rawcontent">
+	<input type="hidden" name="s" value="register"/>
+	<input type="hidden" name="id" value="{$user.id|intval}"/>
+	<input type="hidden" name="act" value="user_raw_log"/>
+	<select id="dt" name="dt">
+		{section name=i loop=$dt}
+		<option value='{$dt[i].value}'>{$dt[i].text}</option>
+		{/section}
+	</select>
+	<input type="submit" value="Open" onclick="clear_iframe();return false;"/> <a href="?s=register&act=download_log&id={$user.id|intval}">Download Activity (CSV)</a>
+	</form>
+	</div>
+<hr class="clear">
+<h1>{$the_date}</h1>
+<iframe id="rawcontent" name="rawcontent" width="100%" height="500px"/></iframe>
+</div>
+{literal}
+<script>
+	function clear_iframe(){
+		$("#rawcontent").attr('src','about:blank');
+		$("#frm1").submit();
+	}
+</script>
+{/literal}

@@ -1,0 +1,90 @@
+{if $usage_show}
+{literal}
+<script type="text/javascript">
+	$(function() {
+		$("#progressbar").progressbar({
+{/literal}
+			value: {$account.percentage|floatval}
+{literal}
+		});
+	});
+	</script>
+{/literal}
+{/if}
+<div id="sidebar">
+        <div class="select-campaign">
+            <form action="#" method="post">
+                    <select size="1" id="formSelectCampaign">
+                    	<option value="#">Select Topic</option>
+                        {section name=i loop=$campaign}
+                        <option value="{$campaign[i].link}" {if $campaign[i].id eq $campaignId}selected='selected'{/if}>{$campaign[i].name|utf8tohtml}</option>
+                        {/section}
+                       
+                    </select>
+            </form>
+        </div>
+        <div id="side-menu">
+           <ul id="tree-menu">
+           		<li></li>
+                <li><a class="mycampaign" href="#">My Topics</a>
+                    <ul>
+                        <li><a href="{$urlmycampaign}"> &bull; Overview</a></li>
+                        <li><a href="{$urlnewcampaign}"> &bull; New Topic</a></li>
+                         {if $has_campaign}
+                        <li><a href="{$urleditcampaign}"> &bull; Edit Topic</a></li>
+                        <li><a href="{$urldeletecampaign}"> &bull; Delete Topic</a></li>
+                        {/if}
+                        <li><a href="{$url_edit_group}"> &bull; Topic Groups</a></li>
+                    </ul>
+                </li>
+                {if $has_campaign}
+                <li><a class="mykeywords" href="#">My Keywords</a>
+                    <ul>
+                        <li><a href="{$urlmykeyword}"> &bull; Overview</a></li>
+                        {*}
+                        <!--
+                        <li><a href="#"> &bull; Usage by Keyword</a></li>
+                        <li><a href="#"> &bull; Edit Keyword</a></li>
+                        <li><a href="{$urladdkeyword}"> &bull; Add Keyword</a></li>
+                        
+                        <li><a href="#"> &bull; Keyword List &amp; Mentions Breakdown</a></li>-->
+                        {/*}
+                    </ul>
+                </li>
+                {/if}
+                <li><a class="myaccount" href="#">My Account</a>
+                    <ul>
+                        <li><a href="{$urlmyaccount}"> &bull; Overview</a></li>
+                        {if $urladduser}
+                        <li><a href="{$urladduser}"> &bull; Add User</a></li>
+                        {/if}
+                       <!-- <li><a href="#"> &bull; Upgrade Account</a></li>-->
+                       
+                       <li><a href="{$urlviewtransaction}"> &bull; Payments &amp; Usage</a></li>
+                       <li><a href="{encrypt url='index.php?page=account&act=preferences'}"> &bull; Preferences</a></li>
+                    </ul>
+                </li>
+                     <!--
+                <li><a class="billing" href="#">Billing</a>
+                    <ul>
+                        <li><a href="#"> &bull; Overview</a></li>
+                        <li><a href="#"> &bull; Invoices List &amp; Status</a></li>
+                    </ul>
+                </li>
+                -->
+                <li><a class="helpdesk" href="http://helpdesk.smacapp.com" target="_blank">Helpdesk</a></li>
+                <!--<li><a class="faq" href="{$urlfaq}">F.A.Q</a></li>-->
+                <li><a class="logout" href="logout.php">Logout</a></li>
+            </ul>
+        </div>
+		{if $usage_show}
+		{if $account.total_limit <> -1}
+        <div id="accout-ussage">
+            <h4>Your Topic Usage</h4>
+            <span><strong>{$account.total_usage|number_format}</strong> of {$account.total_limit|number_format}</span>
+            <div id="progressbar"><span class="percent-ussage">{$account.percentage}%</span></div>
+            {*}<h4><a href="#">Upgrade Now!</a>{/*}
+        </div>
+        {/if}
+		{/if}
+</div>

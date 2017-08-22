@@ -1,0 +1,31 @@
+								<h1><span class="numbers"></span><span class="title-text">Top 25 Influencers</span></h1>
+                                <table width="400" border="0" cellpadding="4" cellspacing="4">
+                                <tr>
+                                    <td colspan="3"><h2>Favorable</h2></td>
+                                  </tr>
+								{section name=i loop=$favorable}
+                                  <tr>
+                                	<td width="48">
+                                        <a href="#?w=650&id={$favorable[i].author_id}" class="poplight" rel="profile"><img src="{$favorable[i].author_avatar}" /></a>
+                                    </td>
+                                    <td>
+                                        <h3>{$favorable[i].author_name}</h3> 
+                                    </td>
+                                </tr>
+								{/section}
+                                </table>
+                                <table width="400" border="0" cellpadding="4" cellspacing="4">
+                                <tr>
+                                   <td colspan="3"><h2>Unfavorable</h2></td>
+                                  </tr>
+							   {section name=i loop=$unfavorable}
+                                 <tr>
+                   	  <td width="48">
+                                        <a href="#?w=650&id={$unfavorable[i].author_id}" class="poplight" rel="profile"><img src="{$unfavorable[i].author_avatar}" /></a>
+                                    </td>
+                                    <td>
+                                        <h3>{$unfavorable[i].author_name}</h3> 
+                                    </td>
+                                </tr>
+								{/section}
+                                </table>

@@ -1,0 +1,110 @@
+<script>
+	var adminDash = {$lineChart};
+	{literal}
+		
+		$(function () {
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'throuput',
+						type: 'line',
+						marginTop: 50,
+						marginBottom: 25
+					},
+					title: false,
+					subtitle: false,
+					xAxis: {
+						categories: adminDash.category
+					},
+					yAxis: {
+						title: false,
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+						formatter: function() {
+							if(this.series.name=='Bandwidth Usage'){
+								return '<b>'+ this.series.name +'</b><br/>'+
+								this.x +': '+ this.y + 'MB';
+							}else{
+								return '<b>'+ this.series.name +'</b><br/>'+
+								this.x +': '+ this.y;
+							}
+						}
+					},
+					legend: {
+						align: 'right',
+						verticalAlign: 'top',
+						floating: true,
+						x: -10,
+						y: 0,
+						borderWidth: 0
+					},
+					credits: false,
+					series: [{
+						name: 'Feed Count',
+						data: adminDash.feed_count,
+						visible: true
+						
+					}, {
+						name: 'Bandwidth Usage',
+						data: adminDash.char_count,
+						visible: false
+					}]
+				});
+			});
+			
+		});
+	{/literal}
+</script>
+<div id="theContent">
+    <div class="bgGrey">
+        <h1 class="titles">Throuput Collector</h1>
+        <div id="throuput" class="bgWhite">
+        </div><!-- end .bgWhite -->
+    </div><!-- end .bgGrey -->
+    <div class="bgGrey">
+        <div class="rounds">
+        	<table id="tableThrouput" class="addlist" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="head">
+                <td><h3>CLIENT NAME</h3></td>
+                <td><h3>TOPIC</h3></td>
+                <td><h3>TWITTER</h3></td>
+                <td><h3>WEB</h3></td>
+                <td><h3>FACEBOOK</h3></td>
+              </tr>
+             {section name=i loop=$activeTopic}
+              <tr>
+                <td>{$activeTopic[i].client_name}</td>
+                <td>{$activeTopic[i].campaign_name}</td>
+                <td>{$activeTopic[i].twitter}</td>
+                <td>{$activeTopic[i].web}</td>
+                <td>{$activeTopic[i].facebook}</td>
+              </tr>
+             {/section}
+            </table>
+        </div><!-- end .bgWhite -->
+    </div><!-- end .bgGrey -->
+    <!--
+	<div class="paging">
+    	<a class="prev" href="#">PREV</a>
+        <div class="numbers">
+        	<a href="#">1</a>
+        	<a href="#">2</a>
+        	<a href="#" class="current">3</a>
+        	<a href="#">4</a>
+        	<a href="#">5</a>
+        	<a href="#">6</a>
+        	<a href="#">7</a>
+        	<a href="#">8</a>
+        	<a href="#">9</a>
+        </div>
+    	<a class="next" href="#">NEXT</a>
+    </div>
+	-->
+	<p>{$paging}</p>
+</div><!-- end #theContent -->

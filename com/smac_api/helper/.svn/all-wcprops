@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/2274/trunk/web/com/smac_api/helper
+END
+EnglishSentiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/1811/trunk/web/com/smac_api/helper/EnglishSentiment.php
+END
+AuthHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1796/trunk/web/com/smac_api/helper/AuthHelper.php
+END
+TagalogSentiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/smac/!svn/ver/2274/trunk/web/com/smac_api/helper/TagalogSentiment.php
+END
+BahasaSentiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/2190/trunk/web/com/smac_api/helper/BahasaSentiment.php
+END
+ArabicSentiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1811/trunk/web/com/smac_api/helper/ArabicSentiment.php
+END

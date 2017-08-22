@@ -1,0 +1,294 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="#">My Account</a></h1>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div id="campaign" class="pad1015">
+              <h2>Account Owner Information</h2>
+              
+            <form id="acc1" action="{$urlinfo}" method="post">
+            <table id="tbl-account" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">   
+                <tr bgcolor="#f1f1f1">
+                	<td valign="top" width="180">
+                    	<h4 class="margin0">Name</h4>
+                    </td>
+                    <td valign="top">
+                    	<input id="name" type="text" name="fname" value="{$userdata.first_name}" style="display:none;margin-right:5px;"><input id="name2" type="text" name="lname" value="{$userdata.last_name}" style="display:none;"><span id="named" style="display:block;">{$userdata.first_name} {$userdata.last_name}</span>               	
+                   	</td>
+              	</tr>
+                <tr bgcolor="#fbfbfb">
+                	<td valign="top" width="180">
+                    	<h4 class="margin0">Contact Number</h4>
+                    </td>
+                    <td valign="top">
+                    	<input id="contact" type="text" name="contact" value="{$userdata.contact_no}" style="display:none;">
+                    	<span id="contacted" style="display:block;">{$userdata.contact_no}</span>                   	
+                   	</td> 
+                </tr>
+                <tr bgcolor="#f1f1f1">
+                	<td valign="top" width="180">
+                    	<h4 class="margin0">Address</h4>
+                    </td>
+                    <td valign="top">
+                    	<textarea id="address" name="address" style="display:none;">{$userdata.address}</textarea>
+                    	<span id="address2" style="display:block;">{$userdata.address}</span>  
+                   	</td>
+              	</tr>
+              	
+              	<tr bgcolor="#fbfbfb">
+                	<td valign="top" width="180">
+                    	<h4 class="margin0">Country</h4>
+                    </td>
+                    <td valign="top">
+                    	
+                    	<select name="country" style="display:none;" id="country">
+                    		{section name=i loop=$country}
+                    			<option value="{$country[i].country_id}" {if $country[i].country_id eq $userdata.country_id}selected="selected"{/if}>{$country[i].country_name}</option>
+                    		{/section}
+                    	</select>
+                    	
+                    	<span id="country2" style="display:block;">{$userdata.country_name}</span>     
+                   	</td> 
+                </tr>
+              	
+                <tr bgcolor="#f1f1f1">
+                	<td valign="top" width="180">
+                    	<h4 class="margin0">State</h4>
+                    </td>
+                    <td valign="top">
+                    	
+                    	<select name="state" style="display:none;" id="state">
+                    	{section name=i loop=$state}
+                    			<option value="{$state[i].state_id}" {if $state[i].state_id eq $userdata.state_id}selected="selected"{/if}>{$state[i].state_name}</option>
+                    	{/section}
+                    	</select>
+                    	
+                    	<span id="state2" style="display:block;">{$userdata.state_name}</span>     
+                   	</td>
+              	</tr>
+              	
+              	<tr bgcolor="#fbfbfb">
+                	<td valign="top" width="180">
+                    	<h4 class="margin0">City</h4>
+                    </td>
+                    <td valign="top">
+                    	
+                    	<select name="city" style="display:none;" id="city">
+                    	{section name=i loop=$city}
+                    			<option value="{$city[i].loc_id}" {if $city[i].loc_id eq $userdata.city_id}selected="selected"{/if}>{$city[i].city_name}</option>
+                    	{/section}
+							<option value="0" {if $userdata.city_id eq 0}selected="selected"{/if}>Other</option>
+                    	</select>
+                    	
+                    	<span id="city2" style="display:block;">
+							{if $userdata.city_id eq 0}
+								{$userdata.city_other}
+							{else}
+								{$userdata.city_name}
+							{/if}
+						</span>     
+                   	</td> 
+                </tr>
+				
+				<tr bgcolor="#fbfbfb"style="display:none;" id="city-other">
+                	<td valign="top" width="180">
+                    <td valign="top">
+						<input type="text" name="city_other" value="{$userdata.city_other}" />
+					</td> 
+                </tr>
+                
+                             
+            
+            </table>
+            
+            <input type="hidden" value="1" name="edit">
+            
+          	<input type="button" value="EDIT ACCOUNT DETAILS" class="round5 bgGreen fRight" id="btn-edit1">
+          	<input type="submit" value="SAVE ACCOUNT DETAILS" class="round5 bgGreen fRight" id="btn-save1" style="display:none;">
+            </form>
+            
+            
+            
+            	<form id="acc2" action="{$urlpassword}" method="post">
+                <div style="border-top: 1px dashed #C2C2C2; margin: 90px 0 0;">
+                    <h2>Login Information</h2>
+                    
+                     <table id="tbl-account" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">   
+                        <tr bgcolor="#f1f1f1">
+                			<td valign="top" width="180">
+                                <h4 class="margin0">Email</h4>
+                            </td>
+                            <td valign="top">
+                            	<span id="email2" style="display:block;">{$userdata.email}</span>  
+                            </td>
+                        </tr>
+                        <tr bgcolor="#fbfbfb">
+               			 	<td valign="top" width="180">
+                                <h4 class="margin0">Password</h4>
+                            </td>
+                            <td valign="top">
+                               	
+                               	<input id="password" type="password" name="password" value="" style="display:none;">
+                    			
+                    			<span id="password2" style="display:block;">******</span>  
+                               
+                            </td> 
+                        </tr>            
+                    </table>
+                </div>
+                
+                <input type="hidden" value="1" name="edit">
+                
+                <input type="button" value="CHANGE PASSWORD" class="round5 bgGreen fRight" id="btn-edit2">
+                <input type="submit" value="SAVE PASSWORD" class="round5 bgGreen fRight" id="btn-save2" style="display:none;">
+                </form>
+				
+				{if $owner eq 1}
+				<div style="border-top: 1px dashed #C2C2C2; margin: 90px 0 0;">
+                    <h2>User Information</h2>
+                    
+                     <table id="tbl-account" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">   
+                        <tr bgcolor="#f1f1f1">
+               			 	<td valign="top" width="180">
+                                <h4 class="margin0">Name</h4>
+                            </td>
+              			  	<td valign="top" width="220">
+                            	<h4 class="margin0">Contact Number</h4>  
+                            </td>
+							<td valign="top">
+                            	<h4 class="margin0">Email</h4>  
+                            </td>
+                        </tr>
+						{if $memberNum > 0}
+							{section name=i loop=$member}
+							<tr bgcolor="#fbfbfb">
+								<td valign="top">
+									<span>{$member[i].first_name} {$member[i].last_name}</span>
+								</td>
+              				  	<td valign="top" width="220">
+									<span>{$member[i].contact_no}</span>  
+								</td>
+								<td valign="top">
+									<span>{$member[i].email}</span>  
+								</td>							
+							</tr>
+							{/section}
+						{else}
+							<tr bgcolor="#fbfbfb">
+								<td valign="top">
+									<span>You don't have any user this time</span>
+								</td>							
+							</tr>
+						{/if}
+                    </table>
+                </div>
+				{/if}
+				<div style="border-top: 1px dashed #C2C2C2; margin: 90px 0 0;">
+                    <h2>Twitter Account</h2>
+                     <table id="tbl-account" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">
+                      {if $is_authorized eq '0'}       
+                        <tr bgcolor="#fbfbfb">
+             			   	<td valign="top" width="180">
+                                <h4 class="margin0">Authorize Account</h4>
+                            </td>
+                            <td colspan="2">
+                            	<a class="tw-connect" href="{encrypt url='index.php?page=twitter&act=authorize'}">&nbsp;</a>  
+                            </td>
+                        </tr>
+                        {else}
+                        <tr bgcolor="#fbfbfb">
+             			   	<td valign="top" width="180">
+                                <span>Authorized Account :</span>
+                            </td>
+              			  	<td valign="top" width="220">
+                                <span>{$twitter_id}</span>  
+                            </td>
+                            <td valign="top">
+                               <a href="{encrypt url='index.php?page=twitter&act=revoke'}">Revoke Access</a> 
+                            </td>							
+                        </tr>
+                        {/if}
+                    </table>
+                </div>
+				<div style="border-top: 1px dashed #C2C2C2; margin: 90px 0 0;">
+                    <h2>Facebook Account</h2>
+                     <table id="tbl-account" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 0 40px 0;">
+                      {if $fb_authorized eq '0'}       
+                        <tr bgcolor="#fbfbfb">
+             			   	<td valign="top" width="180">
+                                <h4 class="margin0">Authorize Account</h4>
+                            </td>
+                            <td colspan="2">
+                            	<a class="fb-connect" href="{encrypt url='index.php?page=fb&act=authorize'}">Login with Facebook</a>  
+                            </td>
+                        </tr>
+                        {else}
+                        <tr bgcolor="#fbfbfb">
+             			   	<td valign="top" width="180">
+                                <span>Authorized Account :</span>
+                            </td>
+              			  	<td valign="top" width="220">
+                                <div>{$fb_name}</div>  
+                            </td>
+                            <td valign="top">
+                            </td>							
+                        </tr>
+                        <tr bgcolor="#fbfbfb">
+             			   	<td valign="top" width="180">
+                                <span>Access Token : </span>
+                            </td>
+              			  	<td valign="top" width="220">
+                                <div>{$fb_access_token}</>  
+                            </td>
+                            <td valign="top">
+                              
+                            </td>							
+                        </tr>
+                          <tr bgcolor="#fbfbfb">
+             			   	<td valign="top" width="180">
+                               <a href="{encrypt url='index.php?page=fb&act=revoke'}">Revoke Access</a> 
+                            </td>
+              			  	<td valign="top" width="220">
+                                
+                            </td>
+                            <td valign="top">
+                              
+                            </td>							
+                        </tr>
+                        {/if}
+                    </table>
+                </div>
+				
+           	</div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+    
+    
+    <script>
+    {literal}
+    $("input#btn-edit1").click(function(){
+    	$("span#named, span#contacted, span#address2, span#city2, span#state2, span#country2, input#btn-edit1").hide();
+		$("input#name, input#name2, input#contact, textarea#address, select#city, select#state, select#country, input#btn-save1").fadeIn();
+		
+		{/literal}
+		{if $userdata.city_id eq 0}
+		{literal}
+			$("#city-other").fadeIn();
+		{/literal}
+		{/if}
+		{literal}
+        
+		});
+    $("input#btn-edit2").click(function(){
+    	$("span#password2, input#btn-edit2").hide();
+		$("input#password, input#btn-save2").fadeIn();
+        });
+    {/literal}
+    </script>

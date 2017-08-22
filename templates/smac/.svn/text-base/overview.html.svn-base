@@ -1,0 +1,71 @@
+<div id="main-container">
+{if $show_tips eq 1}
+{include file='smac/popup_first_topic.html'}
+{/if}
+    	{$sidebar}
+        <div id="container"> 
+			{if $first_data}
+            <div id="notAvailable">
+                    <div class="blankText">
+                        <h1>You don't have any report yet.</h1>
+                        <p>Create your first Topic now.<br />
+                        Simply click <strong>"New Topic"</strong> button<br />
+                        on the sidebar.</p>
+                        <img src="images/samplestarted.jpg" />
+                    </div>
+                    <div class="screenCap">
+                        <img src="images/blank_mytopic.gif" />
+                    </div>
+            </div>
+            {elseif $no_data_available}
+                <div id="notAvailable">
+                        <div class="blankText">
+                            <h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                <p>In the meantime you can visit the "Live Track" page <br />
+                    to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=liveTracked'}" class="btnGreenBar">See Live Track</a>
+                        </div>
+                        <div class="screenCap">
+                            <img src="images/blank_kol.gif" />
+                        </div>
+                </div>
+            {else}
+            <div class="title-bar">
+            	<h1><a href="javascript:void(0);">My Topics</a></h1>
+            </div>
+			{/if}
+            <div id="mycampaign" {if $empty_data eq 1}style="display:none;"{else}style="display:block;"{/if} class="pageContent">
+                 <div id="accordion-keyword">
+                 </div><!-- #accordion-keyword -->
+				 <div id="accordion-keyword_page" class="paging">
+                 </div><!-- #accordion-keyword_page -->
+                {literal}
+                <script type="text/javascript" >
+				jQuery(document).ready(function() {
+					 $('.topic-group a.showGroup').click(function() {
+                          var targetID = jQuery(this).attr('href');
+                           $(".topic-group a.showGroup").removeClass("active");
+                           $(".topic-group a.showGroup").addClass("nonActive");
+                           $(".accordion-content").fadeOut();
+                           $(this).addClass("active");
+                           $(this).removeClass("nonActive");
+						   $(targetID).toggle('slow');
+					 });
+				});
+                </script>
+                {/literal}
+           	</div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+	{include file='smac/popup_compare.html'}
+	
+	<script>
+	var encriptURLManageGroup = "{encrypt url='index.php?page=campaign&act=edit_topic_group'}";
+	
+	{literal}
+	$(".manageGroup").live('click', function(){
+		window.location.href=encriptURLManageGroup;
+	});
+	{/literal}
+	</script>

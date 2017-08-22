@@ -1,0 +1,17 @@
+{section name=i loop=$fb}
+<div class="list">
+    <div class="smallthumb">
+       <a href="{$fb[i].url}" target="_blank" class="poplight" rel="profile"><img src="{$fb[i].image}" /></a>
+    </div>
+    <div class="entry">
+        <h3><a href="{$fb[i].url}" target="_blank">{$fb[i].name|stripslashes|strip_tags}</a></h3><span class="date">{$fb[i].published_date}</span>
+        <span>{$fb[i].txt|stripslashes|strip_tags}</span>
+    </div><!-- .entry -->
+    <div class="entry-action">
+    	<a href="#" {if $fb[i].device eq 'blackberry'}class="active"{/if}><span class="blackberry" >&nbsp;</span></a>
+    	<a href="#" {if $fb[i].device eq 'apple'}class="active"{/if}><span class="apple" >&nbsp;</span></a>
+    	<a href="#" {if $fb[i].device eq 'android'}class="active"{/if}><span class="android" >&nbsp;</span></a>
+    	<a class="like" href="#">{$fb[i].reach}</a>
+    </div><!-- .entry-action -->
+</div><!-- .list -->
+{/section}

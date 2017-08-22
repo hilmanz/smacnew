@@ -1,0 +1,55 @@
+{*}
+            <div id="top-5-keyword-conversation" class="summary-report">
+                <div class="title-bar">
+                    <h1><span class="numbers">2</span><span class="title-text">Top 5 Keywords Conversation</span></h1>
+                    <div class="title-icon">
+                     	<a class="fadeout-top-5-keyword-conversation hide" href="#top-5-keyword-conversation" style="display:none;">Hide</a>
+                     	<a class="fadein-top-5-keyword-conversation show" href="#top-5-keyword-conversation">Show</a>
+                    </div>
+                </div>
+                <div id="content-top-5-keyword-conversation" style="display:none;"> {/*}
+                    <div class="content">
+                        <div id="channels">
+                            
+							{section name=i loop=$top_con}
+							<div class="subtitle"><h2>{$top_con[i].word}</h2></div>
+								
+								<div class="left">
+								
+								{section name=j loop=$top_con[i].data}
+									
+								{if $smarty.section.j.index eq 5}
+								</div><div class="right">
+								{/if}
+									
+                                <div class="list">
+                                    <div class="smallthumb">
+                                        <a href="#?w=650&id={$top_con[i].data[j].author_id}" class="poplight" rel="profile"><img src="{$top_con[i].data[j].author_avatar}" /></a>
+                                    </div>
+                                    <div class="entry">
+                                        <h3>{$top_con[i].data[j].author_name}</h3><span class="date"></span>
+                                        <span>{$top_con[i].data[j].content}</span>
+                                    </div><!-- .entry -->
+                                    {*}
+									<div class="entry-action">
+                                        <a href="#" {if $tw[i].device eq 'blackberry'}class="active"{/if}><span class="blackberry" >&nbsp;</span></a>
+                                        <a href="#" {if $tw[i].device eq 'apple'}class="active"{/if}><span class="apple" >&nbsp;</span></a>
+                                        <a href="#" {if $tw[i].device eq 'android'}class="active"{/if}><span class="android" >&nbsp;</span></a>
+                                        <a class="icon-rts tip_trigger" style="margin-left: 15px;"> 144  <span class="tip">Retweet Frequency</span></a>
+                                        <a class="icon-imp tip_trigger"> 125K <span class="tip">Total Impressions</span></a>
+                                        <a class="icon-share tip_trigger">20% <span class="tip">Share</span></a>  
+                                    </div><!-- .entry-action -->
+									{/*}
+								</div><!-- .list -->
+                                
+								{/section}
+								
+                            </div>
+							
+							{/section}
+							
+                            
+                        </div><!-- #channels -->
+                    </div><!-- .content -->{*}
+                </div><!-- #content-top-5-keyword-conversation -->
+            </div><!-- #top-5-keyword-conversation-->{/*}

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/smac/!svn/ver/2397/trunk/web/com/smac_api/modules
+END
+workflow.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2313/trunk/web/com/smac_api/modules/workflow.php
+END
+general.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/2397/trunk/web/com/smac_api/modules/general.php
+END
+authentication.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/smac/!svn/ver/1660/trunk/web/com/smac_api/modules/authentication.php
+END
+market.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1752/trunk/web/com/smac_api/modules/market.php
+END
+coba.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/com/smac_api/modules/coba.php
+END
+keyword.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/2367/trunk/web/com/smac_api/modules/keyword.php
+END
+livetrack.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/1913/trunk/web/com/smac_api/modules/livetrack.php
+END
+kol.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/2204/trunk/web/com/smac_api/modules/kol.php
+END
+sentiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/2227/trunk/web/com/smac_api/modules/sentiment.php
+END
+overview.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2065/trunk/web/com/smac_api/modules/overview.php
+END
+feeds.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/smac/!svn/ver/2228/trunk/web/com/smac_api/modules/feeds.php
+END
+dashboard.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/smac/!svn/ver/2203/trunk/web/com/smac_api/modules/dashboard.php
+END
+channel.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/2190/trunk/web/com/smac_api/modules/channel.php
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/engines/Security
+END
+Authentication.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/1615/trunk/web/engines/Security/Authentication.php
+END
+Permission.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/engines/Security/Permission.php
+END

@@ -1,0 +1,113 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <h1><a>DASHBOARD</a></h1>
+            </div>
+            <div class="title-bar">
+                <div id="dashboardNav">
+                	<span class="navSummary">
+						<a id="buttonSummary" href="#summayPage" class="current  theTolltip" title="Summary"><span class="iconSummary">&nbsp;</span></a>
+					</span>
+                	<span class="navTwitter">
+						<a id="buttonTwitter" href="#twitterPage" class=" theTolltip" title="Twitter"><span class="iconTwitter">&nbsp;</span></a>
+					</span>
+                	<span class="navFacebook">
+						<a id="buttonFacebook" href="#facebookPage" class=" theTolltip" title="Facebook"><span class="iconFacebook">&nbsp;</span></a>
+					</span>
+                	<span class="navWeb">
+						<a id="buttonWeb" href="#webPage" class=" theTolltip" title="Blog"><span class="iconWeb">&nbsp;</span></a>
+					</span>
+					<span class="navForum">
+						<a id="buttonForum" href="#forumPage" class=" theTolltip" title="Forum"><span class="iconForum">&nbsp;</span></a>
+					</span>
+					<span class="navNews">
+						<a id="buttonNews" href="#newsPage" class=" theTolltip" title="News"><span class="iconNews">&nbsp;</span></a>
+					</span>
+					<span class="navEcommerce">
+						<a id="buttonEcommerce" href="#ecommercePage" class=" theTolltip" title="Ecommerce"><span class="iconEcommerce">&nbsp;</span></a>
+					</span>
+					<span class="navCorporate">
+						<a id="buttonCorporate" href="#corporatePage" class=" theTolltip" title="Corporate"><span class="iconCorporate">&nbsp;</span></a>
+					</span>
+					{*}
+					<span class="navVideo">
+						<a id="buttonVideo" href="#videoPage" class="" title="Video"><span class="iconVideo">&nbsp;</span></a>
+					</span>
+					{/*}
+               		 {if $channel_account eq '1'}
+                	<span class="navChannel">
+						<a id="buttonChannel" href="#channelPage" class="" title="My Channel"><span class="iconChannel">&nbsp;</span></a>
+					</span>
+                    {/if}
+					
+                    <div class="wfilters"> {$widget_datefilter}</div>
+                </div>
+			</div>
+            {if $data_available}
+            <div id="mainContent">
+            	<div id="summayPage" class="pageContent">
+					 {include file='smac/summaryPage.html'}
+                </div>
+				<!-- #twitterPage -->
+                <div id="twitterPage" class="pageContent">
+					 {include file='smac/twitterPage.html'}
+                </div>
+				<!-- #fbPage -->
+                <div id="facebookPage" class="pageContent">
+					 {include file='smac/facebookPage.html'}
+                </div>
+                <!-- #webPage -->
+                <div id="webPage" class="pageContent">
+					 {include file='smac/webPage.html'}
+                </div>
+				<!-- #forumPage -->
+				<div id="forumPage" class="pageContent">
+					 {include file='smac/forumPage.html'}
+                </div>
+				<!-- #newsPage -->
+				<div id="newsPage" class="pageContent">
+					 {include file='smac/newsPage.html'}
+                </div>
+                <!-- #videoPage -->
+                <div id="videoPage" class="pageContent">
+					 {include file='smac/videoPage.html'}
+                </div>
+                <!-- #channelpage -->
+                <div id="channelPage" class="pageContent">
+					 {include file='smac/channelPage.html'}
+                </div>
+				<!-- #ecommercePage -->
+                <div id="ecommercePage" class="pageContent">
+					 {include file='smac/ecommercePage.html'}
+                </div>
+				<!-- #corporatePage -->
+                <div id="corporatePage" class="pageContent">
+					 {include file='smac/corporatePage.html'}
+                </div>
+				<!-- #Nodata -->
+				<div id="noDashboardDataPage" style="display:none;">
+					<div id="mytopic-banner">
+						<div class="content">
+							<h1 style="margin-top: 38px;">Sorry, there seems to be no posts yet<br>for this channel</h1>
+						</div>
+					</div>
+				</div>
+            </div><!-- #mainContent -->
+            {else}
+            	<div id="notAvailable">
+            			<div class="blankText">
+            				<h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=liveTracked'}" class="btnGreenBar">See Live Track</a>
+            			</div>
+                        <div class="screenCap">
+                        	<img src="images/blank_dashboard.gif" />
+                        </div>
+                </div>
+            {/if}
+        </div><!-- #container -->
+    </div><!-- #main-container -->

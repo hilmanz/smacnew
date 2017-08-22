@@ -1,0 +1,128 @@
+<script type='text/javascript' src="js/template.js"></script>
+<script type='text/javascript'>
+var market_data = eval({$json_data});
+</script>
+{literal}
+  <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+  <script type='text/javascript'>
+   if(market_data!=null){
+   google.load('visualization', '1', {'packages': ['geomap']});
+   google.setOnLoadCallback(drawMap);
+  
+   }
+   
+    function drawMap() {
+		
+        var arrPlots = [];
+    	 var data = new google.visualization.DataTable();
+         data.addColumn('string', 'CountryID');
+         
+         data.addColumn('number', 'Volume');
+		 for(var i in market_data){
+			 arrPlots.push([market_data[i].country_code,parseFloat(market_data[i].mentions)]);
+		 }
+         
+         data.addRows(arrPlots);
+
+
+      var options = {};
+      options['width'] = '100%';
+      //options['colors'] = [0x0000cc, 0x00cc00, 0xcc000]; //orange colors
+      //options['dataMode'] = 'markers';
+
+      var container = document.getElementById('map_canvas');
+      var geomap = new google.visualization.GeoMap(container);
+      geomap.draw(data, options);
+      google.visualization.events.addListener(geomap, 'select', function(){
+			var selection = geomap.getSelection();
+			var message = "";
+			for (var i = 0; i < selection.length; i++) {
+			    var item = selection[i];
+			    var row = item.row;
+			    var country_code = arrPlots[row][0];
+			    document.location="index.php?req=Hsf0T9yfirqWQdc0dqK8reueMzD1f7fA&geo="+country_code;
+			}
+      });
+    };
+
+  </script>
+{/literal}
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+            				<h1><a id="menuAtas" href="#" no="4">Markets</a></h1> 
+                        </td>
+                        <td align="right">
+							<span style="display:inline-block;">
+							{$widget_datefilter}
+							</span>
+                        </td>
+                        <td align="right" class="w300 date-historical" style="width:330px; padding:0;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {if $data_available}
+            <div id="market">
+            	<div id='map_canvas'></div>
+            	<div id='marketcontent'>
+            	
+                </div>
+            </div><!-- #market -->
+            {else}
+                <div id="notAvailable">
+                        <div class="blankText">
+                            <h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+                        </div>
+                        <div class="screenCap">
+                            <img src="images/blank_market.gif" />
+                        </div>
+                </div>
+            {/if}
+            
+            <div class="paging pagemarket">
+                <a class="prev" href="javascript:void(0);" id="list-prev" onclick="prev_page();return false;">PREV</a>
+                <a class="next" href="javascript:void(0);" id="list-next" onclick="next_page();return false;">NEXT</a>
+            </div><!-- .paging -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+<script type="text/javascript">
+{if $data <> ''}
+var markets = {$json_data};
+var m_total = 10;
+var curr = 0;
+{literal}
+$(document).ready(function(){
+	var market_html = tpl_market_country(markets,0,m_total);
+	$("#marketcontent").html(market_html); 	 
+	reload_tooltip();
+});
+function next_page(){
+	if(((curr+1)*m_total)<markets.length){
+		curr+=1;
+		var market_html = tpl_market_country(markets,curr*m_total,m_total);
+		$("#marketcontent").html(market_html);
+		reload_tooltip();
+	}
+}
+function prev_page(){
+	if((curr-1)>=0){
+		curr-=1;
+		var market_html = tpl_market_country(markets,curr*m_total,m_total);
+		$("#marketcontent").html(market_html);
+		reload_tooltip();
+	}
+}
+{/literal}
+{/if}
+</script>

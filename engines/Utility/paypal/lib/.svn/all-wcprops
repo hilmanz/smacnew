@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib
+END
+PPObjectTransformer.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPObjectTransformer.php
+END
+PPAPIService.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPAPIService.php
+END
+PPConnectionManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPConnectionManager.php
+END
+PPAuthenticationManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPAuthenticationManager.php
+END
+PPBaseService.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPBaseService.php
+END
+cacert.pem
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/cacert.pem
+END
+PPSignatureCredential.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPSignatureCredential.php
+END
+PPCertificateCredential.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPCertificateCredential.php
+END
+PPHttpConnection.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPHttpConnection.php
+END
+PPConfigManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPConfigManager.php
+END
+PPUtils.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPUtils.php
+END
+PPLoggingManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPLoggingManager.php
+END
+IPPCredential.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/IPPCredential.php
+END
+PPCredentialManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/lib/PPCredentialManager.php
+END

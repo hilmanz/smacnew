@@ -1,0 +1,89 @@
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="#">My Rules</a></h1>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div id="campaign" class="pad1015">
+              <p>You currently have {$totalKeyword} rules running in '{$campaign_name}'</p>
+             <div id="accordion-keywords">
+             		<!-- .looping darisini -->
+             		{section name=j loop=$campaign}
+                    <h2 class="topic-group"><a href="#content-{$campaign[j].group_id}">{$campaign[j].name|stripslashes}</a></h2>
+                 	<div class="accordion-content" id="content-{$campaign[j].group_id}">
+                        <table id="tbl-title" width="100%" border="0" cellspacing="0" cellpadding="0" class="bgGreen">
+                            <tr class="white">
+                                <td valign="top" width="25%">
+                                    <h3 class="margin0">Topic Names</h3>
+                                </td>
+                                <td valign="top" width="75%">
+                                    <h3 class="margin0">Rules</h3>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tbl-campaign" width="100%" border="0" cellspacing="0" cellpadding="0">   
+                           {section name=i loop=$campaign[j].data}
+                                
+                                {if $smarty.section.i.index % 2 eq 0}
+                                    {assign var=color value='#f1f1f1'}
+                                {else}
+                                    {assign var=color value='#fbfbfb'}
+                                {/if}
+                                
+                            <tr bgcolor="{$color}">
+                                <td valign="top" width="25%">
+                                    <h3 class="margin0"><a class="cLink" href="{$campaign[j].data[i].link}">{$campaign[j].data[i].name}</a></h3>
+                                </td>
+                                <td valign="top">
+                                	<ul class="rules-row">
+                                	{section name=k loop=$campaign[j].data[i].keyword}
+                                		<li>
+                                    	{if $campaign[j].data[i].keyword[k].label}<strong class="rules">({$campaign[j].data[i].keyword[k].label})</strong>&nbsp;{/if} 
+                                        	<span class="ruleskeyword">{$campaign[j].data[i].keyword[k].keyword}</span>
+                                        </li>
+                                    {/section}
+                                    </ul>
+                                </td>
+                                <td valign="top" style="width:200px;">
+                                    <a class="green-btn" href="{$campaign[j].data[i].addremovelink}">Add/Remove Rules</a>
+                                </td>
+                            </tr>
+                            {/section}
+                           
+                        </table>
+                        <table id="tbl-title" width="100%" border="0" cellspacing="0" cellpadding="0" class="bgGreen">
+                            <tr class="white">
+                                <td valign="top" width="25%">
+                                    <h3 class="margin0">&nbsp;</h3>
+                                </td>
+                                <td valign="top" width="75%">
+                                </td>
+                            </tr>
+                        </table>
+                    </div><!-- .accordion-content -->
+                    <!-- .sampe sini -->
+                    {/section}
+                    
+                {literal}
+                <script type="text/javascript" >
+				jQuery(document).ready(function() {
+					 $('.topic-group a').click(function() {
+                          var targetID = jQuery(this).attr('href');
+                           $(".topic-group a").removeClass("active");
+                            $(this).addClass("active");
+						   $(targetID).toggle(500);
+					 });
+				});
+                </script>
+                {/literal}
+          		</div><!-- #accordion-keyword -->
+           	</div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->

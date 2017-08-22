@@ -1,0 +1,54 @@
+<div style="padding:10px;">
+	<h2 class="title-form">Registrations</h2>
+	{literal}
+	<form class="search-form">
+	<input type="hidden" name="s" value="register" />
+	<input type="text" name="find" value="Search name..." onfocus="if(this.value == 'Search name...') { this.value = ''; }" />
+	<input type="submit" value=" Search " />
+	</form>
+	{/literal}
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Name</strong></td>
+		<td><strong>Company</strong></td>
+		<td><strong>Register Date</strong></td>
+		<!--<td><strong>Type</strong></td>-->
+		<td><strong>Status</strong></td>
+		<td><strong>Action</strong></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].name}</td>
+		<td>{$list[i].company_name}</td>
+		<td>{$list[i].register_date}</td>
+		{*}
+		<td>
+			{if $list[i].registration_type eq 0}
+				Account
+			{else}
+				Agency
+			{/if}
+		</td>
+		{/*}
+		<td>
+			{if $list[i].n_status eq 0}
+				Pending
+			{elseif $list[i].n_status eq 1}
+				Active
+			{elseif $list[i].n_status eq 2}
+				Disable
+			{else}
+				Banned
+			{/if}
+		</td>
+		<td>
+			{if $list[i].n_status eq 0}
+				<a href="?s=register&act=editRegister&id={$list[i].id}" class="addSubPage">Edit</a>
+			{/if}
+		</td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

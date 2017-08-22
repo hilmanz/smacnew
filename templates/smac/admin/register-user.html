@@ -1,0 +1,69 @@
+<div style="padding:10px;">
+	<h2 class="title-form">User Registrations</h2>
+	{literal}
+	<form class="search-form">
+	<input type="hidden" name="s" value="register" />
+	<input type="hidden" name="act" value="user" />
+	<input type="text" name="find" value="Search name..." onfocus="if(this.value == 'Search name...') { this.value = ''; }" />
+	<input type="submit" value=" Search " />
+	</form>
+	{/literal}
+<hr class="clear">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>Name</strong></td>
+		<td><strong>Email</strong></td>
+		<td><strong>Account</strong></td>
+		<td><strong>Agency</strong></td>
+		<td><strong>Type</strong></td>
+		<td><strong>Status</strong></td>
+		<td><strong>Action</strong></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].first_name} {$list[i].last_name}</td>
+		<td>{$list[i].email}</td>
+		<td>{$list[i].account_name}</td>
+		<td>{$list[i].agency_name}</td>
+		<td>
+			{if $list[i].user_role eq 0}
+				User
+			{elseif $list[i].user_role eq 1}
+				Admin
+			{/if}
+			{if $list[i].account_type eq 0}
+				(Trial)
+			{elseif $list[i].account_type eq 1}
+				(Paid)
+			{elseif $list[i].account_type eq 2}
+				(Enterprise)
+			{elseif $list[i].account_type eq 3}
+				(Paid)
+			{elseif $list[i].account_type eq 4}
+				(Paid)
+			{elseif $list[i].account_type eq 5}
+				(Enterprise)
+			{elseif $list[i].account_type eq 99}
+				(Testing)
+			{else}
+				(Pending)
+			{/if}
+			
+			</td>
+		<td>
+			{if $list[i].n_status eq 0}
+				Disabled
+			{elseif $list[i].n_status eq 1}
+				Active
+			{/if}
+			</td>
+		<td>
+			<a href="?s=register&act=editUser&id={$list[i].id}" class="addSubPage">Edit</a>&nbsp;
+			<a href="#" onclick="window.open('{$list[i].direct_link}', '_blank');">Login</a>&nbsp;
+			<a href="?s=register&act=user_raw_log&id={$list[i].id}" class="addSubPage">Activity Logs</a>
+		</td>
+    </tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+</div>

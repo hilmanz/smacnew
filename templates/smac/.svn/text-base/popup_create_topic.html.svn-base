@@ -1,0 +1,20 @@
+<div id="popupGetStarted" class="popupStarted">
+	<div class="popupContainer">
+        <div class="popupHead">
+        	<h1>Create Your First Topic</h1>
+            <a class="popupClose" href="#">X</a>
+        </div>
+        <div class="popupContent">
+        	<h1>Create your own Topic in 4 easy steps.<br />Just go along with the instructions. It's designed to be easy to follow.</h1>
+            <img src="images/getstarted_img.png" />
+            <p>If you ever get lost, simply hover your mouse on <img src="images/icon_help.png" width="20" /> symbol to get help.</p>
+        </div>
+        <div class="popupFoot">
+        	<div class="chekPop">
+            	<input type="checkbox" /><label>Don't show tips again</label>
+            </div>
+            <a id="btnReady" class="btnPopup" href="#">I'M READY</a>
+        </div>
+    </div>
+</div>
+<div id="bgPopup"></div>

@@ -1,0 +1,104 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+            				<h1><a id="menuAtas" href="#" no="4">Markets</a></h1> 
+                        </td>
+                        <td align="right">
+							<span style="display:inline-block;">							
+							</span>
+                        </td>
+                        <td align="right" class="w300 date-historical" style="width:330px; padding:0;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {if $data_available}
+            <div id="market" class="pageContent" style="display: block">
+            	<div id='map_canvas'></div>
+            	{*}<div id='marketcontent'></div>{/*}
+                <div id="marketContainer">
+                	<table id="marketTopCountryTable" width="100%" border="0" cellspacing="0" cellpadding="0" class="tableGreen">
+                        <thead>
+                          <tr>
+                            <th>Country</th>
+                            <th>Posts</th>
+                            <th>Peoples</th>
+                            <th>Reach</th>
+                            <th>Share</th>
+                            <th>Sentiment</th>
+                            <th>Channels</th>
+                          </tr>
+                        </thead>
+                        <tbody id="marketTopCountry">
+                        </tbody>
+                        <tfoot>
+                        	<tr>
+                            	<td>&nbsp;</td>
+                            	<td>&nbsp;</td>
+                            	<td>&nbsp;</td>
+                            	<td>&nbsp;</td>
+                            	<td>&nbsp;</td>
+                            	<td>&nbsp;</td>
+                            	<td>&nbsp;</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="legend">
+                    	<span class="recBlue">Twitter</span>
+                    	<span class="recOldBlue">Facebook</span>
+                    	<span class="recOrange">Others</span>
+                    </div>
+                    <ul id="tabMarketCountry" class="tabs">
+                       
+                    </ul>
+                    <div id="channels" class="tab_container">
+                        <div id="country-tab" class="tab_content">
+                      
+                        </div><!-- #country-tab -->
+						<div id="other-tab" class="tab_content">
+                      
+                        </div><!-- #other-tab -->					
+                    </div><!-- .tab_container -->
+                </div><!-- #marketContainer -->
+				<div id="countryPage" class="paging"></div>
+            </div><!-- #market -->
+            {else}
+                <div id="notAvailable">
+                        <div class="blankText">
+                            <h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=liveTracked'}" class="btnGreenBar">See Live Track</a>
+                        </div>
+                        <div class="screenCap">
+                            <img src="images/blank_market.gif" />
+                        </div>
+                </div>
+            {/if}
+        </div><!-- #container -->
+    </div><!-- #main-container -->
+    
+<script>
+{literal}
+
+	google.load('visualization', '1', {'packages': ['geomap']});
+		   google.setOnLoadCallback(function(){
+		   		var data = google.visualization.arrayToDataTable([
+		        ['Country', 'Popularity'],
+		      	  ['ID', 0]
+		      ]);
+		     geo_options = {};
+		      geo_options['dataMode'] = 'regions';
+			   geo_options['width'] = '100%';
+		      var container = document.getElementById('map_canvas');
+		      geomap = new google.visualization.GeoMap(container);
+		      geomap.draw(data, geo_options);
+		   });
+{/literal}	
+</script>

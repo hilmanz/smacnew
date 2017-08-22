@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/smac/!svn/ver/2331/trunk/web/admin
+END
+admin.css
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/smac/!svn/ver/1615/trunk/web/admin/admin.css
+END
+drop.js
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/smac/!svn/ver/1615/trunk/web/admin/drop.js
+END
+logout.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/admin/logout.php
+END
+check-exists.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/smac/!svn/ver/2328/trunk/web/admin/check-exists.php
+END
+page.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/smac/!svn/ver/1615/trunk/web/admin/page.php
+END
+uploadify.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/2331/trunk/web/admin/uploadify.php
+END
+new_admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/1615/trunk/web/admin/new_admin.php
+END
+uploadify.swf
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/smac/!svn/ver/2328/trunk/web/admin/uploadify.swf
+END
+drop.css
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/smac/!svn/ver/1615/trunk/web/admin/drop.css
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/smac/!svn/ver/1615/trunk/web/admin/index.php
+END
+login.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/smac/!svn/ver/1615/trunk/web/admin/login.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/1615/trunk/web/admin/common.php
+END
+oldadmin.css
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/smac/!svn/ver/1615/trunk/web/admin/oldadmin.css
+END

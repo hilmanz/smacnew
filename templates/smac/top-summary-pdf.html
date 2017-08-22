@@ -1,0 +1,35 @@
+	
+    <div style="clear:both;background:url(../images/bg_sidebar.gif) left repeat-y #fff;min-height:800px;overflow:hidden;">
+    	<!--{$sidebar}-->
+        <div style="margin:0 0 0 197px;overflow:hidden;padding:0 0 30px 0;">
+    			<!--{$menu}-->
+            
+<!--            <ul class="download-pdf">
+                <li><a href="#">Download PDF</a></li>
+            </ul>-->
+            
+            {if $data_available}
+                {include file='smac/pdf/top-summary.html'}
+                {include file='smac/pdf/top-50-keyword.html'}
+                {include file='smac/pdf/top-5-keyword-conversation.html'}
+                {include file='smac/pdf/top-25-influencers.html'}
+                {include file='smac/pdf/key-issues.html'}
+				{if $branded}
+                {include file='smac/pdf/branded-twitter-account.html'}
+				{/if}
+            {else}
+                <div id="notAvailable">
+                        <div class="blankText">
+                            <h1>Your first report is not ready yet.</h1>
+                            <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                            <a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+                        </div>
+                        <div class="screenCap">
+                            <img src="images/blank_report.gif" />
+                        </div>
+                </div>
+            {/if}
+        </div><!-- #container -->
+    </div><!-- #main-container -->

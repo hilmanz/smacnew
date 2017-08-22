@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/smac/!svn/ver/2322/trunk/web/templates/common
+END
+confirm.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/templates/common/confirm.html
+END
+paging_json.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/smac/!svn/ver/2178/trunk/web/templates/common/paging_json.html
+END
+dialog.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/1615/trunk/web/templates/common/dialog.html
+END
+paging_js.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/templates/common/paging_js.html
+END
+default.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/templates/common/default.html
+END
+message.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/templates/common/message.html
+END
+paging.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/smac/!svn/ver/2019/trunk/web/templates/common/paging.html
+END
+blank.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/1615/trunk/web/templates/common/blank.html
+END
+error.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/smac/!svn/ver/1615/trunk/web/templates/common/error.html
+END
+main_club.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/templates/common/main_club.html
+END
+contact.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/1615/trunk/web/templates/common/contact.html
+END

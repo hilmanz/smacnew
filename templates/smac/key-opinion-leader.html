@@ -1,0 +1,544 @@
+<script src="js/charts/highcharts.js" type="text/javascript"></script>
+<script>n_wc=1</script>
+<script>
+var urlgetallpeople = "{encrypt url='index.php?page=keyopinionleader&act=getallpeople&ajax=1' exclude=$exclude}";
+var url = "{encrypt url='index.php?page=keyopinionleader&act=overtime&ajax=1' person=$arrName campaign_id=$campaign_id}";
+var m_url = "{encrypt url='index.php?page=keyopinionleader&act=overtime&ajax=1' person=$arrName campaign_id=$campaign_id}";
+var url2 = "{encrypt url='index.php?page=keyopinionleader&act=impression_overtime&ajax=1' person=$arrName campaign_id=$campaign_id}";
+var urlex1 =  "{$urlkeyopinion_ex1}";
+var urlex2 =  "{$urlkeyopinion_ex2}";
+var urlex3 =  "{$urlkeyopinion_ex3}";
+var urlex0 =  "{$urlkeyopinion}";
+
+{literal}
+$(document).ready(function(){
+	
+	
+	//all people
+	$('#tbl-allpeople').dataTable({
+			 "bJQueryUI": true,
+			 "aaSorting": [[3,'desc']],
+			 "aoColumns":                                                       
+				 [                                                                  
+					 /* th1 */       { "bSortable": false,"bSearchable":false},
+					 /* th2 */       { "bSortable": true},
+					 /* th3 */       { "bSortable": true},
+					 /* th4 */       { "bSortable": true},
+					 /* th5 */       { "bSortable": true},
+					 /* th6 */       { "bSortable": false,"bSearchable":false},
+				  ],
+			 "sPaginationType": "full_numbers",
+			 "bProcessing": true,
+			"bServerSide": true,
+			"sAjaxSource": urlgetallpeople
+			 });
+	{/literal}
+	
+	var a = {$arrTop};
+	var aRT = {$arrRT};
+	var nama = "{$arrName}";
+	
+	var url3 = "{encrypt url='index.php?page=keyopinionleader&act=performance_overtime&ajax=1' person=$arrName campaign_id=$campaign_id}";
+	var anum = a.length;
+	
+	var topHigh = {$topHigh};
+	
+	{literal}
+	
+	for (var i = 0; i < anum; i++) {	
+		
+		var persen = (a[i]/topHigh)*100;
+		var text = (((225*persen)/100)-25);
+		var posisi = text/2;
+		
+		$("#c"+i).animate({
+			height: persen+"%"}, 1000);
+
+		//$("div#cd"+i).text(a[i]).hide().fadeIn(1500);
+		$("div#cd"+i).html('<a href=\'#\' title=\'Share Percentage\' class=\'percent-white\'>'+aRT[i]+'%</a>').hide().fadeIn(1500);
+		if(posisi>0){
+			$("div#cd"+i).css("paddingTop", posisi);
+		}
+		
+		if(persen<20){
+			$("#c"+i).css("background", "#00aefe");
+		}else if(persen>=20 && persen<=40){
+			$("#c"+i).css("background", "#00aefe");
+		}else if(persen>40 && persen<=60){
+			$("#c"+i).css("background", "#00aefe");	
+		}else if(persen>60 && persen<=80){
+			$("#c"+i).css("background", "#00aefe");	
+		}else if(persen>80 && persen<=100){
+			$("#c"+i).css("background", "#00aefe");	
+		}else{
+			$("#c"+i).css("background", "transparent");	
+			}
+	}
+	
+	
+	//CHarts
+			
+			function loadChart3(){
+
+				$("#chart3").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+				var options = null;
+				options = {
+					chart: {
+						renderTo: 'chart3',
+						type: 'line'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						enabled: false,
+						categories: []
+					},
+					yAxis: {
+						title: {
+							text: ''
+						}
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ this.y;
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: []
+				};
+				
+				// Load the data from the XML file 
+				
+				$.get(url3,
+						function(xml) {
+					
+					// Split the lines
+					var $xml = $(xml);
+					
+					// push categories
+					$xml.find('categories item').each(function(i, category) {
+						options.xAxis.categories.push($(category).text());
+					});
+					
+					// push series
+					$xml.find('series').each(function(i, series) {
+						var seriesOptions = {
+							name: $(series).find('name').text(),
+							data: []
+						};
+						
+						// push data points
+						$(series).find('data point').each(function(i, point) {
+							seriesOptions.data.push(
+								parseInt($(point).text())
+							);
+						});
+						
+						// add it to the options
+						options.series.push(seriesOptions);
+					});
+					var chart = null;
+					chart = new Highcharts.Chart(options);
+				});
+			}
+			loadChart3();
+	
+});
+
+//Impression chart
+
+function loadChart2(){
+
+				$("#chart2").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+				var options = null;
+				options = {
+					chart: {
+						renderTo: 'chart2',
+						type: 'bar'
+					},
+					credits: {
+				        enabled: false
+				    },
+					title: {
+						text: ''
+					},
+					xAxis: {
+						enabled: false,
+						categories: []
+					},
+					yAxis: {
+						title: {
+							text: ''
+						}
+					},
+					tooltip: {
+				         formatter: function() {
+				            return ''+
+				               this.series.name +': '+ Highcharts.numberFormat(this.y,0);
+				         }
+				    },
+					legend: {
+						enabled: true
+					},
+					series: []
+				};
+				
+				// Load the data from the XML file 
+				
+				$.get(url2,
+						function(xml) {
+					
+					// Split the lines
+					var $xml = $(xml);
+					var visibility;
+					// push categories
+					$xml.find('categories item').each(function(i, category) {
+						options.xAxis.categories.push($(category).text());
+					});
+					
+					// push series
+					$xml.find('series').each(function(i, series) {
+						if (i>0){
+							visibility = false;
+						}else{
+							visibility = true;
+						}
+
+						var seriesOptions = {
+							name: $(series).find('name').text(),
+							data: [],
+							visible: visibility
+						};
+						
+						// push data points
+						$(series).find('data point').each(function(i, point) {
+							seriesOptions.data.push(
+								parseInt($(point).text())
+							);
+						});
+						
+						// add it to the options
+						options.series.push(seriesOptions);
+					});
+					var chart = null;
+					chart = new Highcharts.Chart(options);
+				});
+			}
+
+//Mentions chart
+
+function loadChart(){
+
+	$("#chart").html("<div style='width:550px;height:200px;text-align:center;margin:100px auto;'><img src='images/loader-med.gif' /></div>");
+	var options = null;
+	options = {
+		chart: {
+			renderTo: 'chart',
+			zoomType: 'x',
+			type: 'bar'
+		},
+		credits: {
+	        enabled: false
+	    },
+		title: {
+			text: ''
+		},
+		xAxis: {
+			categories: [],
+		},
+		yAxis: {
+						title: {
+							text: ''
+						}
+					},
+		plotOptions: {
+         bar: {
+            dataLabels: {
+               enabled: false
+            }
+         }
+      },
+		tooltip: {
+	         formatter: function() {
+	            return ''+
+	               this.series.name +': '+ Highcharts.numberFormat(this.y,0);
+	         }
+	    },
+		legend: {
+			enabled: true
+		},
+		series: []
+	};
+	
+	// Load the data from the XML file 
+	
+	$.get(m_url,
+			function(xml) {
+		
+		// Split the lines
+		var $xml = $(xml);
+		var visibility = true;
+		// push categories
+		$xml.find('categories item').each(function(i, category) {
+			options.xAxis.categories.push($(category).text());
+		});
+		
+		// push series
+		$xml.find('series').each(function(i, series) {
+			visibility = true;
+			
+			var seriesOptions = {
+				name: $(series).find('name').text(),
+				data: [],
+				visible: visibility
+			};
+			
+			// push data points
+			$(series).find('data point').each(function(i, point) {
+				seriesOptions.data.push(parseInt($(point).text())
+			);
+			});
+			
+			// add it to the options
+			options.series.push(seriesOptions);
+		});
+		
+		//alert(options.series);
+		
+		var chart = null;
+		chart = new Highcharts.Chart(options);
+	});
+}
+
+
+function toggle_kol_filter(t){
+	
+	if($('#exclude1').is(':checked')){
+		if(urlex1.length>0){
+			document.location = urlex1;
+			
+		}
+	}else{
+		if(urlex0.length>0){
+			document.location = urlex0;
+		}
+	}
+}
+
+</script>
+{/literal}
+
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left">
+          					  	<h1>{if $market}<span id='txtmarket'>Market Key Opinion Leader - {$market}</span>{/if} 
+                           {if $market} <a id='btnglobaldata' href='{encrypt url='index.php?page=home&act=toggle_geo'}'>Switch to Global Data</a>{/if}</h1>
+                        </td>
+                        <td align="right">
+                        	   <div style="float:right; padding-right:100px;"><input type="checkbox" id="exclude1" onchange="toggle_kol_filter(1);return false;" {if $exclude eq '1'}checked='true'{/if}/>Exclude News &amp; Corporate Accounts</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="key-opinion">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                 {if $data_available}
+                  <tr>
+                    <td class="w200 w175" valign="top" align="left">
+                        <ul class="tabs">
+                            <li><a href="#top-10" class="top-10"><span class="f48">Top 10</span><br /><span class="f32">People</span></a></li>
+                            <li><a href="#mention-overtime" class="mention-overtime" onclick="loadChart()">Mentions</a></li>
+                        	<li><a href="#impression-overtime" class="impression-overtime" onclick="loadChart2()">Impressions</a></li>
+                        	<li><a href="#all-people" class="all-people">All People</a></li>
+							{*}<li><a href="#performance-overtime" class="performance-overtime">Performances Over Time</a></li>{/*}
+						</ul>
+                    </td>
+                    <td class="wfull" valign="top" align="left">
+                    	<div class="tab_container">
+                            <div id="top-10" class="tab_content">
+                               <!--<img src="content/chart5.jpg"   />-->
+                               
+                               <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                               		
+									<tr>
+										{section name=i loop=$top}
+										<td valign="bottom" height="225" >
+											<div class="info-imp" title="Total Impressions">
+                                                <a href="#" class="total-imp">{$top[i].total_impression|smac_number}</a>
+                                                	<span class="space" style="display:none;">|</span>
+                                                <a class="percent-black" style="display:none;" title="Share Percentage">100%</a>
+                                            </div>
+											<div id="c{$smarty.section.i.index}" style="background-color:#00aefe; width:65px; height:0; margin: 0 auto;">
+												<div id="cd{$smarty.section.i.index}" style="margin:auto; padding:0 0; height:30px; color:#FFF; text-align:center"></div>
+											</div>
+										</td>
+										{/section}
+										
+									<tr>
+										{section name=i loop=$top}
+										<td valign="bottom" height="100" style=" text-align:center;">
+											<a href="#?w=650&id={$top[i].name}" class="smallthumbs poplight relative" rel="profile" style="float:none;overflow:visible;">
+												{if $top[i].is_paid}<img src="images/icon-bintang.png" class="bintang"/>{/if}
+												<img src="{$top[i].img}" width="48" height="48" style="margin:0" title="{$top[i].real_name}"/>
+											</a>
+											<p style="font-size:11px; font-weight:bolder">{$top[i].name}</p>
+										</td>
+										{/section}
+									</tr>
+								</table>
+                               
+                            </div> <!-- #top-10 -->
+                            <div id="mention-overtime" class="tab_content" >
+                            
+                               <!--<img src="content/chart2.jpg" />-->
+                               
+                               <div style="min-width:750px;height:350px;" id="chart"></div>
+                            
+                            </div><!-- #mention-overtime -->
+                            
+							<div id="impression-overtime" class="tab_content" >
+                            
+                               <div style="min-width:750px;height:350px;" id="chart2"></div>
+                              
+                            </div><!-- #impression-overtime -->
+                            <div id="all-people" class="tab_content" >
+                            	<div style="min-width:750px">
+                               <table id="tbl-allpeople" width="100%" border="0" cellspacing="0" cellpadding="0" class="tablesorter addlist zebra" style="min-width:750px;">
+	                               	<thead>
+	                               	<tr>
+	                               		<th><strong>Pic</strong></th>
+	                               		<th><strong>Username</strong></th>
+	                               		<th><strong>Name</strong></th>
+	                               		<th><strong>Impression</strong></th>
+	                               		<th><strong>% Share</strong></th>
+	                               		<th><strong>PII</strong></th>
+	                               	</tr>
+	                               	</thead>
+	                               	<tbody>
+									
+									
+									
+									
+	                               	</tbody>
+                               </table>
+                               </div>
+                              
+                            </div><!-- #all-people -->
+                            {*}
+							<div id="performance-overtime" class="tab_content" >
+                            
+                               <div style="min-width:750px;height:350px;" id="chart3"></div>
+                            
+                            </div><!-- #performance-overtime -->
+                            {/*}
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="left">&nbsp;</td>
+                    <td valign="top" align="left">
+                    	<div id="total-mention" class="box">
+                            <div class="headbox">
+                            	<span>Total Mentions</span>
+                           	 	<a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">How many times your keywords have been mentioned accumulatively through the campaign's timespan</span></a>
+                           	</div>
+                            <div class="boxcaption">
+                                <h1>{$total_mentions}</h1>
+                                <h2>{$total_mentions_true|trim|number_format}</h2>
+                            </div>
+                            
+                            <div class="captionbottom">
+                            	 {if $mention_change>0}                      
+                            	<span class="triangle">{$mention_change}%</span>
+	                            {elseif $mention_change<0}
+	                             <span class="triangle arrow_down">{$mention_change}%</span>
+	                            {/if}
+                            </div>
+                           
+                        </div><!-- #total-mention -->
+                    	<div id="ambassador" class="box">
+                            <div class="headbox">
+                                <span>Fans</span>
+                           	 	<a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">Ambassadors are people that have mentioned your keywords in a mostly favorable manner and maintains a large number of influence.</span></a>
+                            </div>
+                            <div class="list borderbot">
+                            	{section name=i loop=$ambas}
+                            	<div class="box-list">
+                                    <div class="smallthumb">
+                                        <a href="#?w=650&id={$ambas[i].name}" class="poplight" rel="profile"><img src="{proxy_image url=$ambas[i].img}" /></a>
+                                    </div>
+                                    <div class="boxcaption">
+                                    	<h4>{$ambas[i].name}</h4>
+										<span class="count">{$ambas[i].positive}</span>
+                                    </div>
+                                </div><!-- .box-list -->
+                            	{/section}
+                            </div><!-- .list -->
+                        </div><!-- #ambassador -->
+                    	<div id="troll" class="box">
+                            <div class="headbox">
+                                <span>Haters</span>
+                           	 	<a href="#" class="helpsmall tip_trigger">&nbsp;<span class="tip">Trolls are people that have mentioned your keywords in a mostly unfavorable manner and maintains a large number of influence.</span></a>
+                            </div>
+                            <div class="list borderbot">
+                            	
+                            	{section name=i loop=$troll}
+                            	<div class="box-list">
+                                    <div class="smallthumb">
+                                        <a href="#?w=650&id={$troll[i].name}" class="poplight" rel="profile"><img src="{proxy_image url=$troll[i].img}" /></a>
+                                    </div>
+                                    <div class="boxcaption">
+                                    	<h4>{$troll[i].name}</h4>
+										<span class="count">{$troll[i].positive}</span>
+                                    </div>
+                                </div><!-- .box-list -->
+                            	{/section}
+                            	
+                            </div><!-- .list -->
+                        </div><!-- #troll -->
+                           {*} {include file='smac/popup.html'}{/*}
+                    </td>
+                  </tr>
+				  <tr>
+					<td></td>
+					<td>
+						<div class="relative" style="margin-top:20px;">
+							<img src="images/icon-bintang.png" class="absolute" style="top:-2px;">
+							<span style="text-align:left;margin-left: 30px;">Sponsored Key Opinion Leader</span>
+						</div>
+					</td>
+				  </tr>
+                  {else}
+	            	<tr>
+	            		<td align="center" valign="top">
+                            <div id="notAvailable">
+                                    <div class="blankText">
+                                        <h1>Your first report is not ready yet.</h1>
+                                        <p>You have to wait 24 hours before it's completed.</p>
+                            <p>In the meantime you can visit the "Live Track" page <br />
+								to see what's happening with your Topic in real-time..</p>
+                                        <a href="{encrypt url='index.php?page=livetrack'}" class="btnGreenBar">See Live Track</a>
+                                    </div>
+                                    <div class="screenCap">
+                                        <img src="images/blank_kol.gif" />
+                                    </div>
+                            </div>
+	            		</td>
+	            	</tr> 	
+	            {/if}
+                </table>
+            </div><!-- #key-opinion -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->

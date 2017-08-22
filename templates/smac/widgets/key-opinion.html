@@ -1,0 +1,58 @@
+
+	<div class="thePeoples">
+		<h1>Top People</h1>
+		<a class="smallArrow" href="#">View All</a>
+		<div class="content">
+			{section name=i loop=$opinion}
+			<div class="list">
+				<div class="smallthumb">
+				<a href="#?w=650&id={$opinion[i].name}" class="poplight" rel="profile"><img src="{$opinion[i].image}" /></a>
+				</div>
+				<div class="entry">
+					<h3>{$opinion[i].name}</h3>
+					<a class="icon-rts tip_trigger">{$opinion[i].rt}  <span class="tip">Retweet Frequency</span></a>
+					<a class="icon-imp tip_trigger">{$opinion[i].followers}  <span class="tip">Total Impressions</span></a>
+					<a class="icon-share tip_trigger">{$opinion[i].share}%  <span class="tip">Share</span></a>
+				</div>
+			</div>
+			{/section}
+		</div><!-- .content-->
+	</div><!-- .thePeoples-->
+{if $old}
+                    <div class="opinion">
+                        <h1>Key Opinion Leader</h1>
+                        <div class="content" style="height:353px">
+                        	
+                        	{section name=i loop=$opinion}
+                        	<div class="list">
+                            	<div class="smallthumb">
+                                <a href="#?w=650&id={$opinion[i].name}" class="poplight" rel="profile"><img src="{$opinion[i].image}" /></a>
+                                </div>
+                                <div class="entry">
+                                    <h3>{$opinion[i].name}</h3>
+                                    <a class="icon-rts tip_trigger">{$opinion[i].rt}  <span class="tip">Retweet Frequency</span></a>
+                                    <a class="icon-imp tip_trigger">{$opinion[i].followers}  <span class="tip">Total Impressions</span></a>
+                                    <a class="icon-share tip_trigger">{$opinion[i].share}%  <span class="tip">Share</span></a>
+                                    {*}
+                                    <a href="#?w=650&page=profile&act=popup&id={$opinion[i].name}" class="iconopinion poplight" rel="profile">&nbsp;</a>
+                                	{/*}
+                                </div>
+                            </div>
+                        	{/section}
+                        	
+                        </div><!-- .content-->
+                    </div><!-- .opinion-->
+{/if}
+
+{literal}
+<script>
+	$(function() {
+		var $elem = $('body');
+		$('a.poplight').click(
+			function (e) {
+				$('html, body').animate({scrollTop: '0px'}, 800);
+			}
+		);
+	});
+</script>
+{/literal}

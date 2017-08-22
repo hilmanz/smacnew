@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/config
+END
+sdk_config.ini
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/config/sdk_config.ini
+END
+sdk-cert.pem
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/smac/!svn/ver/2142/trunk/web/engines/Utility/paypal/config/sdk-cert.pem
+END

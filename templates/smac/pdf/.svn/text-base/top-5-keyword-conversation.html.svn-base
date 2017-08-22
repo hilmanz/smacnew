@@ -1,0 +1,28 @@
+						<h1>Top 5 Keywords</h1>
+                        {section name=i loop=$top_con}
+							<div><h2>{$top_con[i].word}</h2></div>
+								
+								<div class="left">
+								
+								{section name=j loop=$top_con[i].data}
+									
+								{if $smarty.section.j.index eq 5}
+								</div><div class="right">
+								{/if}
+								<table cellpadding="4" cellspacing="4">	
+                                <tr>
+                                    <td width="48px">
+                                        <a href="#?w=650&id={$top_con[i].data[j].author_id}" class="poplight" rel="profile"><img src="{$top_con[i].data[j].author_avatar}" /></a>
+                                    </td>
+                                    <td valign="top">
+                                       <strong>{$top_con[i].data[j].author_name}</strong>
+                                       <br>
+                                       <span>{$top_con[i].data[j].content}</span>
+                                    </td>
+								</tr>
+                                </table>
+								{/section}
+								
+</div>
+							
+							{/section}

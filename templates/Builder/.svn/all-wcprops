@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/smac/!svn/ver/1615/trunk/web/templates/Builder
+END
+edit_item.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/smac/!svn/ver/1615/trunk/web/templates/Builder/edit_item.html
+END
+summary_table.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/smac/!svn/ver/1615/trunk/web/templates/Builder/summary_table.html
+END
+select_table.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/smac/!svn/ver/1615/trunk/web/templates/Builder/select_table.html
+END
+new_item.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/smac/!svn/ver/1615/trunk/web/templates/Builder/new_item.html
+END

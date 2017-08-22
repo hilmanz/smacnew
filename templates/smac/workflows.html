@@ -1,0 +1,157 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">
+    		{$menu}
+            <div class="title-bar">
+            	<h1><a id="menuAtas" href="#" no="3">Workflow</a></h1>
+            </div>
+			<div class="title-bar">
+            	<div id="tabKol">
+                	<a href="#workflow/twitter" id="buttonTwitter" class="active theTolltip" title="Twitter"><span class="iconTwitter">&nbsp;</span></a>
+                	<a href="#workflow/facebook" id="buttonFacebook" class="theTolltip" title="Facebook"><span class="iconFacebook">&nbsp;</span></a>
+                	<a href="#workflow/web" id="buttonWeb" class="theTolltip" title="Blog"><span class="iconWeb">&nbsp;</span></a>
+                	<a href="#workflow/forum" id="buttonForum" class="theTolltip" title="Forum"><span class="iconForum">&nbsp;</span></a>
+                	<a href="#workflow/news" id="buttonNews" class="theTolltip" title="News"><span class="iconNews">&nbsp;</span></a>
+                	<a href="#workflow/ecommerce" id="buttonEcommerce" class="theTolltip" title="Ecommerce"><span class="iconEcommerce">&nbsp;</span></a>
+                	<a href="#workflow/corporate" id="buttonCorporate" class="theTolltip" title="Corporate/Personal Site"><span class="iconCorporate">&nbsp;</span></a>
+                </div>
+			</div>
+            <div id="subTitle">
+            	<div class="subtitles">
+                	<h1>
+						<a href="#submenu_market" id="btnMarked">Marked</a> 
+						{*}<a href="#submenu_responder" id="btnAutoResponder">Auto Responder</a>{/*}
+						<a href="#submenu_exclude" id="btnExclude">Exclude</a>
+					</h1>
+                </div>
+				{*}
+            	<div class="wfilters" style="padding:15px 0 0 0;">
+                <form class="filter-kol" action="">
+                    <label>Filter by:</label>
+                    <select id="filter-kol">
+                    <option value="{encrypt url='index.php?page=workflow'}">Everything</option>
+                    {section name=i loop=$keywords}
+                        <option value="{$keywords[i].url|stripslashes|strip_tags}" {if $keywords[i].keyword eq $filter_by}selected{/if}>{$keywords[i].keyword|stripslashes|strip_tags}</option>
+                    {/section}
+                    </select>
+                </form>
+                </div>
+				{/*}
+            </div>
+            <div id="workflow">
+            	<div id="channels">
+                        <div id="submenu_market" class="theTab">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td class="w200" valign="top" align="left">
+                                    <ul id="folderList" class="tabsz">
+										<!-- Folder List -->
+                                    </ul>
+                                </td>
+                                <td class="wfull" valign="top" align="left">
+                                    <div id="tab_container_workflows" class="tab_container" style="background:#33CCFF">
+                                        <div id="tab-initial" class="tab_content">
+                                        </div><!-- #tab-marked -->
+                                    </div><!-- .tab_container -->
+                                </td>
+                              </tr>
+                            </table>
+                         </div><!-- #workflowMarked -->
+                        <div id="submenu_responder" class="theTab" style="display:none;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td class="w200" valign="top" align="left">
+                                <ul class="tabs">
+                                    <li><a href="#tab-ActiveRules">Active Rules</a></li>
+                                    <li><a href="#tab-AddRules">Add Rules</a></li>
+                                </ul>
+                                <div id="AuthorizeAccount">
+                                    <h3>Authorize Account</h3>
+                                    <div class="rowTwitter row">
+                                        <span class="nameAccount">@username</span>
+                                        <span class="marked-sukses"></span>
+                                        <a href="#">Revoke</a>
+                                    </div>
+                                    <div class="rowFacebook row">
+                                        <span class="nameAccount">username</span>
+                                        <span class="marked-sukses"></span>
+                                        <a href="#">Not Authorize</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="wfull" valign="top" align="left">
+                                <div class="tab_container">
+                                    <div id="tab-ActiveRules" class="tab_content">
+                                        <div class="list">
+                                            <div class="entry twitterEntry">
+                                                <span></span> 
+                                            </div> <!-- .entry -->
+                                            <div class="entry-action"> 
+                                                <span class="rangedate"></span>
+                                                <a class="iconPause theTolltip" title="Vestibulum Malesuada Mollis">&nbsp;</a>
+                                                <a class="iconDelete theTolltip" title="Vestibulum Malesuada Mollis">&nbsp;</a>
+                                                <a class="iconPen theTolltip" title="Vestibulum Malesuada Mollis">&nbsp;</a>
+                                            </div><!-- .entry-action -->
+                                        </div><!-- .list -->
+                                        <div class="list">
+                                            <div class="entry facebookEntry">
+                                                <span></span> 
+                                            </div> <!-- .entry -->
+                                            <div class="entry-action"> 
+                                                <span class="rangedate"></span>
+                                                <a class="iconPause theTolltip" title="Vestibulum Malesuada Mollis">&nbsp;</a>
+                                                <a class="iconDelete theTolltip" title="Vestibulum Malesuada Mollis">&nbsp;</a>
+                                                <a class="iconPen theTolltip" title="Vestibulum Malesuada Mollis">&nbsp;</a>
+                                            </div><!-- .entry-action -->
+                                        </div><!-- .list -->
+                                    </div><!-- #tab-ActiveRules -->
+                                    <div id="tab-AddRules" class="tab_content">
+                                    	<form>
+                                        	<div class="row">
+                                            	<label>Account</label>
+                                                <input type="checkbox" /><span class="iconFacebook"></span>
+                                                <input type="checkbox" /><span class="iconTwitter"></span>
+                                            </div>
+                                        	<div class="row">
+                                            	<label>Define Rules</label>
+                                                <input type="text" />
+                                            </div>
+                                        	<div class="row">
+                                            	<label>Respond message</label>
+                                                <textarea></textarea>
+                                            </div>
+                                        	<div class="row">
+                                            	<label>Set Interval</label>
+                                                <input type="text" />
+                                            </div>
+                                        	<div class="rowSubmit">
+                                            	<input type="submit" value="Save" />
+                                            </div>
+                                        </form>
+                                    </div><!-- #tab-AddRules -->
+                                </div><!-- .tab_container -->
+                            </td>
+                          </tr>
+                        </table>
+                        </div><!-- #workflowResponder -->
+						<div id="submenu_exclude" class="theTab">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td class="w200" valign="top" align="left">
+                                    <ul id="folderList_ex" class="tabsz">
+										<li class="folder4 active"><a href="#submenu_exclude">Exclude (<span></span>)</a></li>
+                                    </ul>
+                                </td>
+                                <td class="wfull" valign="top" align="left">
+                                    <div id="tab_container_workflows_ex" class="tab_container" style="background:#33CCFF">
+                                        <div id="tab-initial_ex" class="tab_content">
+                                        </div><!-- #tab-marked -->
+                                    </div><!-- .tab_container -->
+                                </td>
+                              </tr>
+                            </table>
+                         </div><!-- #workflowMarked -->
+				</div><!-- #channels -->
+            </div><!-- #workflow -->
+        </div><!-- #container -->
+    </div><!-- #main-container -->

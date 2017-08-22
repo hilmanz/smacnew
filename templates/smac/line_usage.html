@@ -1,0 +1,16 @@
+<div id="line-usage">
+<h4>Your Current Usage</h4>
+<span><strong>{$usage.total_usage|number_format}</strong> of {$usage.total_limit|number_format}</span>
+<div id="progressbar"><span class="percent-ussage">{$usage.percentage}%</span></div>
+</div>
+{literal}
+<script type="text/javascript">
+	$(function() {
+		var f = $("#progressbar span.percent-ussage").html();
+		
+		$("#progressbar").progressbar({
+			value: f.substring(0,f.indexOf('%'))
+		});
+	});
+	</script>
+{/literal}

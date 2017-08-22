@@ -1,0 +1,30 @@
+{*}
+            <div id="key-issues" class="summary-report">
+                <div class="title-bar">
+                    <h1><span class="numbers">4</span><span class="title-text">Key Issues</span></h1>
+                    <div class="title-icon">
+                     	<a class="fadeout-key-issues hide" href="#key-issues" style="display:none;">Hide</a>
+                     	<a class="fadein-key-issues show" href="#key-issues">Show</a>
+                    </div>
+                </div>
+                <div id="content-key-issues" style="display:none;">{/*}
+                    <div class="content">
+                    <table class="zebra"  border="0" cellspacing="0" cellpadding="0" width="830">
+                        <thead class="tbheading">
+                            <td width="20">No</td>
+                            <td>Keywords</td>
+                            <td>Frequency</td>
+                            <td>Sentiment</td>
+                        </thead>
+						{section name=i loop=$issue}
+                        <tr style="background:#f2ffe7;">
+                            <td>1.</td>
+                            <td>{$issue[i].word}</td>
+                            <td>{$issue[i].occurance|number_format}</td>
+                            <td><span class="icon-{$issue[i].sentiment}">&nbsp;</span></td>
+                        </tr>
+						{/section}
+                    </table>
+                    </div>{*}
+                </div><!-- #content-key-issues-->
+            </div><!-- #key-issues-->{/*}

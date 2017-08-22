@@ -1,0 +1,115 @@
+                    <div class="content">
+                        <div class="entry-content content-left">
+                                <div class="white-box round-15">
+                                    <form class="registerform form" id="agencyRegister" method="POST" action="index.php?req=iFa-615kpUoth9Dg1ps_84JrF9ncCpN_">
+                                            <h2>SMAC is now open for trials! Fill in your details below to submit your request for a free trial</h2>
+                                        {if $err != ''}
+                                        <p style="color:#cc0000;">
+                                            {$err}
+                                            
+                                            {if $validErr}
+                                            <ul>
+                                            {section name=i loop=$validErr}
+                                                <li>{$validErr[i]}</li>
+                                            {/section}
+                                            </ul>
+                                            {/if}
+                                        </p>
+                                        {/if}
+                                            <div class="row">
+                                                <label style="font-weight:normal;">Name</label>
+                                                <input value="{$name}" type="text" name="name" class="required" minlength="2"/>
+                                            </div>
+                                            <div class="row">
+                                            <label style="font-weight:normal;">Email</label>
+                                            <input value="{$email}" type="email" name="email" class="required"/>
+                                            </div>
+                                            <div class="row">
+                                            <label style="font-weight:normal;">Contact/Mobile</label>
+                                            <input value="{$contact}" type="text" name="contact" class="required number"/>
+                                            </div>
+                                            <div class="row">
+                                                <label style="font-weight:normal;">Country</label>
+                                                <select name="country" id="country">
+                                                {section name=i loop=$country}
+                                                    {if $country2}
+                                                    <option value="{$country[i].country_id}" {if $country[i].country_id eq $country2} selected="selected"{/if}>{$country[i].country_name}</option>
+                                                    {else}
+                                                    <option value="{$country[i].country_id}" {if $country[i].country_id eq 'ID'} selected="selected"{/if}>{$country[i].country_name}</option>
+                                                    {/if}
+                                                {/section}
+                                                </select>
+                                            </div>
+                                            <div class="row" id="city-other" style="display:none;">
+                                            <label>&nbsp;</label>
+                                                <input value="" type="text" name="city_other"/>
+                                            </div>
+                                            <div class="row">
+                                            <label style="font-weight:normal;">Language Preference</label>
+                                                <select size="1" id="language" name="lang">
+                                                    <option value="id" {if $lang eq 'id'} selected="selected" {/if} >Bahasa Indonesia</option>
+                                                    <option value="en" {if $lang eq 'en'} selected="selected" {/if} >English</option>
+                                                    <option value="other" {if $lang != 'id' and $lang != 'en' and $lang != ''}selected="selected"{/if}>Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="row" id="lang-other"  {if $lang != 'id' and $lang != 'en' and $lang != ''} {else} style="display:none;" {/if}>
+                                            <label>&nbsp;</label>
+                                                <input value="{$langOther}" type="text" name="lang_other">
+                                            </div>
+                                            <div class="row">
+                                            <label style="font-weight:normal;">SUBDOMAIN</label>
+                                                <input value="{$subdomain}" type="text" id="subdomain" name="subdomain" maxlength="30" size="30"  style="width:280px"/>&nbsp;.smacapp.com
+                                                <div id="subdomain-yes" style="display:none;">Available</div>
+                                                <div id="subdomain-no" style="display:none;">Not Available</div>
+                                            </div>
+                                            <h2>Please fill in the form below if you are an agency</h2>
+                                            <div class="row">
+                                                <label style="font-weight:normal;">Agency Name</label>
+                                                <input value="{$agencyName}" type="text" name="agency_name"/>
+                                            </div>
+                                            <div class="row">
+                                                <label style="font-weight:normal;">Company Name</label>
+                                                <input value="{$companyName}" type="text" name="company_name"/>
+                                            </div>
+                                            <div class="row">
+                                                <label style="font-weight:normal;">Contact Person No.</label>
+                                                <input value="{$contactPerson}" type="text" name="contact_person" class="number"/>
+                                            </div>
+                                            <div class="row" style="margin: 10px 0 0 0;">
+                                                <input type="checkbox" value="1" name="aggrement" class="required">
+                                                    By signing up, I agree to the 
+                                                    <a style="color:#8cc34a; text-decoration: none;" target="_blank" href="{$urltermofuse}">terms of use</a>
+                                            </div>
+                                            <input type="hidden" name="add" value="1" />
+                                            <div class="row-button">
+                                            <input type="submit" value="REGISTER &raquo;" class="green-btn" />
+                                            <input type="button" value="CANCEL &raquo;" class="grey-btn" onClick="history.go(-1)">
+                                            </div>
+                                    </form>
+                                </div><!-- .white-box -->
+                        </div><!-- .entry-content -->
+                        <div class="sidebar">
+                            <div class="boxgrey round-15">
+                                <div class="entry">
+                                    <h1>Why SMAC</h1>
+                                    <div class="box tweet">
+                                        <h1>100% Twitter Feed</h1>
+                                        <p>SMAC has access to 100% Twitter, Facebook and top web content as its main data source.</p>
+                                    </div>
+                                    <div class="box channels">
+                                        <h1>100% Automated Sentiment Analysis</h1>
+                                        <p>We can determine the favorable and unfavorable sentiment directly from the consumer.</p>
+                                    </div>
+                                    <div class="box delivery">
+                                        <h1>Opinion Leaders</h1>
+                                        <p>SMAC can identify, understand and reach out to the top influencers whose opinions can directly affect the reputation your organization.</p>
+                                    </div>
+                                    <div class="box performance">
+                                        <h1>Geo Location</h1>
+                                        <p>Isolate down to street level where these conversations are actually taking place.</p>
+                                    </div>
+                                </div><!-- .entry -->
+                            </div><!-- .boxgrey -->
+                        </div><!-- .sidebar -->
+                    </div><!-- .content -->
+                    <div class="kabel kabel-register"></div>

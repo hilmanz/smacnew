@@ -1,0 +1,27 @@
+<div id="popup-new-group" class="popup_block popupWidth popup-unmark" style="min-height:150px;">
+	<div class="headpopup">
+    	<h1 class="fleft">Create a New Topic Group</h1>
+    </div>
+    <div><p>You can create topic groups within SMAC to easily compare or group together topics most relevant to your business.</p></div>
+    <div class="content-popup">
+    	<div class="contentdivs">
+    		<div class="rows bb">
+                <label>Group Name</label>
+                <input id="pp_group_name" class="round5" type="text" name="pp_group_name" style="width:320px"/>
+                <span class="errCompare1 messageError">Please fill topic group name</span>
+            </div>
+            <div class="rows bb">
+                <label>Group Type</label>
+                <select id="pp_group_type" name="pp_group_type">
+                {section name=i loop=$group_type}
+                	<option value="{$group_type[i].id}">{$group_type[i].name}</option>
+                {/section}
+                </select>
+            </div>
+    	</div>
+        <div class="act-button">
+            <a class="cancelgroup" href="javascript:void(0);">CANCEL</a>
+            <a class="creategroup" href="javascript:topic_create_group();">CREATE</a>
+        </div><!-- .paging -->
+    </div><!-- .content-popup -->
+</div><!-- #popup-sentiment -->

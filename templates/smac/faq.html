@@ -1,0 +1,93 @@
+<div id="main-container">
+    	{$sidebar}
+        <div id="container">   	
+            <div class="title-bar padR15">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr>
+                	<td align="left">
+            			<h1><a href="faq.php">Frequently Asked Questions</a></h1>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div id="faq" class="pad1015">
+              <div class="faq roundT10 bgGreen white" no="1" style="height:40px; width:100%">
+              	<div class="fLeft"><h3 class="margin0">Login</h3></div>
+                <div class="fRight arrow1"></div>
+              </div>
+              	<div class="fc1 bgGrey" style="padding: 10px 15px 30px;  display:none;">
+               	  <h3 class="grey">Untuk mereset password, silahkan ikuti langkah-langkah berikut: </h3>
+                    <span>Masuk ke Website;</span>
+                    <span>Klik keterangan lupa kata sandi "klik di sini" Masukkan alamat email Anda;</span>
+                    <span>Masukkan re captcha, kemudian klik "masuk";</span>
+                    <span>Kami akan mengirimkan email verifikasi ke alamat email yang Anda daftarkan, silahkan ikuti instruksi yang ada di dalam email untuk merubah password anda, kemudian klik "lanjut". </span>
+                </div>
+              <div class="faq bgGreen white" no="2" style="height:40px; width:100%; margin:1px 0 0 0;">
+              	<div class="fLeft"><h3 class="margin0">Password</h3></div>
+                <div class="fRight arrow2"></div>
+              </div>
+              	<div class="fc2 bgGrey" style="padding: 10px 15px 30px;  display:none;">
+               	  <h3 class="grey">Untuk mereset password, silahkan ikuti langkah-langkah berikut: </h3>
+                    <span>Masuk ke Website;</span>
+                    <span>Klik keterangan lupa kata sandi "klik di sini" Masukkan alamat email Anda;</span>
+                    <span>Masukkan re captcha, kemudian klik "masuk";</span>
+                    <span>Kami akan mengirimkan email verifikasi ke alamat email yang Anda daftarkan, silahkan ikuti instruksi yang ada di dalam email untuk merubah password anda, kemudian klik "lanjut". </span>
+                </div>
+              <div class="faq bgGreen white" no="3" style="height:40px; width:100%; margin:1px 0 0 0;">
+              	<div class="fLeft"><h3 class="margin0">Inactive Password</h3></div>
+                <div class="fRight arrow3"></div>
+              </div>
+              	<div class="fc3 bgGrey" style="padding: 10px 15px 30px;  display:none;">
+               	  <h3 class="grey">Untuk mereset password, silahkan ikuti langkah-langkah berikut: </h3>
+                    <span>Masuk ke Website;</span>
+                    <span>Klik keterangan lupa kata sandi "klik di sini" Masukkan alamat email Anda;</span>
+                    <span>Masukkan re captcha, kemudian klik "masuk";</span>
+                    <span>Kami akan mengirimkan email verifikasi ke alamat email yang Anda daftarkan, silahkan ikuti instruksi yang ada di dalam email untuk merubah password anda, kemudian klik "lanjut". </span>
+                </div>
+              <div class="faq white bgGreen" no="4" style="height:40px; width:100%; margin:1px 0 0 0;">
+              	<div class="fLeft"><h3 class="margin0">Reset Password</h3></div>
+                <div class="arrow4 fRight"></div>
+              </div>
+              	<div class="fc4 bgGrey" style="padding: 10px 15px 30px;  display:none;">
+               	  <h3 class="grey">Untuk mereset password, silahkan ikuti langkah-langkah berikut: </h3>
+                    <span>Masuk ke Website;</span>
+                    <span>Klik keterangan lupa kata sandi "klik di sini" Masukkan alamat email Anda;</span>
+                    <span>Masukkan re captcha, kemudian klik "masuk";</span>
+                    <span>Kami akan mengirimkan email verifikasi ke alamat email yang Anda daftarkan, silahkan ikuti instruksi yang ada di dalam email untuk merubah password anda, kemudian klik "lanjut". </span>
+                </div>
+              <div class="faq bgGreen white" no="5" style="height:40px; width:100%; margin:1px 0 0 0;">
+              	<div class="fLeft"><h3 class="margin0">Billing</h3></div>
+                <div class="arrow5 fRight"></div>
+              </div>
+              	<div class="fc5 bgGrey" style="padding: 10px 15px 30px; display:none;">
+               	  <h3 class="grey">Untuk mereset password, silahkan ikuti langkah-langkah berikut: </h3>
+                    <span>Masuk ke Website;</span>
+                    <span>Klik keterangan lupa kata sandi "klik di sini" Masukkan alamat email Anda;</span>
+                    <span>Masukkan re captcha, kemudian klik "masuk";</span>
+                    <span>Kami akan mengirimkan email verifikasi ke alamat email yang Anda daftarkan, silahkan ikuti instruksi yang ada di dalam email untuk merubah password anda, kemudian klik "lanjut". </span>
+                </div>
+           	</div>
+        </div><!-- #container -->
+        {literal}
+        <script>
+			var a = [0, 0, 0, 0, 0, 0, 0]
+        	$("div.faq").click(function(){
+					var no = $(this).attr('no');
+					if (a[no]==0){
+						$(this).removeClass("bgGreen");
+						$(this).addClass("bgDarkGrey");
+						$("div.arrow"+no).addClass("down");
+						$("div.fc"+no).slideDown();
+						a[no]=1;
+					}else{
+						$(this).addClass("bgGreen");
+						$(this).removeClass("bgDarkGrey");
+						$("div.arrow"+no).removeClass("down");
+						$("div.fc"+no).slideUp();
+						a[no]=0;
+					}
+				});
+		
+        </script>
+        {/literal}
+    </div><!-- #main-container -->

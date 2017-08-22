@@ -1,0 +1,104 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  	<td colspan="4">
+        <div class="bgGreenChoc">
+            <div class="titles">
+                <h3 class="lfilters">Corporate/Personal Site Performance</h3>
+				<div class="wfilters">
+					<select name="d" id="corporateDailySelect">
+						<option value="corporateVolbyMention">Volume by Mention</option>
+						{*}<option value="corporateVolbyImpression">Volume by Impression</option>{/*}					
+					</select>
+				</div>
+            </div>
+            <div id="corporateDailyVolume" class="theChart" style="width: 943px; height: 280px; background: none repeat scroll 0% 0% white; position: relative;">
+                
+            </div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+  	<td valign="top">
+            <div class="list-box">
+                <div id="corporateTotalPost" class="box">
+                    <span>Total Posts</span>
+                    <a class="helpsmall theTolltip" href="#" title="Total Posts"></a>
+					<h1></h1>
+					<span class="triangle fleft">&nbsp;</span>
+					<span class="counts"></span>
+					{*}
+					<h1>{$impact}</h1>
+                    {if $pii_diff>0}                      
+                    <span class="triangle fleft">&nbsp;</span>
+                    {elseif $pii_diff<0}
+                     <span class="triangle arrow_down fleft">&nbsp;</span>
+                    {/if}
+                    <span class="counts">{if $pii_diff <> 0}{$pii_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+                <div id="corporateLikes" class="box">
+                    <span>Corporate/Personal</span>
+                    <a class="helpsmall theTolltip" href="#" title="corporate"></a>
+					<h1></h1>
+					<span class="triangle fleft">&nbsp;</span>
+					<span class="counts"></span>
+					{*}
+                     <h1>{$mention}</h1>
+                     {if $mention_change <> 0}   
+                    {if $mention_change<0}
+                     <span class="triangle arrow_down fleft">
+                    {else}              
+                    <span class="triangle fleft">
+                    {/if}
+                    {if $mention_change < 300}{$mention_change}%{/if}
+                    </span>
+                    {/if}
+                    <span class="counts">{if $mention_diff <> 0}{$mention_diff}{/if}</span>
+					{/*}
+                </div><!-- end .box-->
+            </div><!-- end .list-box-->
+    </td>
+    <td align="left" valign="top" width="310">
+    	<div id="topKeyword" class="favorite-word">
+			<h1>Top Keywords</h1>				
+            <div id="corporateTopWords" class="wordclouds"></div>
+        </div>
+    </td>
+    <td align="left" valign="top">
+            <div class="thePeoples">
+                <h1>Top Corporate/Personal</h1>
+  			    <a class="smallArrow" href="{encrypt url='index.php?page=kol'}#tabCorporate">View All</a>
+                <div id="corporateTopPeople" class="content">
+                     
+                </div><!-- .content-->
+            </div><!-- .opinion-->
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+        <div id="topPost">
+          <div class="titles">
+            <h3>Top Posts</h3>
+    	    <a class="smallArrow" href="{encrypt url='index.php?page=allpost'}#tabs/corporateTab">View All</a>&nbsp;<a class="smallArrow" href="{encrypt url='index.php?page=topsummary&act=download_raw&channel=3&group_type_id=0&type=1'}">Raw Posts</a>
+          </div>
+          <div id="channels" class="bgGreys">
+            <div id="tab-twitter">
+              <div id="corporateTopPost">
+              
+              </div>
+            </div>
+          </div><!-- .bgGreys -->
+        </div><!-- .topPost -->
+    </td>
+  </tr>
+</table>
+
+<script>
+{literal}
+	$("#corporateDailySelect").live('change', function() {
+		if(corporateCount != 0){
+			channelPerformance('corporateDailyVolume', this.value, 'Corporate');
+		}
+    });
+{/literal}
+</script>

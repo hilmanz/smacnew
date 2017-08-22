@@ -1,0 +1,20 @@
+ {section name=i loop=$blog}
+<div class="list">
+    <div class="smallthumb">
+        <img src="content/default-blog.jpg" />
+    </div>
+    <div class="entry">
+        <h3><a href="{$blog[i].link|stripslashes|strip_tags}" target="_blank">{$blog[i].name|stripslashes|strip_tags}</a></h3>
+        <span>{$blog[i].txt|stripslashes|strip_tags}</span>
+       
+    </div><!-- .entry -->
+    {*}
+    <div class="entry-action">
+    	<a href="#" {if $blog[i].device eq 'wordpress'}class="active"{/if}><span class="wordpress" >&nbsp;</span></a>
+    	<a href="#" {if $blog[i].device eq 'blogger'}class="active"{/if}><span class="blog" >&nbsp;</span></a>
+    	<a href="#" {if $blog[i].device eq 'joomla'}class="active"{/if}><span class="jomla" >&nbsp;</span></a>
+    	<a class="like" href="#">{$blog[i].reach}</a>
+    </div><!-- .entry-action -->
+    {/*}
+</div><!-- .list -->
+{/section}

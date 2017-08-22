@@ -1,0 +1,10 @@
+	<div id="main-container">
+    	{$sidebar}
+        <div id="container"> 
+            <div id="welcome-page" class="pad1015">
+            	<div class="content">
+            		<a class="lets-go-btn" href="{$create_topic_link}">&nbsp;</a>
+                </div>
+           	</div>
+        </div><!-- #container -->
+    </div><!-- #main-container -->
